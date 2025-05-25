@@ -1,5 +1,6 @@
 ThemeId: KNARZnite_68cee656-e677-42ab-a33e-9d9e6dfbefb9
 PersistentPaths:
+- Images/AgeRating
 - Images/Banners
 - Images/Icons
 BannersBySpecIdPath: Images/Banners/PlatformSpecId
