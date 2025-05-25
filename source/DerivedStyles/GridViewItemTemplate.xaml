@@ -75,29 +75,38 @@
                                     </DockPanel>
                                     <Viewbox VerticalAlignment="Bottom" HorizontalAlignment="Center"
                                              Name="GameControls" Visibility="Collapsed">
-                                        <StackPanel Orientation="Horizontal">
-                                            <Button Name="PART_ButtonPlay"
-                                                    Margin="20,0,2,5" VerticalAlignment="Center" HorizontalAlignment="Center"
-                                                    Content="&#xec74;" FontFamily="{StaticResource FontIcoFont}" Tag="{DynamicResource HidePlayButtonForManualGames}">
-                                                <Button.Style>
-                                                    <Style TargetType="Button" BasedOn="{StaticResource SimpleButton}">
-                                                        <Setter Property="Visibility" Value="Visible" />
-                                                        <Style.Triggers>
-                                                            <MultiDataTrigger>
-                                                                <MultiDataTrigger.Conditions>
-                                                                    <Condition Binding="{Binding Game.IsCustomGame}" Value="True"/>
-                                                                    <Condition Binding="{Binding Game.IsInstalled}" Value="False"/>
-                                                                    <Condition Binding="{Binding Tag, RelativeSource={RelativeSource Self}, FallbackValue=False}" Value="True"/>
-                                                                </MultiDataTrigger.Conditions> 
-                                                                <Setter Property="Visibility" Value="Hidden" />
-                                                            </MultiDataTrigger>
-                                                        </Style.Triggers>
-                                                    </Style>
-                                                </Button.Style>
-                                            </Button>
-                                            <Button Name="PART_ButtonInfo" Style="{StaticResource SimpleButton}"
-                                                    Margin="2,0,20,5" VerticalAlignment="Center" HorizontalAlignment="Center"
-                                                    Content="&#xef4f;" FontFamily="{StaticResource FontIcoFont}" />
+                                        <StackPanel>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Button Name="PART_ButtonPlay"
+                                                        Margin="20,0,2,5" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                                        Content="&#xec74;" FontFamily="{StaticResource FontIcoFont}" Tag="{DynamicResource HidePlayButtonForManualGames}">
+                                                    <Button.Style>
+                                                        <Style TargetType="Button" BasedOn="{StaticResource SimpleButton}">
+                                                            <Setter Property="Visibility" Value="Visible" />
+                                                            <Style.Triggers>
+                                                                <MultiDataTrigger>
+                                                                    <MultiDataTrigger.Conditions>
+                                                                        <Condition Binding="{Binding Game.IsCustomGame}" Value="True"/>
+                                                                        <Condition Binding="{Binding Game.IsInstalled}" Value="False"/>
+                                                                        <Condition Binding="{Binding Tag, RelativeSource={RelativeSource Self}, FallbackValue=False}" Value="True"/>
+                                                                    </MultiDataTrigger.Conditions> 
+                                                                    <Setter Property="Visibility" Value="Hidden" />
+                                                                </MultiDataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </Button.Style>
+                                                </Button>
+                                                <Button Name="PART_ButtonInfo" Style="{StaticResource SimpleButton}"
+                                                        Margin="2,0,20,5" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                                        Content="&#xef4f;" FontFamily="{StaticResource FontIcoFont}" />
+                                            </StackPanel>
+                                            <Button Name="ButtonInfo" Style="{StaticResource SimpleButton}"
+                                                    HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2"
+                                                    Content="&#xE145;" FontFamily="Segoe UI Symbol" 
+                                                    Command="{PluginSettings Plugin=ThemeExtras, Path=Commands.SwitchToDetailsViewCommand, FallbackValue={x:Null}}"
+                                                    CommandParameter="{Binding Game}"
+                                                    ToolTip="{DynamicResource LOCDetailsViewLabel}"
+                                                    Visibility="{Binding Command, RelativeSource={RelativeSource Self}, Converter={StaticResource NullToVisibilityConverter}}"/>
                                         </StackPanel>
                                     </Viewbox>
                                 </Grid>
