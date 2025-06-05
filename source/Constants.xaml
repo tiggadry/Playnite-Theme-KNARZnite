@@ -2,7 +2,6 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
-    <sys:Double x:Key="DetailsViewDetailsMaxWidth">1024</sys:Double>
     <sys:Boolean x:Key="DetailsViewCoverDisplayLibraryBanner">True</sys:Boolean>
     <sys:Boolean x:Key="DetailsViewAllowUseOfLogos">True</sys:Boolean>
     <sys:Boolean x:Key="DetailsViewHideGameNameIfLogoVisible">True</sys:Boolean>
@@ -15,21 +14,24 @@
     <sys:Boolean x:Key="DisableDetailsSection">False</sys:Boolean>
     <sys:Boolean x:Key="ShowPlayTimeInButtonBar">False</sys:Boolean>
     <sys:Boolean x:Key="DisplayCompletionStatusComboBox">False</sys:Boolean>
-	<sys:Double x:Key="WebExplorerControlHeight">800</sys:Double>
-    
-	<sys:Double x:Key="FontSizeSmall">12</sys:Double>
+    <sys:Double x:Key="DetailsViewDetailsMaxWidth">1024</sys:Double>
+    <sys:Double x:Key="WebExplorerControlHeight">800</sys:Double>
+    <sys:Double x:Key="FontSizeSmall">12</sys:Double>
     <sys:Double x:Key="FontSize">14</sys:Double>
     <sys:Double x:Key="FontSizeLarge">15</sys:Double>
     <sys:Double x:Key="FontSizeLarger">20</sys:Double>
     <sys:Double x:Key="FontSizeLargest">29</sys:Double>
+    <sys:Double x:Key="EllipseBorderThickness">1</sys:Double>
+    
     <FontFamily x:Key="FontFamily">Trebuchet MS</FontFamily>
     <FontFamily x:Key="MonospaceFontFamily">Consolas</FontFamily>
+    
     <Thickness x:Key="PopupBorderThickness">1</Thickness>
     <Thickness x:Key="ControlBorderThickness">1</Thickness>
-    <sys:Double x:Key="EllipseBorderThickness">1</sys:Double>
-    <CornerRadius x:Key="ControlCornerRadius">5</CornerRadius>
     <Thickness x:Key="SidebarItemPadding">8</Thickness>
-
+    
+    <CornerRadius x:Key="ControlCornerRadius">5</CornerRadius>
+    
     <Color x:Key="BlackColor">#FF000000</Color>
     <Color x:Key="WhiteColor">#FFFFFFFF</Color>
     <Color x:Key="TextColor">#FFF2F2F2</Color>
@@ -70,20 +72,16 @@
     <SolidColorBrush x:Key="PopupBackgroundBrush" Color="{DynamicResource PopupBackgroundColor}" />
     <SolidColorBrush x:Key="CheckBoxCheckMarkBkBrush" Color="{DynamicResource MainColorDark}" />
     <SolidColorBrush x:Key="DataChangeNotifBrush" Color="{DynamicResource DataChangeNotifColor}" />
-
     <SolidColorBrush x:Key="PositiveRatingBrush" Color="#78ffa0" />
     <SolidColorBrush x:Key="NegativeRatingBrush" Color="#FFFF6250" />
     <SolidColorBrush x:Key="MixedRatingBrush" Color="#FFFFD149" />
     <SolidColorBrush x:Key="WarningBrush" Color="#FFFF6250" />
-    
     <SolidColorBrush x:Key="ExpanderBackgroundBrush" Color="{DynamicResource HoverColor}" />
     <SolidColorBrush x:Key="WindowBackgourndBrush" Color="{DynamicResource MainColor}" />
-
     <SolidColorBrush x:Key="OpaqueHighlightBrush" Color="{DynamicResource GlyphColor}" Opacity="0.2" />
     <SolidColorBrush x:Key="OpaqueHighlightBrushBright" Color="{DynamicResource GlyphColor}" Opacity="0.7"/>
     <SolidColorBrush x:Key="OpaqueButtonBackgroundBrush" Color="{DynamicResource GridItemBackgroundColor}" Opacity="0.7" />
     <SolidColorBrush x:Key="OpaqueNormalBrush" Color="{DynamicResource MainColorDark}" Opacity="0.7" />
-
     <SolidColorBrush x:Key="Extras_FilledStarBrush" Color="{DynamicResource HighlightGlyphColor}"/>
 	<SolidColorBrush x:Key="Extras_EmptyStarBrush" Color="{DynamicResource HighlightGlyphColor}" Opacity="0.5"/>
 

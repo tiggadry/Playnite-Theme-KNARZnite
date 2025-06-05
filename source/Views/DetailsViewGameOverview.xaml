@@ -99,6 +99,8 @@
                                     </TextBlock.Effect>
                                 </TextBlock>
                                 <ContentControl x:Name="BackgroundChanger_PluginBackgroundImage" HorizontalAlignment="Center" VerticalAlignment="Top" Visibility="Collapsed" />
+                                
+                                <!--#Source Icon Visible-->
                                 <Grid Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Visible">
                                     <ContentControl x:Name="DuplicateHider_SourceSelector" Margin="10"/>
                                 </Grid>
