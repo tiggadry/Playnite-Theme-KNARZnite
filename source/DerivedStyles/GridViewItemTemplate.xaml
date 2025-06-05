@@ -78,7 +78,7 @@
                                         <StackPanel>
                                             <StackPanel Orientation="Horizontal">
                                                 <Button Name="PART_ButtonPlay"
-                                                        Margin="20,0,2,5" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                                        Margin="20,0,2,0" VerticalAlignment="Center" HorizontalAlignment="Center"
                                                         Content="&#xec74;" FontFamily="{StaticResource FontIcoFont}" Tag="{DynamicResource HidePlayButtonForManualGames}">
                                                     <Button.Style>
                                                         <Style TargetType="Button" BasedOn="{StaticResource SimpleButton}">
@@ -97,16 +97,18 @@
                                                     </Button.Style>
                                                 </Button>
                                                 <Button Name="PART_ButtonInfo" Style="{StaticResource SimpleButton}"
-                                                        Margin="2,0,20,5" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                                        Margin="2,0,20,0" VerticalAlignment="Center" HorizontalAlignment="Center"
                                                         Content="&#xef4f;" FontFamily="{StaticResource FontIcoFont}" />
                                             </StackPanel>
-                                            <Button Name="ButtonInfo" Style="{StaticResource SimpleButton}"
-                                                    HorizontalAlignment="Center" VerticalAlignment="Center" Margin="2"
-                                                    Content="&#xE145;" FontFamily="Segoe UI Symbol" 
-                                                    Command="{PluginSettings Plugin=ThemeExtras, Path=Commands.SwitchToDetailsViewCommand, FallbackValue={x:Null}}"
-                                                    CommandParameter="{Binding Game}"
-                                                    ToolTip="{DynamicResource LOCDetailsViewLabel}"
-                                                    Visibility="{Binding Command, RelativeSource={RelativeSource Self}, Converter={StaticResource NullToVisibilityConverter}}"/>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Button Name="ButtonGridToDetails" Style="{StaticResource SimpleButton}"
+                                                        Margin="28,0,0,25" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                                        Content="&#xE145;" FontFamily="Segoe UI Symbol" 
+                                                        Command="{PluginSettings Plugin=ThemeExtras, Path=Commands.SwitchToDetailsViewCommand, FallbackValue={x:Null}}"
+                                                        CommandParameter="{Binding Game}"
+                                                        ToolTip="{DynamicResource LOCDetailsViewLabel}"
+                                                        Visibility="{Binding Command, RelativeSource={RelativeSource Self}, Converter={StaticResource NullToVisibilityConverter}}"/>
+                                            </StackPanel>
                                         </StackPanel>
                                     </Viewbox>
                                     <!--#DuplicateHider Source Icons Visible-->  
