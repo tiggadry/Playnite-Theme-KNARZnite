@@ -109,6 +109,13 @@
                                                     Visibility="{Binding Command, RelativeSource={RelativeSource Self}, Converter={StaticResource NullToVisibilityConverter}}"/>
                                         </StackPanel>
                                     </Viewbox>
+                                    <!--#DuplicateHider Source Icons Visible-->  
+                                    <DockPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,5"
+                                               Name="GameSources" Visibility="Visible">                                          
+                                        <ContentControl x:Name="DuplicateHider_SourceSelector"
+                                                        VerticalAlignment="Bottom" HorizontalAlignment="Center"
+                                                        RenderOptions.BitmapScalingMode="Fant" Visibility="Visible" MaxHeight="20"/>
+                                    </DockPanel>         
                                 </Grid>
                             </Grid>
                         </Border>

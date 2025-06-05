@@ -14,6 +14,9 @@
     <sys:Boolean x:Key="DisableDetailsSection">False</sys:Boolean>
     <sys:Boolean x:Key="ShowPlayTimeInButtonBar">False</sys:Boolean>
     <sys:Boolean x:Key="DisplayCompletionStatusComboBox">False</sys:Boolean>
+    <!-- DuplicateHider Mod Settings -->
+    <sys:Int32 x:Key="DuplicateHider_MaxNumberOfIcons">0</sys:Int32>
+	
     <sys:Double x:Key="DetailsViewDetailsMaxWidth">1024</sys:Double>
     <sys:Double x:Key="WebExplorerControlHeight">800</sys:Double>
     <sys:Double x:Key="FontSizeSmall">12</sys:Double>
