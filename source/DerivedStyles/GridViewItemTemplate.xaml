@@ -50,13 +50,13 @@
                                 </Grid>
 								<Grid Grid.Row="1" Height="{Settings GridItemHeight}">
                                     <DockPanel HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5">
-                                        <TextBlock Text="&#xF000;" Foreground="{DynamicResource GlyphBrush}"
+                                        <TextBlock Text="&#xF000;" Foreground="{DynamicResource FavoriteStar}"
                                                    Opacity="0.75" FontSize="16"
                                                    Margin="3,0,0,0"
                                                    VerticalAlignment="Center"
                                                    DockPanel.Dock="Right"
                                                    FontFamily="{StaticResource FontIcoFont}"
-                                                   Tag="{DynamicResource GridViewLibraryGameShowFavorite}">
+                                                   Tag="{DynamicResource GridViewLibraryGameShowFavorite}"><!-- FavoriteStar Icon is Yellow -->
                                             <TextBlock.Style>
                                                 <Style TargetType="TextBlock" >
                                                     <Setter Property="Visibility" Value="Collapsed" />

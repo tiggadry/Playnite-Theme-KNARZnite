@@ -39,6 +39,7 @@
     <Color x:Key="MainColorDark">#FF262626</Color>
     <Color x:Key="MainColorDarker">#FF121212</Color>
     <Color x:Key="HoverColor">#FF003d48</Color>
+    <Color x:Key="FavoriteStarColor">#ffff00</Color><!--#FavoriteStar Icon is Yellow -->
     <Color x:Key="GlyphColor">#FF3797a2</Color>
     <Color x:Key="HighlightGlyphColor">#FF6cc9d1</Color>
     <Color x:Key="PopupBackgroundColor">#FF191919</Color>
@@ -57,6 +58,7 @@
     <SolidColorBrush x:Key="NormalBrushDark" Color="{DynamicResource MainColorDarker}" />
     <SolidColorBrush x:Key="NormalBorderBrush" Color="{DynamicResource MainColorDark}" />
     <SolidColorBrush x:Key="HoverBrush" Color="{DynamicResource HoverColor}" />
+    <SolidColorBrush x:Key="FavoriteStar" Color="{DynamicResource FavoriteStarColor}" /><!--#FavoriteStar Icon is Yellow -->
     <SolidColorBrush x:Key="GlyphBrush" Color="{DynamicResource GlyphColor}" />
     <SolidColorBrush x:Key="HighlightGlyphBrush" Color="{DynamicResource HighlightGlyphColor}" />
     <SolidColorBrush x:Key="PopupBorderBrush" Color="{DynamicResource PopupBorderColor}" />
