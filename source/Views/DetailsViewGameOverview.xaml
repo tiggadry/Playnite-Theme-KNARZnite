@@ -93,7 +93,7 @@
                                 </Grid>
 
                                 <!--#Song Name-->
-                                <TextBlock Text="{PluginSettings Plugin=Sounds, Path=CurrentMusicName}" x:Name="MusicName" Foreground="#CCCCCC" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="50,10,0,0">
+                                <TextBlock Text="{PluginSettings Plugin=Sounds, Path=CurrentMusicName}" x:Name="MusicName" Foreground="#CCCCCC" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="13,50,0,0">
                                     <TextBlock.Effect>
                                         <DropShadowEffect Color="Black" BlurRadius="5" ShadowDepth="1" Opacity="0.7" />
                                     </TextBlock.Effect>
@@ -101,8 +101,17 @@
                                 <ContentControl x:Name="BackgroundChanger_PluginBackgroundImage" HorizontalAlignment="Center" VerticalAlignment="Top" Visibility="Collapsed" />
                                 
                                 <!--#Source Icon Visible-->
-                                <Grid Height="50" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Visible">
-                                    <ContentControl x:Name="DuplicateHider_SourceSelector" Margin="10"/>
+                                <Grid Height="58" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Visible">
+                                    <Border Background="#66000000" CornerRadius="4" Padding="4" Margin="10">
+                                        <ContentControl x:Name="DuplicateHider_SourceSelector">
+                                            <ContentControl.Effect>
+                                                <DropShadowEffect BlurRadius="4"
+                                                                  ShadowDepth="0"
+                                                                  Color="Black"
+                                                                  Opacity="0.7" />
+                                            </ContentControl.Effect>
+                                        </ContentControl>
+                                    </Border>
                                 </Grid>
                             </Grid>
 
