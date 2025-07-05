@@ -40,9 +40,9 @@
     <Color x:Key="TextColor">#FFF2F2F2</Color>
     <Color x:Key="TextColorDarker">#FF848484</Color>
     <Color x:Key="TextColorDark">#FF262626</Color>
-    <Color x:Key="MainColor">#FF191919</Color>
+    <Color x:Key="MainColor">#FF000000</Color>
     <Color x:Key="MainColorDark">#FF262626</Color>
-    <Color x:Key="MainColorDarker">#FF121212</Color>
+    <Color x:Key="MainColorDarker">#FF000000</Color><!--#FF121212 -->
     <Color x:Key="HoverColor">#FF003d48</Color>
     <Color x:Key="FavoriteStarColor">#ffff00</Color><!--#FavoriteStar Icon is Yellow -->
     <Color x:Key="GlyphColor">#FF3797a2</Color>
@@ -51,7 +51,7 @@
     <Color x:Key="PopupBorderColor">#FF121212</Color>
     <Color x:Key="BackgroundToneColor">#FF3797a2</Color>
     <Color x:Key="GridItemBackgroundColor">#FF1F1F1F</Color>
-    <Color x:Key="PanelSeparatorColor">#FF1F1F1F</Color>
+    <Color x:Key="PanelSeparatorColor">#FF000000</Color><!--#FF1F1F1F -->
     <Color x:Key="WindowPanelSeparatorColor">#FF3797a2</Color>
     <Color x:Key="DataChangeNotifColor">#FFFFD149</Color>
 

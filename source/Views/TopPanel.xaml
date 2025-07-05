@@ -177,7 +177,7 @@
                 <ControlTemplate TargetType="{x:Type TopPanel}">
                     <Border Height="50" BorderBrush="{DynamicResource PanelSeparatorBrush}"
                             Background="{DynamicResource WindowBackgourndBrush}"
-                            BorderThickness="0,0,0,1"
+                            BorderThickness="0,0,0,0"
                             d:DesignWidth="1280"
                             d:DataContext="{x:Static DesignMainViewModel.DesignIntance}">
                         <DockPanel Margin="0,3,110,3">
