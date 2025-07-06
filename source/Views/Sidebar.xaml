@@ -26,23 +26,22 @@
                             </ScrollViewer>
 
                             <!-- Hudební ovládání zarovnané doprava dole v liště -->
-                            <Grid DockPanel.Dock="Bottom" Margin="10,0,10,5" Height="32">
+                            <Grid DockPanel.Dock="Bottom" Margin="10,0,10,5" Height="24">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="Auto" />
                                 </Grid.ColumnDefinitions>
                                 <TextBlock Grid.Column="0"
                                            Text="{PluginSettings Plugin=Sounds, Path=CurrentMusicName}"
                                            x:Name="MusicName"
-                                           Foreground="{DynamicResource HoverBrush}"
-                                           FontSize="20"
+                                           Foreground="{DynamicResource GlyphBrush}"
+                                           FontSize="14"
                                            FontWeight="Bold"
+                                           Margin="0,0,6,0"
                                            VerticalAlignment="Center"
-                                           Margin="0,0,8,0"
-                                           TextWrapping="Wrap"
-                                           MaxWidth="180"
-                                           HorizontalAlignment="Right">
+                                           Height="24"
+                                           TextAlignment="Right"
+                                           TextWrapping="Wrap">
                                     <TextBlock.Effect>
                                         <DropShadowEffect Color="Black" BlurRadius="5" ShadowDepth="1" Opacity="0.7" />
                                     </TextBlock.Effect>
@@ -50,10 +49,10 @@
                                 <ToggleButton Grid.Column="1"
                                               x:Name="MusicPlaybackToggleButton"
                                               Style="{StaticResource MusicPlaybackToggleButton}"
-                                              Width="32" Height="32"
+                                              Width="20" Height="20"
                                               VerticalAlignment="Center"
-                                              Margin="0,0,0,0"
-                                              Foreground="{DynamicResource HoverBrush}"/>
+                                              Margin="0,0,0,4"
+                                              Foreground="{DynamicResource GlyphBrush}"/>
                                 <ContentControl Grid.Column="2"
                                                 x:Name="Sounds_MusicControl"
                                                 Width="0" Height="0"
