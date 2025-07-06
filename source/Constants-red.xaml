@@ -14,7 +14,6 @@
     <sys:Boolean x:Key="DisableDetailsSection">False</sys:Boolean>
     <sys:Boolean x:Key="ShowPlayTimeInButtonBar">False</sys:Boolean>
     <sys:Boolean x:Key="DisplayCompletionStatusComboBox">False</sys:Boolean>
-
     <!-- DuplicateHider Mod Settings -->
     <sys:Int32 x:Key="DuplicateHider_MaxNumberOfIcons">0</sys:Int32>
 
@@ -53,7 +52,7 @@
     <Color x:Key="BackgroundToneColor">#FFFF6250</Color>
     <Color x:Key="GridItemBackgroundColor">#FF1F1F1F</Color>
     <Color x:Key="PanelSeparatorColor">#FF1F1F1F</Color>
-   <Color x:Key="PanelSeparatorColor">#FF000000</Color><!--#FF1F1F1F -->
+    <Color x:Key="PanelSeparatorColor">#FF000000</Color><!--#FF1F1F1F -->
     <Color x:Key="DataChangeNotifColor">#FFFFD149</Color>
 
     <SolidColorBrush x:Key="ControlBackgroundBrush" Color="{DynamicResource MainColorDarker}" />
