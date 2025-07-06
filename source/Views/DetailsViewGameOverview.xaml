@@ -92,14 +92,6 @@
                                     </FadeImage>
                                 </Grid>
 
-                                <!--#Song Name-->
-                                <TextBlock Text="{PluginSettings Plugin=Sounds, Path=CurrentMusicName}" x:Name="MusicName" Foreground="#CCCCCC" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="13,50,0,0">
-                                    <TextBlock.Effect>
-                                        <DropShadowEffect Color="Black" BlurRadius="5" ShadowDepth="1" Opacity="0.7" />
-                                    </TextBlock.Effect>
-                                </TextBlock>
-                                <ContentControl x:Name="BackgroundChanger_PluginBackgroundImage" HorizontalAlignment="Center" VerticalAlignment="Top" Visibility="Collapsed" />
-                                
                                 <!--#Source Icon Visible-->
                                 <Grid Height="58" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Visible">
                                     <Border Background="#66000000" CornerRadius="4" Padding="4" Margin="10">
@@ -113,6 +105,7 @@
                                         </ContentControl>
                                     </Border>
                                 </Grid>
+                                <ContentControl x:Name="BackgroundChanger_PluginBackgroundImage" HorizontalAlignment="Center" VerticalAlignment="Top" Visibility="Collapsed" />                
                             </Grid>
 
                             <Grid HorizontalAlignment="Stretch" Margin="20,0,20,0">
@@ -248,7 +241,7 @@
 
                                             <ContentControl x:Name="GogSecondClassWatcher_SecondClassWatcherControl"
                                                             VerticalAlignment="Center"
-                                                            Visibility="{PluginSettings Plugin=GogSecondClassWatcher, Path=IsControlVisible, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="5,0,0,0"/>
+                                                            Visibility="{PluginSettings Plugin=GogSecondClassWatcher, Path=IsControlVisible, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="5,0,0,0"/>             
                                         </WrapPanel>
 
                                         <Border x:Name="LinkBar" Margin="0,20,0,0" Tag="{DynamicResource DisplayLinkBar}" Background="{DynamicResource OpaqueButtonBackgroundBrush}"
