@@ -30,9 +30,43 @@
                                         <MenuItem Header="BackgroundChanger" 
                                                   Visibility="{PluginStatus Plugin=playnite-backgroundchanger-plugin, Path=IsInstalled}"
                                                   ItemsSource="{PluginSettings Plugin=ThemeExtras, Path=Menus.BackgroundChangerGameMenuItems, FallbackValue={x:Null}}"/>
+                                        <MenuItem Header="PlayniteSound" 
+                                                  Visibility="{PluginStatus Plugin=Playnite.Sounds.Mod.baf1744c-72f6-4bc1-92cc-474403b279fb, Path=IsInstalled}"
+                                                  ItemsSource="{PluginSettings Plugin=ThemeExtras, Path=Menus.PlayniteSoundGameMenuItems, FallbackValue={x:Null}}"/>
+                                        <MenuItem Header="ScreenshotsVisualizer" 
+                                                  Visibility="{PluginStatus Plugin=playnite-screenshotsvisualizer-plugin, Path=IsInstalled}"
+                                                  ItemsSource="{PluginSettings Plugin=ThemeExtras, Path=Menus.ScreenshotsVisualizerGameMenuItems, FallbackValue={x:Null}}"/>
                                         <Separator/>
-                                        <MenuItem Header="{DynamicResource LOCOpenMetadataFolder}" 
+                                        <MenuItem Header="Open Metadata Folder" 
                                                   Command="{PluginSettings Plugin=ThemeExtras, Path=Commands.OpenGameAssetFolderCommand,FallbackValue={x:Null}}"/>
+                                        <MenuItem Header="Open Extra Metadata Folder"
+                                                  Visibility="{PluginStatus Plugin=ExtraMetadataLoader_705fdbca-e1fc-4004-b839-1d040b8b4429, Path=IsInstalled}"
+                                                  Command="{PluginSettings Plugin=ThemeExtras, Path=Commands.OpenExtraMetadataFolderCommand, FallbackValue={x:Null}}"
+                                                  CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType=DetailsViewGameOverview}}"/>                                        
+                                        <MenuItem Header="Open Music Folder"
+                                                  Visibility="{PluginStatus Plugin=Playnite.Sounds.Mod.baf1744c-72f6-4bc1-92cc-474403b279fb, Path=IsInstalled}"
+                                                  Command="{PluginSettings Plugin=ThemeExtras, Path=Commands.OpenPlayniteSoundMusicFolderCommand, FallbackValue={x:Null}}"
+                                                  CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType=DetailsViewGameOverview}}"/>
+                                        <MenuItem Header="Open BackgroundChanger Folder"
+                                                  Visibility="{PluginStatus Plugin=playnite-backgroundchanger-plugin, Path=IsInstalled}"
+                                                  Command="{PluginSettings Plugin=ThemeExtras, Path=Commands.OpenBackgroundChangerMetadataFolderCommand, FallbackValue={x:Null}}"
+                                                  CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType=DetailsViewGameOverview}}"/>
+                                        <MenuItem Header="Open Screenshots Folders"
+                                                  Visibility="{PluginStatus Plugin=playnite-screenshotsvisualizer-plugin, Path=IsInstalled}"
+                                                  Command="{PluginSettings Plugin=ThemeExtras, Path=Commands.OpenScreenshotsFolderCommand, FallbackValue={x:Null}}"
+                                                  CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType=DetailsViewGameOverview}}"/>
+                                        <Separator/>
+                                        <MenuItem Header="Open Install Folder"
+                                                  Command="{PluginSettings Plugin=ThemeExtras, Path=Commands.OpenGameInstallLocationCommand, FallbackValue={x:Null}}"
+                                                  CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType=DetailsViewGameOverview}}"/>
+                                        <MenuItem Header="Open Save Folder"
+                                                  Visibility="{PluginStatus Plugin=SaveFileView_f68f302b-9799-4b77-a982-4bfca97130e2, Path=IsInstalled}"
+                                                  Command="{PluginSettings Plugin=ThemeExtras, Path=Commands.OpenGameSaveDirectoriesCommand, FallbackValue={x:Null}}"
+                                                  CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType=DetailsViewGameOverview}}"/>
+                                        <MenuItem Header="Open Config Folder"
+                                                  Visibility="{PluginStatus Plugin=SaveFileView_f68f302b-9799-4b77-a982-4bfca97130e2, Path=IsInstalled}"
+                                                  Command="{PluginSettings Plugin=ThemeExtras, Path=Commands.OpenGameConfigDirectoriesCommand, FallbackValue={x:Null}}"
+                                                  CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType=DetailsViewGameOverview}}"/>
                                     </ContextMenu>
                                 </Grid.ContextMenu>
 
