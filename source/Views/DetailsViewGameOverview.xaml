@@ -760,7 +760,9 @@
                                                 <TextBlock Text="{DynamicResource LOCSsvTitle}" Style="{DynamicResource DetailsViewTabHeaderStyle}" />
                                             </TabItem.Header>
                                             <StackPanel Orientation="Vertical" Background="{TemplateBinding Background}" Margin="0,15,0,0">
-                                                <ContentControl x:Name="ScreenshotsVisualizer_PluginListScreenshotsVertical" Margin="0,0,0,0" Height="500"/>
+                                                <ContentControl x:Name="ScreenshotsVisualizer_PluginListScreenshotsVertical" Margin="0,0,0,15" Height="500"/>
+                                                <ContentControl x:Name="ScreenshotsVisualizer_PluginListScreenshots" Margin="0,0,0,15" />
+                                                <ContentControl x:Name="ScreenshotsVisualizer_PluginSinglePicture" Margin="0,0,0,0"/>
                                             </StackPanel>
                                         </TabItem>
                                         <!--#endregion -->
