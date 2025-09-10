@@ -41,7 +41,7 @@
     <Color x:Key="TextColorDarker">#FF848484</Color>
     <Color x:Key="TextColorDark">#FF262626</Color>
     <Color x:Key="MainColor">#FF000000</Color><!--#FF191919 -->
-    <Color x:Key="MainColorDark">#FF262626</Color>
+    <Color x:Key="MainColorDark">#FF333333</Color>
     <Color x:Key="MainColorDarker">#FF000000</Color><!--#FF121212 -->
     <Color x:Key="HoverColor">#FF003d48</Color>
     <Color x:Key="FavoriteStarColor">#ffff00</Color><!--#FavoriteStar Icon is Yellow -->

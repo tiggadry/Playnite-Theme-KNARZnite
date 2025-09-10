@@ -391,7 +391,7 @@
                                                 </Style>
                                             </Grid.Resources>
 
-                                            <Label Name="PART_ElemCompletionStatus" >
+                                            <Label Name="PART_ElemCompletionStatus" Grid.Row="0">
                                                 <StackPanel Orientation="Horizontal">
                                                     <TextBlock Text="&#xEED6;" Style="{DynamicResource Icon}" />
                                                     <TextBlock Text="{DynamicResource LOCCompletionStatus}" />

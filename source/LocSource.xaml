@@ -799,7 +799,7 @@ More information at https://playnite.link/cefstartup</sys:String>
     <sys:String x:Key="LOCInstallScript">Install Script</sys:String>
     <sys:String x:Key="LOCScriptError">Script error</sys:String>
     <sys:String x:Key="LOCScriptExecutionError">Failed to execute extension function.</sys:String>
-    <sys:String x:Key="LOCOpenMetadataFolder">Open metadata folder</sys:String>
+    <sys:String x:Key="LOCOpenMetadataFolder">Open Metadata Folder</sys:String>
     <sys:String x:Key="LOCInstallSizeCalculate">Calculate</sys:String>
     <sys:String x:Key="LOCInstallSizeCalculateEditButtonTooltip">Automatically calculates the install size using the ROMs if the game has any or the installation directory if it has been set</sys:String>
     <sys:String x:Key="LOCClientNotInstalledError">{0} client is not installed.</sys:String>
