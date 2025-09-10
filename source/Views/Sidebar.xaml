@@ -25,8 +25,8 @@
                                 <StackPanel x:Name="PART_PanelSideBarItems" Orientation="Vertical" />
                             </ScrollViewer>
 
-                            <!-- Hudební ovládání zarovnané doprava dole v liště -->
-                            <Grid DockPanel.Dock="Bottom" Margin="10,0,10,5" Height="24">
+                            <!-- Song name and play/stop button -->
+                            <Grid DockPanel.Dock="Bottom" Margin="10,0,10,0" Height="24">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="Auto" />
