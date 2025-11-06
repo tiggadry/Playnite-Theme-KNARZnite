@@ -62,6 +62,10 @@ To install the theme head over to the [Playnite addon database](https://playnite
 
 If you want your Playnite to look as close to the screenshots as possible, follow [this guide](https://github.com/HerrKnarz/Playnite-Theme-KNARZnite/wiki/How-to-achieve-the-look-from-the-screenshots)!
 
+## Fork Synchronization
+
+If you have forked this repository and want to sync it with the upstream repository, please refer to the [Fork Synchronization Guide](SYNC_FORK.md) (in Czech).
+
 ## Support
 
 - In case of bugs or feature requests, please open a new [issue](https://github.com/HerrKnarz/Playnite-Theme-KNARZnite/issues)
