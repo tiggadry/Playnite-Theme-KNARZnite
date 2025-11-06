@@ -26,7 +26,7 @@ git remote -v
 ```
 
 Nyní byste měli vidět:
-- `origin` - váš fork (tiggadry/Playnite-Theme-KNARZnite)
+- `origin` - váš fork (<vaše-uživatelské-jméno>/Playnite-Theme-KNARZnite)
 - `upstream` - původní repozitář (HerrKnarz/Playnite-Theme-KNARZnite)
 
 ## Synchronizace všech změn
@@ -251,7 +251,7 @@ git diff --name-status HEAD upstream/main
 git diff HEAD upstream/main
 
 # Zobrazte rozdíly pro konkrétní soubor
-git diff HEAD upstream/main -- source/Views/DetailsView.xaml
+git diff HEAD upstream/main -- <cesta/k/souboru>
 ```
 
 ## Doporučené workflow
