@@ -152,7 +152,7 @@
 
                                 <!-- Age Ratings -->
                                 <Grid MaxWidth="{DynamicResource DetailsViewDetailsMaxWidth}" Grid.Row="0">
-                                    <ItemsControl ItemsSource="{Binding Game.AgeRatings}" x:Name="AgeRating" Margin="0,0,0,20" Visibility="{DynamicResource DE_ShowAgeRating}" VerticalAlignment="Bottom" HorizontalAlignment="Right" IsTabStop="False" IsEnabled="False">
+                                    <ItemsControl ItemsSource="{Binding Game.AgeRatings}" x:Name="AgeRating" Margin="0,0,0,0" Visibility="{DynamicResource DE_ShowAgeRating}" VerticalAlignment="Center" HorizontalAlignment="Right" IsTabStop="False" IsEnabled="False">
                                         <ItemsControl.ItemsPanel>
                                             <ItemsPanelTemplate>
                                                 <StackPanel Orientation="Horizontal" Height="Auto"/>
