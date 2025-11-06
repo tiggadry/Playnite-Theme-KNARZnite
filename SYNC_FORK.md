@@ -312,3 +312,278 @@ Pokud narazíte na problémy:
 ---
 
 **Poznámka**: Tento průvodce předpokládá, že pracujete s větví `main`. Pokud používáte jinou větev, upravte příkazy odpovídajícím způsobem.
+
+## Seznam všech příkazů a jejich atributů
+
+Tato sekce obsahuje kompletní přehled všech Git příkazů použitých v tomto dokumentu, včetně jejich atributů a popisů.
+
+### git remote
+
+**Popis**: Správa vzdálených repozitářů (remote repositories).
+
+| Atribut/Parametr | Popis |
+|------------------|-------|
+| `-v` | Zobrazí verbose (podrobný) výstup - ukáže URL adresu pro každý remote repozitář |
+| `add <název> <url>` | Přidá nový remote repozitář s daným názvem a URL |
+
+**Příklady použití**:
+- `git remote -v` - Zobrazí seznam všech remote repozitářů s jejich URL
+- `git remote add upstream <url>` - Přidá upstream repozitář
+
+---
+
+### git fetch
+
+**Popis**: Stáhne změny ze vzdáleného repozitáře bez automatického sloučení s aktuální větví.
+
+| Atribut/Parametr | Popis |
+|------------------|-------|
+| `<remote>` | Název remote repozitáře, ze kterého se mají stáhnout změny |
+
+**Příklady použití**:
+- `git fetch upstream` - Stáhne všechny změny z upstream repozitáře
+
+---
+
+### git log
+
+**Popis**: Zobrazí historii commitů.
+
+| Atribut/Parametr | Popis |
+|------------------|-------|
+| `--oneline` | Zobrazí každý commit na jednom řádku (zkrácený formát) |
+| `--graph` | Zobrazí grafické znázornění větvení a sloučení |
+| `--all` | Zobrazí všechny větve, nejen aktuální |
+| `--follow` | Sleduje historii souboru i přes přejmenování |
+| `-<n>` | Omezí výstup na posledních N commitů (např. `-10` pro 10 commitů) |
+| `HEAD..<branch>` | Zobrazí commity, které jsou v <branch>, ale ne v HEAD |
+| `-- <soubor>` | Filtruje pouze commity týkající se konkrétního souboru |
+
+**Příklady použití**:
+- `git log HEAD..upstream/main --oneline` - Zobrazí commity z upstream, které ještě nejsou v aktuální větvi
+- `git log --oneline --graph --all` - Zobrazí grafickou historii všech větví
+- `git log --follow -- <soubor>` - Zobrazí historii konkrétního souboru
+
+---
+
+### git checkout
+
+**Popis**: Přepíná mezi větvemi nebo obnovuje soubory z určitého stavu.
+
+| Atribut/Parametr | Popis |
+|------------------|-------|
+| `<branch>` | Název větve, na kterou se chcete přepnout |
+| `-b <branch>` | Vytvoří novou větev a přepne se na ni |
+
+**Příklady použití**:
+- `git checkout main` - Přepne se na větev main
+- `git checkout -b backup-branch` - Vytvoří a přepne se na novou větev backup-branch
+
+---
+
+### git merge
+
+**Popis**: Sloučí změny z jiné větve do aktuální větve.
+
+| Atribut/Parametr | Popis |
+|------------------|-------|
+| `<branch>` | Název větve, kterou chcete sloučit do aktuální větve |
+| `--abort` | Zruší probíhající merge a vrátí se do stavu před merge |
+
+**Příklady použití**:
+- `git merge upstream/main` - Sloučí změny z upstream/main do aktuální větve
+- `git merge --abort` - Zruší probíhající merge
+
+---
+
+### git rebase
+
+**Popis**: Přenese commity na novou základní větev, vytváří lineárnější historii.
+
+| Atribut/Parametr | Popis |
+|------------------|-------|
+| `<branch>` | Název větve, na kterou se mají commity přenést |
+| `--continue` | Pokračuje v rebase po vyřešení konfliktů |
+| `--abort` | Zruší probíhající rebase a vrátí se do původního stavu |
+
+**Příklady použití**:
+- `git rebase upstream/main` - Přenese vaše commity na vrchol upstream/main
+- `git rebase --continue` - Pokračuje v rebase po vyřešení konfliktů
+- `git rebase --abort` - Zruší probíhající rebase
+
+---
+
+### git push
+
+**Popis**: Nahraje lokální commity do vzdáleného repozitáře.
+
+| Atribut/Parametr | Popis |
+|------------------|-------|
+| `<remote>` | Název remote repozitáře (obvykle origin) |
+| `<branch>` | Název větve, kterou chcete nahrát |
+| `--force` | Vynuceně přepíše vzdálenou větev (nebezpečné!) |
+| `--force-with-lease` | Bezpečnější varianta force push - kontroluje, že nepřepíšete cizí změny |
+
+**Příklady použití**:
+- `git push origin main` - Nahraje větev main do origin
+- `git push --force-with-lease origin main` - Bezpečně vynuceně nahraje main
+
+---
+
+### git status
+
+**Popis**: Zobrazí stav pracovního adresáře a staging oblasti.
+
+**Příklady použití**:
+- `git status` - Zobrazí změněné soubory, soubory připravené k commitu a aktuální větev
+
+---
+
+### git add
+
+**Popis**: Přidá soubory do staging oblasti (připraví je k commitu).
+
+| Atribut/Parametr | Popis |
+|------------------|-------|
+| `<soubor>` | Cesta k souboru, který chcete přidat |
+| `.` | Přidá všechny změněné soubory v aktuálním adresáři a podadresářích |
+
+**Příklady použití**:
+- `git add <soubor>` - Přidá konkrétní soubor
+- `git add .` - Přidá všechny změněné soubory
+
+---
+
+### git commit
+
+**Popis**: Vytvoří nový commit se změnami ve staging oblasti.
+
+| Atribut/Parametr | Popis |
+|------------------|-------|
+| `-m "<zpráva>"` | Specifikuje commit zprávu přímo z příkazové řádky |
+
+**Příklady použití**:
+- `git commit -m "Sloučení změn z upstream a vyřešení konfliktů"` - Vytvoří commit se zadanou zprávou
+
+---
+
+### git cherry-pick
+
+**Popis**: Aplikuje změny z konkrétních commitů na aktuální větev.
+
+| Atribut/Parametr | Popis |
+|------------------|-------|
+| `<commit-sha>` | SHA hash commitu, který chcete aplikovat |
+| `<sha1>..<sha2>` | Rozsah commitů k aplikaci |
+| `<sha1> <sha2> <sha3>` | Více jednotlivých commitů k aplikaci |
+| `--continue` | Pokračuje v cherry-pick po vyřešení konfliktů |
+| `--abort` | Zruší probíhající cherry-pick |
+
+**Příklady použití**:
+- `git cherry-pick abc1234` - Aplikuje commit abc1234 na aktuální větev
+- `git cherry-pick abc1234 def5678` - Aplikuje více commitů
+- `git cherry-pick --continue` - Pokračuje po vyřešení konfliktů
+
+---
+
+### git diff
+
+**Popis**: Zobrazí rozdíly mezi commity, větvemi nebo soubory.
+
+| Atribut/Parametr | Popis |
+|------------------|-------|
+| `<branch1> <branch2>` | Porovná dvě větve |
+| `HEAD <branch>` | Porovná aktuální stav s jinou větví |
+| `--name-status` | Zobrazí pouze názvy souborů a status změn (A=added, M=modified, D=deleted) |
+| `-- <soubor>` | Omezí diff pouze na konkrétní soubor |
+
+**Příklady použití**:
+- `git diff HEAD upstream/main` - Zobrazí rozdíly mezi aktuální větví a upstream/main
+- `git diff --name-status HEAD upstream/main` - Zobrazí seznam změněných souborů
+- `git diff HEAD upstream/main -- <soubor>` - Zobrazí rozdíly pro konkrétní soubor
+
+---
+
+### git reset
+
+**Popis**: Resetuje aktuální větev na specifický stav.
+
+| Atribut/Parametr | Popis |
+|------------------|-------|
+| `--hard` | Kompletně resetuje pracovní adresář i staging area (zahodí všechny změny) |
+| `<commit-sha>` | Commit, na který se má resetovat |
+| `HEAD~<n>` | Resetuje o N commitů zpět (např. HEAD~1 = jeden commit zpět) |
+
+**Příklady použití**:
+- `git reset --hard HEAD~1` - Zruší poslední commit a zahodí změny
+- `git reset --hard <commit-sha>` - Resetuje na konkrétní commit
+
+**VAROVÁNÍ**: `--hard` trvale smaže změny!
+
+---
+
+### git tag
+
+**Popis**: Vytváří, zobrazuje nebo maže tagy (značky pro důležité body v historii).
+
+| Atribut/Parametr | Popis |
+|------------------|-------|
+| `<název>` | Vytvoří nový tag s daným názvem na aktuálním commitu |
+
+**Příklady použití**:
+- `git tag backup-before-sync` - Vytvoří tag pro zálohu před synchronizací
+
+---
+
+### git show
+
+**Popis**: Zobrazí detaily o commitu, tagu nebo souboru.
+
+| Atribut/Parametr | Popis |
+|------------------|-------|
+| `<commit-sha>` | SHA hash commitu, který chcete zobrazit |
+| `<branch>:<soubor>` | Zobrazí konkrétní soubor z určité větve |
+| `--name-only` | Zobrazí pouze názvy souborů bez rozdílů |
+
+**Příklady použití**:
+- `git show upstream/main:<soubor>` - Zobrazí obsah souboru z upstream/main
+- `git show --name-only <commit-sha>` - Zobrazí seznam souborů změněných v commitu
+
+---
+
+## Shrnutí podle kategorie
+
+### Správa remote repozitářů
+- `git remote -v` - Zobrazení remote repozitářů
+- `git remote add` - Přidání remote repozitáře
+
+### Stahování změn
+- `git fetch` - Stažení změn bez sloučení
+
+### Prohlížení historie a změn
+- `git log` - Historie commitů
+- `git diff` - Porovnání změn
+- `git show` - Detaily commitu nebo souboru
+- `git status` - Aktuální stav
+
+### Přepínání a správa větví
+- `git checkout` - Přepnutí větve
+
+### Sloučení změn
+- `git merge` - Sloučení větví
+- `git rebase` - Rebase větve
+- `git cherry-pick` - Výběr konkrétních commitů
+
+### Ukládání změn
+- `git add` - Přidání do staging area
+- `git commit` - Vytvoření commitu
+- `git push` - Nahrání do remote repozitáře
+
+### Zrušení změn
+- `git merge --abort` - Zrušení merge
+- `git rebase --abort` - Zrušení rebase
+- `git cherry-pick --abort` - Zrušení cherry-pick
+- `git reset --hard` - Reset na předchozí stav
+
+### Záloha
+- `git tag` - Vytvoření tagu pro zálohu
