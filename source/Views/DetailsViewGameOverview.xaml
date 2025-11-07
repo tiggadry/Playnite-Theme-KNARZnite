@@ -723,6 +723,19 @@
                                             </StackPanel>
                                         </TabItem>
 
+                                        <!--#region ScreenshotsVisualizer-->
+                                        <TabItem Visibility="{PluginSettings Plugin=ScreenshotsVisualizer, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                            <TabItem.Header>
+                                                <TextBlock Text="My Screenshots" Style="{DynamicResource DetailsViewTabHeaderStyle}" />
+                                            </TabItem.Header>
+                                            <StackPanel Orientation="Vertical" Background="{TemplateBinding Background}" Margin="0,15,0,0">
+                                                <ContentControl x:Name="ScreenshotsVisualizer_PluginListScreenshotsVertical" Margin="0,0,0,15" Height="500"/>
+                                                <ContentControl x:Name="ScreenshotsVisualizer_PluginListScreenshots" Margin="0,0,0,15" />
+                                                <ContentControl x:Name="ScreenshotsVisualizer_PluginSinglePicture" Margin="0,0,0,0"/>
+                                            </StackPanel>
+                                        </TabItem>
+                                        <!--#endregion -->
+
                                         <TabItem>
                                             <TabItem.Header>
                                                 <TextBlock Text="{DynamicResource LOCExtra_Metadata_Loader_VideoLabel}" Style="{DynamicResource DetailsViewTabHeaderStyle}" />
@@ -763,19 +776,6 @@
                                             </StackPanel>
                                         </TabItem>
                                         <!--#endregion-->
-
-                                        <!--#region ScreenshotsVisualizer-->
-                                        <TabItem Visibility="{PluginSettings Plugin=ScreenshotsVisualizer, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
-                                            <TabItem.Header>
-                                                <TextBlock Text="{DynamicResource LOCSsvTitle}" Style="{DynamicResource DetailsViewTabHeaderStyle}" />
-                                            </TabItem.Header>
-                                            <StackPanel Orientation="Vertical" Background="{TemplateBinding Background}" Margin="0,15,0,0">
-                                                <ContentControl x:Name="ScreenshotsVisualizer_PluginListScreenshotsVertical" Margin="0,0,0,15" Height="500"/>
-                                                <ContentControl x:Name="ScreenshotsVisualizer_PluginListScreenshots" Margin="0,0,0,15" />
-                                                <ContentControl x:Name="ScreenshotsVisualizer_PluginSinglePicture" Margin="0,0,0,0"/>
-                                            </StackPanel>
-                                        </TabItem>
-                                        <!--#endregion -->
 
                                         <!--#region GameActivity-->
                                         <TabItem Visibility="{PluginSettings Plugin=GameActivity, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
