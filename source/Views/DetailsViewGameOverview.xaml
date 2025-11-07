@@ -704,10 +704,7 @@
                                             </StackPanel>
                                         </TabItem>
 
-<<<<<<< HEAD
-                                        <TabItem Visibility="{PluginSettings Plugin=SteamScreenshots, Path=IsControlVisible, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
-=======
-										<TabItem Visibility="{PluginSettings Plugin=ScreenshotUtilities, Path=IsViewerControlVisible, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                        <TabItem Visibility="{PluginSettings Plugin=ScreenshotUtilities, Path=IsViewerControlVisible, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
                                             <TabItem.Header>
                                                 <TextBlock Text="{DynamicResource LOC_ScreenshotUtilities_ControlLabel}" Style="{DynamicResource DetailsViewTabHeaderStyle}" />
                                             </TabItem.Header>
@@ -716,8 +713,7 @@
                                             </StackPanel>
                                         </TabItem>
 
-										<TabItem Visibility="{PluginSettings Plugin=SteamScreenshots, Path=IsControlVisible, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
->>>>>>> 445f043 (Addes support for the new Screenshot Utilities addon and fixed top/sidebar shadow not working in grid mode with ungrouped view.)
+                                        <TabItem Visibility="{PluginSettings Plugin=SteamScreenshots, Path=IsControlVisible, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
                                             <TabItem.Header>
                                                 <TextBlock Text="{DynamicResource LOC_SteamScreenshots_SteamScreenshotsLabel}"
                                                        Style="{DynamicResource DetailsViewTabHeaderStyle}" />

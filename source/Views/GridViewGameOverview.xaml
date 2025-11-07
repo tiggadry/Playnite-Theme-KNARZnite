@@ -680,7 +680,7 @@
                                             </StackPanel>
                                         </TabItem>
 
-										<TabItem Visibility="{PluginSettings Plugin=ScreenshotUtilities, Path=IsViewerControlVisible, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                        <TabItem Visibility="{PluginSettings Plugin=ScreenshotUtilities, Path=IsViewerControlVisible, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
                                             <TabItem.Header>
                                                 <TextBlock Text="{DynamicResource LOC_ScreenshotUtilities_ControlLabel}" Style="{DynamicResource DetailsViewTabHeaderStyle}" />
                                             </TabItem.Header>
