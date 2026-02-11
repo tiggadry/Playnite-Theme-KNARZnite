@@ -240,6 +240,12 @@ ClientBin/
 *.publishsettings
 orleans.codegen.cs
 
+# dotnet tools config
+dotnet.tools.json
+# .github (ignore GitHub config folder)
+.github/
+# memory-bank (memoriPilot extension helper folder)
+memory-bank/
 # Including strong name files can present a security risk
 # (https://github.com/github/gitignore/pull/2483#issue-259490424)
 #*.snk
