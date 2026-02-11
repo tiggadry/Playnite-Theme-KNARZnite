@@ -24,28 +24,28 @@
                                 <Grid.ContextMenu>
                                     <ContextMenu Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin, Path=IsInstalled}"
                                                  IsOpen="{PluginSettings Plugin=ThemeExtras, Path=Menus.IsOpen, Mode=OneWayToSource, FallbackValue={StaticResource False}}">
-                                        <MenuItem Header="ExtraMetadataLoader" 
+                                        <MenuItem Header="ExtraMetadataLoader"
                                                   Visibility="{PluginStatus Plugin=ExtraMetadataLoader_705fdbca-e1fc-4004-b839-1d040b8b4429, Path=IsInstalled}"
                                                   ItemsSource="{PluginSettings Plugin=ThemeExtras, Path=Menus.EMLGameMenuItems, FallbackValue={x:Null}}"/>
-                                        <MenuItem Header="BackgroundChanger" 
+                                        <MenuItem Header="BackgroundChanger"
                                                   Visibility="{PluginStatus Plugin=playnite-backgroundchanger-plugin, Path=IsInstalled}"
                                                   ItemsSource="{PluginSettings Plugin=ThemeExtras, Path=Menus.BackgroundChangerGameMenuItems, FallbackValue={x:Null}}"/>
-                                        <MenuItem Header="PlayniteSound" 
-                                                  Visibility="{PluginStatus Plugin=Playnite.Sounds.Mod.baf1744c-72f6-4bc1-92cc-474403b279fb, Path=IsInstalled}"
-                                                  ItemsSource="{PluginSettings Plugin=ThemeExtras, Path=Menus.PlayniteSoundGameMenuItems, FallbackValue={x:Null}}"/>
-                                        <MenuItem Header="ScreenshotsVisualizer" 
+                                        <MenuItem Header="UniPlaySong"
+                                                  Visibility="{PluginStatus Plugin=UniPlaySong.a1b2c3d4-e5f6-7890-abcd-ef1234567890, Path=IsInstalled}"
+                                                  ItemsSource="{PluginSettings Plugin=ThemeExtras, Path=Menus.UniPlaySongGameMenuItems, FallbackValue={x:Null}}"/>
+                                        <MenuItem Header="ScreenshotsVisualizer"
                                                   Visibility="{PluginStatus Plugin=playnite-screenshotsvisualizer-plugin, Path=IsInstalled}"
                                                   ItemsSource="{PluginSettings Plugin=ThemeExtras, Path=Menus.ScreenshotsVisualizerGameMenuItems, FallbackValue={x:Null}}"/>
                                         <Separator/>
-                                        <MenuItem Header="Open Metadata Folder" 
+                                        <MenuItem Header="Open Metadata Folder"
                                                   Command="{PluginSettings Plugin=ThemeExtras, Path=Commands.OpenGameAssetFolderCommand,FallbackValue={x:Null}}"/>
                                         <MenuItem Header="Open Extra Metadata Folder"
                                                   Visibility="{PluginStatus Plugin=ExtraMetadataLoader_705fdbca-e1fc-4004-b839-1d040b8b4429, Path=IsInstalled}"
                                                   Command="{PluginSettings Plugin=ThemeExtras, Path=Commands.OpenExtraMetadataFolderCommand, FallbackValue={x:Null}}"
-                                                  CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType=DetailsViewGameOverview}}"/>                                        
+                                                  CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType=DetailsViewGameOverview}}"/>
                                         <MenuItem Header="Open Music Folder"
-                                                  Visibility="{PluginStatus Plugin=Playnite.Sounds.Mod.baf1744c-72f6-4bc1-92cc-474403b279fb, Path=IsInstalled}"
-                                                  Command="{PluginSettings Plugin=ThemeExtras, Path=Commands.OpenPlayniteSoundMusicFolderCommand, FallbackValue={x:Null}}"
+                                                  Visibility="{PluginStatus Plugin=UniPlaySong.a1b2c3d4-e5f6-7890-abcd-ef1234567890, Path=IsInstalled}"
+                                                  Command="{PluginSettings Plugin=ThemeExtras, Path=Commands.OpenMusicFolderCommand, FallbackValue={x:Null}}"
                                                   CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType=DetailsViewGameOverview}}"/>
                                         <MenuItem Header="Open BackgroundChanger Folder"
                                                   Visibility="{PluginStatus Plugin=playnite-backgroundchanger-plugin, Path=IsInstalled}"

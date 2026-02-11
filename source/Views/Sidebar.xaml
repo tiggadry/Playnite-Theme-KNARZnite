@@ -24,52 +24,9 @@
                                           x:Name="ScrollSidebarItems">
                                 <StackPanel x:Name="PART_PanelSideBarItems" Orientation="Vertical" />
                             </ScrollViewer>
-
-                            <!-- Song name and play/stop button -->
-                            <Grid DockPanel.Dock="Bottom" Margin="10,0,10,0" Height="24">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="Auto" />
-                                </Grid.ColumnDefinitions>
-                                <TextBlock Grid.Column="0"
-                                           Text="{PluginSettings Plugin=Sounds, Path=CurrentMusicName}"
-                                           x:Name="MusicName"
-                                           Foreground="{DynamicResource GlyphBrush}"
-                                           FontSize="14"
-                                           FontWeight="Bold"
-                                           Margin="0,0,6,0"
-                                           VerticalAlignment="Center"
-                                           Height="24"
-                                           TextAlignment="Right"
-                                           TextWrapping="Wrap">
-                                    <TextBlock.Effect>
-                                        <DropShadowEffect Color="Black" BlurRadius="5" ShadowDepth="1" Opacity="0.7" />
-                                    </TextBlock.Effect>
-                                </TextBlock>
-                                <ToggleButton Grid.Column="1"
-                                              x:Name="MusicPlaybackToggleButton"
-                                              Style="{StaticResource MusicPlaybackToggleButton}"
-                                              Width="20" Height="20"
-                                              VerticalAlignment="Center"
-                                              Margin="0,0,0,4"
-                                              Foreground="{DynamicResource GlyphBrush}"/>
-                                <ContentControl Grid.Column="2"
-                                                x:Name="Sounds_MusicControl"
-                                                Width="0" Height="0"
-                                                Visibility="Collapsed"/>
-                            </Grid>
                         </DockPanel>
                     </Border>
                     <ControlTemplate.Triggers>
-                                                
-                        <!--#play/stop song button-->
-                        <DataTrigger Binding="{Binding ElementName=MusicPlaybackToggleButton, Path=IsChecked}" Value="True">
-                            <Setter Property="Tag" Value="True" TargetName="Sounds_MusicControl" />
-                        </DataTrigger>
-                        <DataTrigger Binding="{Binding ElementName=MusicPlaybackToggleButton, Path=IsChecked}" Value="False">
-                            <Setter Property="Tag" Value="False" TargetName="Sounds_MusicControl" />
-                        </DataTrigger>
-
                         <DataTrigger Binding="{Settings SidebarPosition}" Value="Right">
                             <Setter Property="Padding" Value="0,25,0,0" />
                             <Setter Property="Margin" Value="0,0,0,5" TargetName="PART_ElemMainMenu" />
