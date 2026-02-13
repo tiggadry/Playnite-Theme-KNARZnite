@@ -81,7 +81,8 @@
                             BorderThickness="{TemplateBinding BorderThickness}"
                             Background="{TemplateBinding Background}"
                             Grid.IsSharedSizeScope="True"
-                            CornerRadius="{StaticResource ControlCornerRadius}">
+                            CornerRadius="{StaticResource ControlCornerRadius}"
+							Padding="10">
                         <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
                             <ItemsPresenter KeyboardNavigation.DirectionalNavigation="Cycle"/>
                         </ScrollViewer>
@@ -177,7 +178,7 @@
                 <ControlTemplate TargetType="{x:Type TopPanel}">
                     <Border Height="50" BorderBrush="{DynamicResource PanelSeparatorBrush}"
                             Background="{DynamicResource WindowBackgourndBrush}"
-                            BorderThickness="0,0,0,0"
+                            BorderThickness="0,0,0,1"
                             d:DesignWidth="1280"
                             d:DataContext="{x:Static DesignMainViewModel.DesignIntance}">
                         <DockPanel Margin="0,3,110,3">
