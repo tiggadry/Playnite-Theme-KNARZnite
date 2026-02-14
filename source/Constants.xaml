@@ -2,6 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
+    <sys:Double x:Key="DetailsViewDetailsMaxWidth">1024</sys:Double>
     <sys:Boolean x:Key="DetailsViewCoverDisplayLibraryBanner">True</sys:Boolean>
     <sys:Boolean x:Key="DetailsViewAllowUseOfLogos">True</sys:Boolean>
     <sys:Boolean x:Key="DetailsViewHideGameNameIfLogoVisible">True</sys:Boolean>
@@ -23,23 +24,18 @@
     <sys:Boolean x:Key="DisplayCompletionStatusComboBox">False</sys:Boolean>
     <!-- DuplicateHider Mod Settings -->
     <sys:Int32 x:Key="DuplicateHider_MaxNumberOfIcons">0</sys:Int32>
-	
-    <sys:Double x:Key="DetailsViewDetailsMaxWidth">1024</sys:Double>
+
     <sys:Double x:Key="WebExplorerControlHeight">800</sys:Double>
     <sys:Double x:Key="FontSizeSmall">12</sys:Double>
     <sys:Double x:Key="FontSize">14</sys:Double>
     <sys:Double x:Key="FontSizeLarge">15</sys:Double>
     <sys:Double x:Key="FontSizeLarger">20</sys:Double>
     <sys:Double x:Key="FontSizeLargest">29</sys:Double>
-    <sys:Double x:Key="EllipseBorderThickness">1</sys:Double>
-    
     <FontFamily x:Key="FontFamily">Trebuchet MS</FontFamily>
     <FontFamily x:Key="MonospaceFontFamily">Consolas</FontFamily>
-    
     <Thickness x:Key="PopupBorderThickness">1</Thickness>
     <Thickness x:Key="ControlBorderThickness">1</Thickness>
-    <Thickness x:Key="SidebarItemPadding">8</Thickness>
-    
+    <sys:Double x:Key="EllipseBorderThickness">1</sys:Double>
     <sys:Double x:Key="ControlCornerRadiusValue">5</sys:Double>
     <CornerRadius x:Key="ControlCornerRadius"
         BottomLeft="{StaticResource ControlCornerRadiusValue}"
@@ -47,6 +43,7 @@
         TopLeft="{StaticResource ControlCornerRadiusValue}"
         TopRight="{StaticResource ControlCornerRadiusValue}" />
     <CornerRadius x:Key="ControlCornerRadiusSmall">0</CornerRadius>
+    <Thickness x:Key="SidebarItemPadding">8</Thickness>
     <CornerRadius x:Key="GridViewCoverCornerRadius">5</CornerRadius>
     <CornerRadius x:Key="GridViewCoverGridBackgroundDisabledCornerRadius">5,5,0,0</CornerRadius>
     <CornerRadius x:Key="GridViewShowGameNameCornerRadius">0,0,5,5</CornerRadius>
@@ -58,7 +55,7 @@
     <Color x:Key="TextColorDarker">#FF848484</Color>
     <Color x:Key="TextColorDark">#FF262626</Color>
     <Color x:Key="MainColor">#FF000000</Color><!--#FF191919 -->
-    <Color x:Key="MainColorDark">#FF333333</Color>
+    <Color x:Key="MainColorDark">#FF333333</Color><!--#FF262626 -->
     <Color x:Key="MainColorDarker">#FF000000</Color><!--#FF121212 -->
     <Color x:Key="HoverColor">#FF003d48</Color>
     <Color x:Key="FavoriteStarColor">#ffff00</Color><!--#FavoriteStar Icon is Yellow -->
@@ -69,7 +66,7 @@
     <Color x:Key="BackgroundToneColor">#FF3797a2</Color>
     <Color x:Key="GridItemBackgroundColor">#FF1F1F1F</Color>
     <Color x:Key="PanelSeparatorColor">#FF000000</Color><!--#FF1F1F1F -->
-    <Color x:Key="WindowPanelSeparatorColor">#FF3797a2</Color>
+    <Color x:Key="WindowPanelSeparatorColor">#FF3797a2</Color><!--#FF262626 -->
     <Color x:Key="DataChangeNotifColor">#FFFFD149</Color>
     <Color x:Key="NormalBorderControlsHoverTransparencyColor">#4c919191</Color>
 
@@ -92,25 +89,23 @@
     <SolidColorBrush x:Key="WindowPanelSeparatorBrush" Color="{DynamicResource WindowPanelSeparatorColor}" />
     <SolidColorBrush x:Key="PopupBackgroundBrush" Color="{DynamicResource PopupBackgroundColor}" />
     <SolidColorBrush x:Key="CheckBoxCheckMarkBkBrush" Color="{DynamicResource MainColorDark}" />
-    <SolidColorBrush x:Key="DataChangeNotifBrush" Color="{DynamicResource DataChangeNotifColor}" />
+
     <SolidColorBrush x:Key="PositiveRatingBrush" Color="#78ffa0" />
     <SolidColorBrush x:Key="NegativeRatingBrush" Color="#FFFF6250" />
     <SolidColorBrush x:Key="MixedRatingBrush" Color="#FFFFD149" />
     <SolidColorBrush x:Key="WarningBrush" Color="#FFFF6250" />
+
     <SolidColorBrush x:Key="ExpanderBackgroundBrush" Color="{DynamicResource HoverColor}" />
     <SolidColorBrush x:Key="WindowBackgourndBrush" Color="{DynamicResource MainColor}" />
     <SolidColorBrush x:Key="OpaqueGrayHighlightBrush" Color="{DynamicResource NormalBorderControlsHoverTransparencyColor}" />
 
-    <SolidColorBrush x:Key="OpaqueHighlightBrush" Color="{DynamicResource GlyphColor}" Opacity="0.2" />
-    <SolidColorBrush x:Key="OpaqueHighlightBrushBright" Color="{DynamicResource GlyphColor}" Opacity="0.7"/>
     <SolidColorBrush x:Key="OpaqueButtonBackgroundBrush" Color="{DynamicResource GridItemBackgroundColor}" Opacity="0.7" />
     <SolidColorBrush x:Key="OpaqueNormalBrush" Color="{DynamicResource MainColorDark}" Opacity="0.7" />
+
     <SolidColorBrush x:Key="Extras_FilledStarBrush" Color="{DynamicResource HighlightGlyphColor}"/>
 	<SolidColorBrush x:Key="Extras_EmptyStarBrush" Color="{DynamicResource HighlightGlyphColor}" Opacity="0.5"/>
 
-    <SolidColorBrush x:Key="GridViewCoverSelectionBrush" Color="{DynamicResource GlyphColor}" />
     <SolidColorBrush x:Key="GridViewCoverSubtitleBrush" Color="#b7b7b7" />
-    <SolidColorBrush x:Key="GridViewSeparatorBrush" Color="#4Dc2c2c2" />
 
     <DropShadowEffect x:Key="DefaultDropShadow" ShadowDepth="0" BlurRadius="10" Opacity="0.7" Color="Black" RenderingBias="Performance" />
     <DropShadowEffect x:Key="DefaultSubtleDropShadow" ShadowDepth="0" BlurRadius="6" Opacity="0.5" Color="Black" RenderingBias="Performance" />
