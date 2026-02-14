@@ -1,8 +1,9 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                     xmlns:p="clr-namespace:Playnite;assembly=Playnite"
+                    xmlns:popt="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
                     mc:Ignorable="d">
 
     <Style x:Key="GridViewItemTemplate" TargetType="{x:Type GameListItem}">
@@ -18,8 +19,8 @@
                         </Grid.RowDefinitions>
                         <Border BorderThickness="1" BorderBrush="{DynamicResource PanelSeparatorBrush}">
 							<Border.CacheMode>
-								<BitmapCache EnableClearType="True" 
-											 RenderAtScale="1" 
+								<BitmapCache EnableClearType="True"
+											 RenderAtScale="1"
 											 SnapsToDevicePixels="False"  />
 							</Border.CacheMode>
                             <Grid Width="{Settings GridItemWidth}">
@@ -33,7 +34,7 @@
                                                 Tag="{DynamicResource GridViewCoverDisplayLibraryBanner}"
                                                 Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Center"
                                                 Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}"/>
-                            
+
                                 <Image Name="PART_ImageCover" Grid.Row="1" Height="{Settings GridItemHeight}"
                                        RenderOptions.BitmapScalingMode="Fant" StretchDirection="Both"
                                        HorizontalAlignment="Center" VerticalAlignment="Top"
@@ -89,7 +90,7 @@
                                                                         <Condition Binding="{Binding Game.IsCustomGame}" Value="True"/>
                                                                         <Condition Binding="{Binding Game.IsInstalled}" Value="False"/>
                                                                         <Condition Binding="{Binding Tag, RelativeSource={RelativeSource Self}, FallbackValue=False}" Value="True"/>
-                                                                    </MultiDataTrigger.Conditions> 
+                                                                    </MultiDataTrigger.Conditions>
                                                                     <Setter Property="Visibility" Value="Hidden" />
                                                                 </MultiDataTrigger>
                                                             </Style.Triggers>
@@ -103,7 +104,7 @@
                                             <StackPanel Orientation="Horizontal">
                                                 <Button Name="ButtonGridToDetails" Style="{StaticResource SimpleButton}"
                                                         Margin="28,0,0,25" VerticalAlignment="Center" HorizontalAlignment="Center"
-                                                        Content="&#xE145;" FontFamily="Segoe UI Symbol" 
+                                                        Content="&#xE145;" FontFamily="Segoe UI Symbol"
                                                         Command="{PluginSettings Plugin=ThemeExtras, Path=Commands.SwitchToDetailsViewCommand, FallbackValue={x:Null}}"
                                                         CommandParameter="{Binding Game}"
                                                         ToolTip="{DynamicResource LOCDetailsViewLabel}"
@@ -111,23 +112,23 @@
                                             </StackPanel>
                                         </StackPanel>
                                     </Viewbox>
-                                    <!--#DuplicateHider Source Icons Visible-->  
+                                    <!--#DuplicateHider Source Icons Visible-->
                                     <DockPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,5"
-                                               Name="GameSources" Visibility="Visible">                                          
+                                               Name="GameSources" Visibility="Visible">
                                         <ContentControl x:Name="DuplicateHider_SourceSelector"
                                                         VerticalAlignment="Bottom" HorizontalAlignment="Center"
                                                         RenderOptions.BitmapScalingMode="Fant" Visibility="Visible" MaxHeight="20"/>
-                                    </DockPanel>         
+                                    </DockPanel>
                                 </Grid>
                             </Grid>
                         </Border>
                         <TextBlock x:Name="ShowGameName" Text="{Binding DisplayName}"
                                    Foreground="{DynamicResource TextBrush}"
-                                   Style="{StaticResource BaseTextBlockStyle}"                                                                   
+                                   Style="{StaticResource BaseTextBlockStyle}"
                                    TextAlignment="Center" TextTrimming="CharacterEllipsis"
                                    VerticalAlignment="Center"
                                    Padding="2,5,2,5" Grid.Row="1"
-                                   Width="{Settings GridItemWidth}" 
+                                   Width="{Settings GridItemWidth}"
                                    Visibility="{Settings ShowNamesUnderCovers}"/>
                     </Grid>
                     <ControlTemplate.Triggers>
