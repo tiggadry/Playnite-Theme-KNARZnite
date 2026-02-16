@@ -17,7 +17,7 @@
                         <Border
                             BorderBrush="{DynamicResource PanelSeparatorBrush}"
                             DockPanel.Dock="{Settings GridViewDetailsPosition}"
-                            Visibility="{Binding ElementName=PART_ControlGameView, Path=Visibility}">
+                            Visibility="Collapsed">
                             <Border.Style>
                                 <Style TargetType="Border">
                                     <Setter Property="BorderThickness" Value="1,0,0,0" />
@@ -31,7 +31,6 @@
                                     </Style.Triggers>
                                 </Style>
                             </Border.Style>
-                            <GridViewGameOverview x:Name="PART_ControlGameView" Width="{Settings GrdiDetailsWitdh}" />
                         </Border>
                         <Grid Margin="{DynamicResource PanelTopPanelSeparator}" DockPanel.Dock="Left">
                             <ExtendedListBox x:Name="PART_ListGames"
