@@ -1,7 +1,7 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                     mc:Ignorable="d">
 
     <Style TargetType="{x:Type LibraryDetailsView}">
@@ -41,7 +41,7 @@
                                 </ExtendedListBox.ItemTemplate>
                             </ExtendedListBox>
                             <TextBlock FontSize="{StaticResource FontSizeLarge}" Margin="0,15,0,0"
-                                       Text="{DynamicResource LOCNoItemsFound}" TextWrapping="Wrap"                                       
+                                       Text="{DynamicResource LOCNoItemsFound}" TextWrapping="Wrap"
                                        TextAlignment="Center" HorizontalAlignment="Center">
                                 <TextBlock.Style>
                                     <Style TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
@@ -65,15 +65,19 @@
     <Style TargetType="TextBlock" x:Key="DetailsViewTabHeaderStyle">
         <Setter Property="Foreground" Value="{DynamicResource TextBrushDarker}" />
         <Setter Property="FontWeight" Value="Bold" />
-		<Setter Property="FontSize" Value="{DynamicResource FontSizeLarger}" />
-		<Setter Property="Typography.Capitals" Value="AllSmallCaps" />
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeLarger}" />
+        <Setter Property="Typography.Capitals" Value="AllSmallCaps" />
         <Style.Triggers>
             <DataTrigger Binding="{Binding Path=IsSelected, RelativeSource={RelativeSource AncestorType={x:Type TabItem}}}" Value="True">
                 <Setter Property="Foreground" Value="{DynamicResource GlyphBrush}" />
             </DataTrigger>
-			<Trigger Property="IsMouseOver" Value="True">
+            <MultiDataTrigger>
+                <MultiDataTrigger.Conditions>
+                    <Condition Binding="{Binding Path=IsSelected, RelativeSource={RelativeSource AncestorType={x:Type TabItem}}}" Value="False" />
+                    <Condition Binding="{Binding Path=IsMouseOver, RelativeSource={RelativeSource Self}}" Value="True" />
+                </MultiDataTrigger.Conditions>
                 <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
-            </Trigger>
+            </MultiDataTrigger>
         </Style.Triggers>
     </Style>
 </ResourceDictionary>

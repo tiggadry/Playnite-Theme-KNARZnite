@@ -122,7 +122,7 @@
                             CornerRadius="{DynamicResource ControlCornerRadius}"
                             Effect="{DynamicResource DefaultDropShadow}"
                             UseLayoutRounding="True" SnapsToDevicePixels="True"
-							Padding="10">
+                            Padding="10">
                         <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
                             <StackPanel Grid.IsSharedSizeScope="True" IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Cycle" />
                         </ScrollViewer>

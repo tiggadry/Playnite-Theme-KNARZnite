@@ -7,7 +7,7 @@
     <sys:Boolean x:Key="DetailsViewHideGameNameIfLogoVisible">True</sys:Boolean>
     <sys:Boolean x:Key="DetailsViewLibraryGameShowFavorite">True</sys:Boolean>
     <sys:Boolean x:Key="GridViewLibraryGameShowFavorite">True</sys:Boolean>
-	<sys:Boolean x:Key="GridViewCoverZoomOnHover">False</sys:Boolean>
+    <sys:Boolean x:Key="GridViewCoverZoomOnHover">False</sys:Boolean>
     <Visibility x:Key="GridViewCoverSubtitleVisibility">Collapsed</Visibility>
     <Visibility x:Key="GridViewCoverCompStatusSubtitleVisibility">Collapsed</Visibility>
     <sys:Boolean x:Key="GridViewEnableCoverShineAnimation">False</sys:Boolean>
@@ -25,7 +25,7 @@
     <sys:Int32 x:Key="DuplicateHider_MaxNumberOfIcons">0</sys:Int32>
 
     <sys:Double x:Key="DetailsViewDetailsMaxWidth">1024</sys:Double>
-	<sys:Double x:Key="WebExplorerControlHeight">800</sys:Double>
+    <sys:Double x:Key="WebExplorerControlHeight">800</sys:Double>
 
     <sys:Double x:Key="FontSizeSmall">12</sys:Double>
     <sys:Double x:Key="FontSize">14</sys:Double>
@@ -97,14 +97,14 @@
     <SolidColorBrush x:Key="WarningBrush" Color="#FFFF6250" />
 
     <SolidColorBrush x:Key="ExpanderBackgroundBrush" Color="{DynamicResource HoverColor}" />
-    <SolidColorBrush x:Key="WindowBackgourndBrush" Color="{DynamicResource MainColor}" />
+    <SolidColorBrush x:Key="WindowBackgroundBrush" Color="{DynamicResource MainColor}" />
     <SolidColorBrush x:Key="OpaqueGrayHighlightBrush" Color="{DynamicResource NormalBorderControlsHoverTransparencyColor}" />
 
     <SolidColorBrush x:Key="OpaqueButtonBackgroundBrush" Color="{DynamicResource GridItemBackgroundColor}" Opacity="0.7" />
     <SolidColorBrush x:Key="OpaqueNormalBrush" Color="{DynamicResource MainColorDark}" Opacity="0.7" />
 
-	<SolidColorBrush x:Key="Extras_FilledStarBrush" Color="{DynamicResource HighlightGlyphColor}"/>
-	<SolidColorBrush x:Key="Extras_EmptyStarBrush" Color="{DynamicResource HighlightGlyphColor}" Opacity="0.5"/>
+    <SolidColorBrush x:Key="Extras_FilledStarBrush" Color="{DynamicResource HighlightGlyphColor}"/>
+    <SolidColorBrush x:Key="Extras_EmptyStarBrush" Color="{DynamicResource HighlightGlyphColor}" Opacity="0.5"/>
 
     <SolidColorBrush x:Key="GridViewCoverSubtitleBrush" Color="#b7b7b7" />
 

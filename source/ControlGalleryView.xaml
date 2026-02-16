@@ -2,14 +2,14 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-                    xmlns:pctrls="clr-namespace:Playnite.DesktopApp.Controls;assembly=Playnite.DesktopApp" 
+                    xmlns:pctrls="clr-namespace:Playnite.DesktopApp.Controls;assembly=Playnite.DesktopApp"
                     mc:Ignorable="d">
 
-    <Style x:Key="ControlGalleryContentStyle" TargetType="{x:Type ContentControl}">        
+    <Style x:Key="ControlGalleryContentStyle" TargetType="{x:Type ContentControl}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ContentControl}">
-                    <DockPanel Background="{DynamicResource WindowBackgourndBrush}"
+                    <DockPanel Background="{DynamicResource WindowBackgroundBrush}"
                                d:DesignWidth="800" d:DesignHeight="700">
                         <Menu DockPanel.Dock="Top">
                             <MenuItem Header="_File">
@@ -60,7 +60,7 @@
 
                                         <UniformGrid Columns="2">
                                             <CheckBox Content="TestCheckbox" IsChecked="True" HorizontalAlignment="Left" IsThreeState="True" Margin="5"/>
-                                            <TextBlock VerticalAlignment="Center">           
+                                            <TextBlock VerticalAlignment="Center">
                         <Hyperlink>
                             Hyperlink Click here
                         </Hyperlink>
@@ -102,7 +102,7 @@
                                         </UniformGrid>
                                         <TextBlock Text="Test text just test text" Margin="5"/>
                                         <TextBox Text="Test text just test text" Margin="5" />
-                                        <TextBox Height="50" TextWrapping="Wrap"  AcceptsReturn="True" Text="This TextBox will allow the user to enter multiple lines of text.  When the RETURN key is pressed, 
+                                        <TextBox Height="50" TextWrapping="Wrap"  AcceptsReturn="True" Text="This TextBox will allow the user to enter multiple lines of text.  When the RETURN key is pressed,
 or when typed text reaches the edge of the text box, a new line is automatically inserted." VerticalScrollBarVisibility="Auto" Margin="5"/>
                                         <PasswordBox Password="test" Margin="5"/>
                                         <Expander Header="TestExpander" IsExpanded="True" Margin="5">
