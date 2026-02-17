@@ -50,6 +50,39 @@
                                     <Border Background="#AA000000" x:Name="BorderMouseOver" Visibility="Collapsed"/>
                                 </Grid>
                                 <Grid Grid.Row="1" Height="{Settings GridItemHeight}">
+                                    <ContentControl x:Name="SuccessStory_PluginViewItem"
+                                                    VerticalAlignment="Top"
+                                                    HorizontalAlignment="Left"
+                                                    Margin="5"
+                                                    Foreground="#FFFFFFFF"
+                                                    FontWeight="Bold"
+                                                    TextOptions.TextFormattingMode="Display"
+                                                    TextOptions.TextRenderingMode="ClearType"
+                                                    SnapsToDevicePixels="True"
+                                                    UseLayoutRounding="True">
+                                        <ContentControl.Effect>
+                                            <DropShadowEffect ShadowDepth="2"
+                                                              BlurRadius="4"
+                                                              Direction="315"
+                                                              Color="Black"
+                                                              Opacity="1"
+                                                              RenderingBias="Performance" />
+                                        </ContentControl.Effect>
+                                        <ContentControl.Resources>
+                                            <Style TargetType="TextBlock">
+                                                <Setter Property="Foreground" Value="#FFFFFFFF" />
+                                                <Setter Property="FontWeight" Value="Bold" />
+                                            </Style>
+                                            <Style TargetType="Label">
+                                                <Setter Property="Foreground" Value="#FFFFFFFF" />
+                                                <Setter Property="FontWeight" Value="Bold" />
+                                            </Style>
+                                            <Style TargetType="UserControl">
+                                                <Setter Property="Foreground" Value="#FFFFFFFF" />
+                                                <Setter Property="FontWeight" Value="Bold" />
+                                            </Style>
+                                        </ContentControl.Resources>
+                                    </ContentControl>
                                     <DockPanel HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5">
                                         <TextBlock Text="&#xF000;" Foreground="{DynamicResource FavoriteStar}"
                                                    Opacity="0.75" FontSize="16"
@@ -58,6 +91,14 @@
                                                    DockPanel.Dock="Right"
                                                    FontFamily="{StaticResource FontIcoFont}"
                                                    Tag="{DynamicResource GridViewLibraryGameShowFavorite}"><!-- FavoriteStar Icon is Yellow -->
+                                            <TextBlock.Effect>
+                                                <DropShadowEffect ShadowDepth="2"
+                                                                  BlurRadius="4"
+                                                                  Direction="315"
+                                                                  Color="Black"
+                                                                  Opacity="1"
+                                                                  RenderingBias="Performance" />
+                                            </TextBlock.Effect>
                                             <TextBlock.Style>
                                                 <Style TargetType="TextBlock" >
                                                     <Setter Property="Visibility" Value="Collapsed" />

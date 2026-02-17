@@ -805,6 +805,7 @@
                                             </TabItem.Header>
                                             <StackPanel Orientation="Vertical" Background="{TemplateBinding Background}" Margin="0,15,0,0">
                                                 <ContentControl x:Name="SuccessStory_PluginProgressBar" />
+                                                <ContentControl x:Name="SuccessStory_PluginCompactList" Margin="0,10,20,0" />
                                                 <ContentControl x:Name="SuccessStory_PluginCompactUnlocked" Margin="0,10,20,0" />
                                                 <ContentControl x:Name="SuccessStory_PluginCompactLocked" Margin="0,10,20,0" />
                                                 <ContentControl x:Name="SuccessStory_PluginUserStats" Margin="0,10,20,0" />
@@ -814,7 +815,7 @@
                                         </TabItem>
                                         <!--#endregion-->
 
-                                        <!--#region PlayniteAchievements-->
+                                        <!--#region PlayniteAchievements
                                         <TabItem Visibility="{PluginSettings Plugin=PlayniteAchievements, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
                                             <TabItem.Header>
                                                 <TextBlock Text="{DynamicResource LOCPlayniteAchievementsAchievements}" Style="{DynamicResource DetailsViewTabHeaderStyle}" />
@@ -828,7 +829,7 @@
                                                 <ContentControl x:Name="PlayniteAchievements_PluginChart" Margin="0,10,20,0" />
                                             </StackPanel>
                                         </TabItem>
-                                        <!--#endregion-->
+                                        #endregion-->
 
                                         <!--#region GameActivity-->
                                         <TabItem Visibility="{PluginSettings Plugin=GameActivity, Path=HasData, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
