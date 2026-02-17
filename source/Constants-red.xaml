@@ -109,6 +109,7 @@
     <SolidColorBrush x:Key="GridViewCoverSubtitleBrush" Color="#b7b7b7" />
 
     <DropShadowEffect x:Key="DefaultDropShadow" ShadowDepth="0" BlurRadius="10" Opacity="0.7" Color="Black" RenderingBias="Performance" />
+    <DropShadowEffect x:Key="IconDropShadowEffect" ShadowDepth="2" BlurRadius="4" Direction="315" Color="Black" Opacity="1" RenderingBias="Performance" />
     <DropShadowEffect x:Key="DefaultSubtleDropShadow" ShadowDepth="0" BlurRadius="6" Opacity="0.5" Color="Black" RenderingBias="Performance" />
     <DropShadowEffect x:Key="NoDropShadow" ShadowDepth="0" BlurRadius="0" Opacity="0" Color="Transparent" RenderingBias="Performance" />
 </ResourceDictionary>

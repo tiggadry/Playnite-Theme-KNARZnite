@@ -61,12 +61,7 @@
                                                     SnapsToDevicePixels="True"
                                                     UseLayoutRounding="True">
                                         <ContentControl.Effect>
-                                            <DropShadowEffect ShadowDepth="2"
-                                                              BlurRadius="4"
-                                                              Direction="315"
-                                                              Color="Black"
-                                                              Opacity="1"
-                                                              RenderingBias="Performance" />
+                                            <StaticResource ResourceKey="IconDropShadowEffect"/>
                                         </ContentControl.Effect>
                                         <ContentControl.Resources>
                                             <Style TargetType="TextBlock">
@@ -74,10 +69,6 @@
                                                 <Setter Property="FontWeight" Value="Bold" />
                                             </Style>
                                             <Style TargetType="Label">
-                                                <Setter Property="Foreground" Value="#FFFFFFFF" />
-                                                <Setter Property="FontWeight" Value="Bold" />
-                                            </Style>
-                                            <Style TargetType="UserControl">
                                                 <Setter Property="Foreground" Value="#FFFFFFFF" />
                                                 <Setter Property="FontWeight" Value="Bold" />
                                             </Style>
@@ -92,12 +83,7 @@
                                                    FontFamily="{StaticResource FontIcoFont}"
                                                    Tag="{DynamicResource GridViewLibraryGameShowFavorite}"><!-- FavoriteStar Icon is Yellow -->
                                             <TextBlock.Effect>
-                                                <DropShadowEffect ShadowDepth="2"
-                                                                  BlurRadius="4"
-                                                                  Direction="315"
-                                                                  Color="Black"
-                                                                  Opacity="1"
-                                                                  RenderingBias="Performance" />
+                                                <StaticResource ResourceKey="IconDropShadowEffect"/>
                                             </TextBlock.Effect>
                                             <TextBlock.Style>
                                                 <Style TargetType="TextBlock" >
