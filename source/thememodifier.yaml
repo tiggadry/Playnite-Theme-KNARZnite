@@ -1,28 +1,22 @@
 Constants:
-- General
-- HidePlayButtonForManualGames: 'Hide install button on not installed manually added games'
-- DisplayLinkBar: 'Display links as bar under the game buttons'
-- LinkBarAsBox: 'Display link bar as box with background'
-- DisableDetailsSection: 'Disable the details and description section'
-- ShowPlayTimeInButtonBar: 'Show time played in button bar'
-- DisplayCompletionStatusComboBox: 'Enable Completion status combobox'
-- WebExplorerControlHeight(400,1800): 'Height of the Web Explorer view'
-- Details View
-- DetailsViewDetailsMaxWidth(1024,2400): 'Maximum width of details'
-- DetailsViewCoverDisplayLibraryBanner: 'Show banners (Requires ThemeExtras extension)'
-- DetailsViewAllowUseOfLogos: 'Allow use of logos (Requires Extra Metadata Loader extension)'
-- DetailsViewHideGameNameIfLogoVisible: 'Hide game name if logo is visible'
-- DetailsViewLibraryGameShowFavorite: 'Show favorites icon in list view'
-- Grid View
-- GridViewCoverZoomOnHover: 'Zoom when hovered'
-- GridViewCoverSubtitleVisibility: 'Visibility of time played under game covers'
-- GridViewCoverCompStatusSubtitleVisibility: 'Visibility of Completion Status under game covers'
-- GridViewLibraryGameShowFavorite: 'Show favorites icon'
-- GridViewEnableCoverShineAnimation: 'Enable cover highlight animation on hover'
-- GridViewEnablePlayingGlowBorder: 'Show glow animation if game is running'
-- GridViewCoverDisplayLibraryBanner: 'Show banners (Requires ThemeExtras extension)'
-- GridViewCoverUseRoundedCorners: 'Use rounded corners (Can cause performance degradation)'
-- GridViewCoverDisplayDropShadowEffect: 'Use dropshadow effect (Can cause performance degradation)'
-- Additional Colors
-- Extras_FilledStarBrush: 'Color used for filled stars in ratings'
-- Extras_EmptyStarBrush: 'Color used for empty stars in ratings'
+  - General
+  - DisplayLinkBar: "Display links as bar under the game buttons"
+  - LinkBarAsBox: "Display link bar as box with background"
+  - DisableDetailsSection: "Disable the details and description section"
+  - ShowPlayTimeInButtonBar: "Show time played in button bar"
+  - DisplayCompletionStatusComboBox: "Enable Completion status combobox"
+  - WebExplorerControlHeight(400,1800): "Height of the Web Explorer view"
+  - Details View
+  - DetailsViewDetailsMaxWidth(1024,2400): "Maximum width of details"
+  - DetailsViewCoverDisplayLibraryBanner: "Show banners (Requires ThemeExtras extension)"
+  - DetailsViewAllowUseOfLogos: "Allow use of logos (Requires Extra Metadata Loader extension)"
+  - DetailsViewHideGameNameIfLogoVisible: "Hide game name if logo is visible"
+  - Grid View
+  - GridViewCoverZoomOnHover: "Zoom when hovered"
+  - GridViewCoverSubtitleVisibility: "Visibility of time played under game covers"
+  - GridViewCoverCompStatusSubtitleVisibility: "Visibility of Completion Status under game covers"
+  - GridViewLibraryGameShowFavorite: "Show favorites icon"
+  - GridViewEnableCoverShineAnimation: "Enable cover highlight animation on hover"
+  - GridViewEnablePlayingGlowBorder: "Show glow animation if game is running"
+  - GridViewCoverDisplayLibraryBanner: "Show banners (Requires ThemeExtras extension)"
+  - GridViewCoverUseRoundedCorners: "Use rounded corners (Can cause performance degradation)"
