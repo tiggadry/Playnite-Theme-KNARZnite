@@ -16,6 +16,8 @@
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
                         <Border BorderThickness="1" BorderBrush="{DynamicResource PanelSeparatorBrush}">
                             <Border.CacheMode>
@@ -189,6 +191,60 @@
                                    Padding="2,5,2,5" Grid.Row="1"
                                    Width="{Settings GridItemWidth}"
                                    Visibility="{Settings ShowNamesUnderCovers}"/>
+
+                        <!-- Subtitle pod coverem: odehraný čas v Grid View -->
+                        <!-- Viditelnost řídí ThemeModifier konstanta GridViewCoverSubtitleVisibility -->
+                        <DockPanel Width="{Settings GridItemWidth}" Margin="5,0,5,0" Grid.Row="2"
+                                Background="Transparent"
+                                Visibility="{DynamicResource GridViewCoverSubtitleVisibility}">
+                            <!-- Ikona času hraní -->
+                            <TextBlock Text="&#xEEDC;" FontSize="{DynamicResource FontSizeSmall}"
+                                    FontFamily="{StaticResource FontIcoFont}"
+                                    TextAlignment="Left" VerticalAlignment="Center"
+                                    Padding="2,4,2,5" Margin="0,0,0,-2"
+                                    Foreground="{DynamicResource GridViewCoverSubtitleBrush}" />
+                            <!-- Hodnota odehraného času převedená přes PlayTimeToStringConverter -->
+                            <TextBlock Text="{Binding Playtime, Mode=OneWay, Converter={StaticResource PlayTimeToStringConverter}, IsAsync=True}"
+                                    Foreground="{DynamicResource GridViewCoverSubtitleBrush}"
+                                    FontSize="{DynamicResource FontSizeSmall}"
+                                    Style="{DynamicResource BaseTextBlockStyle}"
+                                    TextAlignment="Left" TextTrimming="CharacterEllipsis"
+                                    VerticalAlignment="Center"
+                                    Padding="3,4,2,2" />
+                        </DockPanel>
+                        <!-- Subtitle pod coverem: Completion Status v Grid View -->
+                        <!-- Zobrazení je řízeno přes ThemeModifier konstantu GridViewCoverCompStatusSubtitleVisibility -->
+                        <DockPanel Width="{Settings GridItemWidth}" Margin="5, 0, 5, 0" Grid.Row="3" Background="{DynamicResource GridItemBackgroundBrush}"
+                                    Tag="{DynamicResource GridViewCoverCompStatusSubtitleVisibility}">
+                            <DockPanel.Style>
+                                <Style TargetType="DockPanel">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                    <Style.Triggers>
+                                        <!-- Pokud hra nemá Completion Status, řádek se skryje -->
+                                        <DataTrigger Binding="{Binding CompletionStatus.Name, TargetNullValue='', FallbackValue=''}" Value=''>
+                                            <Setter Property="Visibility" Value="Hidden" />
+                                        </DataTrigger>
+                                        <!-- Přepínač z ThemeModifier: Collapsed => úplně skrýt -->
+                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="Collapsed">
+                                            <Setter Property="Visibility" Value="Collapsed" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </DockPanel.Style>
+                            <TextBlock Text="&#xEC74;" FontSize="{DynamicResource FontSizeSmall}"
+                                        FontFamily="{StaticResource FontIcoFont}"
+                                        TextAlignment="Left" VerticalAlignment="Center"
+                                        Padding="2,4,2,5" Margin="0,0,0,-2"
+                                        Foreground="{DynamicResource GridViewCoverSubtitleBrush}" />
+                            <TextBlock x:Name="CompletionStatusName" Text="{Binding CompletionStatus.Name, Mode=OneWay, IsAsync=True}"
+                                        ToolTip="{Binding RelativeSource={RelativeSource Self}, Path=Text}"
+                                        Foreground="{DynamicResource GridViewCoverSubtitleBrush}"
+                                        FontSize="{DynamicResource FontSizeSmall}"
+                                        Style="{DynamicResource BaseTextBlockStyle}"
+                                        TextAlignment="Left" TextTrimming="CharacterEllipsis"
+                                        VerticalAlignment="Center"
+                                        Padding="3,4,2,2" />
+                        </DockPanel>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <DataTrigger Binding="{Binding IsInstalled}" Value="False">
@@ -216,30 +272,5 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>
-
-    <Style TargetType="Border" x:Key="DropShadowBorderStyle" popt:Freeze="True">
-        <Setter Property="BorderBrush" Value="{DynamicResource GridItemBackgroundBrush}" />
-        <Setter Property="BorderThickness" Value="8,0,8,8" />
-        <Setter Property="CornerRadius" Value="{DynamicResource GridViewCoverCornerRadius}" />
-        <Setter Property="CacheMode">
-            <Setter.Value>
-                <BitmapCache EnableClearType="False"
-                             RenderAtScale="0.5"
-                             SnapsToDevicePixels="False" />
-            </Setter.Value>
-        </Setter>
-        <Setter Property="Effect">
-            <Setter.Value>
-                <DropShadowEffect RenderingBias="Performance"
-                                  ShadowDepth="0" BlurRadius="10"
-                                  Color="#000000" Opacity="0.7" />
-            </Setter.Value>
-        </Setter>
-        <Style.Triggers>
-            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="False">
-                <Setter Property="CornerRadius" Value="0,0,0,0" />
-            </DataTrigger>
-        </Style.Triggers>
     </Style>
 </ResourceDictionary>
