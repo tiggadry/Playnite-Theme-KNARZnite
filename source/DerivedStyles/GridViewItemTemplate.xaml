@@ -38,8 +38,11 @@
                                                 Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}"/>
 
                                 <Grid Grid.Row="1" Height="{Settings GridItemHeight}" Width="Auto">
-                                    <!-- Helper for ThemeModifier constant -->
+                                    <!-- Proxy for ThemeModifier constants -->
                                     <TextBlock x:Name="ShineEnabledProxy" Visibility="Collapsed" Tag="{DynamicResource GridViewEnableCoverShineAnimation}" />
+                                    <TextBlock x:Name="GlowEnabledProxy" Visibility="Collapsed" Tag="{DynamicResource GridViewEnablePlayingGlowBorder}" />
+                                    <!-- Glow border overlay -->
+                                    <Border x:Name="GlowBorderOverlay" BorderThickness="3" CornerRadius="10" BorderBrush="{DynamicResource GlyphBrush}" Opacity="0.0" IsHitTestVisible="False" />
                                     <Image Name="PART_ImageCover"
                                            RenderOptions.BitmapScalingMode="Fant" StretchDirection="Both"
                                            HorizontalAlignment="Center" VerticalAlignment="Top"
@@ -275,6 +278,31 @@
                                 <BeginStoryboard>
                                     <Storyboard>
                                         <DoubleAnimation Storyboard.TargetName="ShineRect"
+                                                         Storyboard.TargetProperty="Opacity"
+                                                         To="0.0" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiDataTrigger.ExitActions>
+                        </MultiDataTrigger>
+                        <!-- Glow border animation logic -->
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding Tag, ElementName=GlowEnabledProxy}" Value="True" />
+                                <Condition Binding="{Binding Game.IsRunning}" Value="True" />
+                            </MultiDataTrigger.Conditions>
+                            <MultiDataTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="GlowBorderOverlay"
+                                                         Storyboard.TargetProperty="Opacity"
+                                                         From="0.0" To="1.0" Duration="0:0:0.3" AutoReverse="True" RepeatBehavior="Forever"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiDataTrigger.EnterActions>
+                            <MultiDataTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="GlowBorderOverlay"
                                                          Storyboard.TargetProperty="Opacity"
                                                          To="0.0" Duration="0:0:0.2"/>
                                     </Storyboard>
