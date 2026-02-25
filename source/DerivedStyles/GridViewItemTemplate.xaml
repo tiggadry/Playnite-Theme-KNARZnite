@@ -192,18 +192,18 @@
                                    Width="{Settings GridItemWidth}"
                                    Visibility="{Settings ShowNamesUnderCovers}"/>
 
-                        <!-- Subtitle pod coverem: odehraný čas v Grid View -->
-                        <!-- Viditelnost řídí ThemeModifier konstanta GridViewCoverSubtitleVisibility -->
+                        <!-- Subtitle below the cover: play time in Grid View -->
+                        <!-- Visibility is controlled by the ThemeModifier constant GridViewCoverSubtitleVisibility -->
                         <DockPanel Width="{Settings GridItemWidth}" Margin="5,0,5,0" Grid.Row="2"
                                 Background="Transparent"
                                 Visibility="{DynamicResource GridViewCoverSubtitleVisibility}">
-                            <!-- Ikona času hraní -->
+                            <!-- Play time icon -->
                             <TextBlock Text="&#xEEDC;" FontSize="{DynamicResource FontSizeSmall}"
                                     FontFamily="{StaticResource FontIcoFont}"
                                     TextAlignment="Left" VerticalAlignment="Center"
                                     Padding="2,4,2,5" Margin="0,0,0,-2"
                                     Foreground="{DynamicResource GridViewCoverSubtitleBrush}" />
-                            <!-- Hodnota odehraného času převedená přes PlayTimeToStringConverter -->
+                            <!-- Play time value converted via PlayTimeToStringConverter -->
                             <TextBlock Text="{Binding Playtime, Mode=OneWay, Converter={StaticResource PlayTimeToStringConverter}, IsAsync=True}"
                                     Foreground="{DynamicResource GridViewCoverSubtitleBrush}"
                                     FontSize="{DynamicResource FontSizeSmall}"
@@ -212,19 +212,19 @@
                                     VerticalAlignment="Center"
                                     Padding="3,4,2,2" />
                         </DockPanel>
-                        <!-- Subtitle pod coverem: Completion Status v Grid View -->
-                        <!-- Zobrazení je řízeno přes ThemeModifier konstantu GridViewCoverCompStatusSubtitleVisibility -->
+                        <!-- Subtitle below the cover: Completion Status in Grid View -->
+                        <!-- Display is controlled by the ThemeModifier constant GridViewCoverCompStatusSubtitleVisibility -->
                         <DockPanel Width="{Settings GridItemWidth}" Margin="5, 0, 5, 0" Grid.Row="3" Background="{DynamicResource GridItemBackgroundBrush}"
                                     Tag="{DynamicResource GridViewCoverCompStatusSubtitleVisibility}">
                             <DockPanel.Style>
                                 <Style TargetType="DockPanel">
                                     <Setter Property="Visibility" Value="Visible" />
                                     <Style.Triggers>
-                                        <!-- Pokud hra nemá Completion Status, řádek se skryje -->
+                                        <!-- If the game does not have Completion Status, the row is hidden -->
                                         <DataTrigger Binding="{Binding CompletionStatus.Name, TargetNullValue='', FallbackValue=''}" Value=''>
                                             <Setter Property="Visibility" Value="Hidden" />
                                         </DataTrigger>
-                                        <!-- Přepínač z ThemeModifier: Collapsed => úplně skrýt -->
+                                        <!-- ThemeModifier switch: Collapsed => completely hide -->
                                         <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self}, Path=Tag}" Value="Collapsed">
                                             <Setter Property="Visibility" Value="Collapsed" />
                                         </DataTrigger>
