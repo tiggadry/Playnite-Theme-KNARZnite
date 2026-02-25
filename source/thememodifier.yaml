@@ -20,3 +20,6 @@ Constants:
   - GridViewEnablePlayingGlowBorder: "Show glow animation if game is running"
   - GridViewCoverDisplayLibraryBanner: "Show banners (Requires ThemeExtras extension)"
   - GridViewCoverUseRoundedCorners: "Use rounded corners (Can cause performance degradation)"
+  - Additional Colors
+  - Extras_FilledStarBrush: "Color used for filled stars in ratings"
+  - Extras_EmptyStarBrush: "Color used for empty stars in ratings"
