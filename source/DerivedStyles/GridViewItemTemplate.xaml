@@ -37,10 +37,18 @@
                                                 Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Center"
                                                 Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}"/>
 
-                                <Image Name="PART_ImageCover" Grid.Row="1" Height="{Settings GridItemHeight}"
-                                       RenderOptions.BitmapScalingMode="Fant" StretchDirection="Both"
-                                       HorizontalAlignment="Center" VerticalAlignment="Top"
-                                       Stretch="{Settings CoverArtStretch}"/>
+                                <Grid Grid.Row="1" Height="{Settings GridItemHeight}" Width="Auto">
+                                    <!-- Helper for ThemeModifier constant -->
+                                    <TextBlock x:Name="ShineEnabledProxy" Visibility="Collapsed" Tag="{DynamicResource GridViewEnableCoverShineAnimation}" />
+                                    <Image Name="PART_ImageCover"
+                                           RenderOptions.BitmapScalingMode="Fant" StretchDirection="Both"
+                                           HorizontalAlignment="Center" VerticalAlignment="Top"
+                                           Stretch="{Settings CoverArtStretch}"/>
+                                    <!-- Shine animation overlay -->
+                                    <Border x:Name="CoverShineOverlay" Background="Transparent" Visibility="Collapsed">
+                                        <Rectangle x:Name="ShineRect" Fill="White" Opacity="0.0" RadiusX="30" RadiusY="30"/>
+                                    </Border>
+                                </Grid>
                                 <Grid Grid.RowSpan="2">
                                     <Border Background="#99000000" x:Name="TextGameName" Visibility="Collapsed">
                                         <TextBlock Text="{Binding DisplayName}"
@@ -247,6 +255,32 @@
                         </DockPanel>
                     </Grid>
                     <ControlTemplate.Triggers>
+                        <!-- Shine animation logic -->
+                        <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                                <Condition Binding="{Binding Tag, ElementName=ShineEnabledProxy}" Value="True" />
+                                <Condition Binding="{Binding IsMouseOver, RelativeSource={RelativeSource TemplatedParent}}" Value="True" />
+                            </MultiDataTrigger.Conditions>
+                            <Setter TargetName="CoverShineOverlay" Property="Visibility" Value="Visible" />
+                            <MultiDataTrigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="ShineRect"
+                                                         Storyboard.TargetProperty="Opacity"
+                                                         From="0.0" To="0.35" Duration="0:0:0.2" AutoReverse="True"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiDataTrigger.EnterActions>
+                            <MultiDataTrigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="ShineRect"
+                                                         Storyboard.TargetProperty="Opacity"
+                                                         To="0.0" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </MultiDataTrigger.ExitActions>
+                        </MultiDataTrigger>
                         <DataTrigger Binding="{Binding IsInstalled}" Value="False">
                             <Setter Property="Content" Value="&#xef08;" TargetName="PART_ButtonPlay" />
                         </DataTrigger>
