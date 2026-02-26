@@ -118,7 +118,7 @@
                                           VerticalAlignment="Center" HorizontalAlignment="Center">
                                         <StackPanel Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center">
                                                 <Button Name="PART_ButtonPlay"
-                                                    Width="88" Height="88" FontSize="40"
+                                                    Width="60" Height="60" FontSize="40"
                                                     Margin="0,0,0,2"
                                                     VerticalAlignment="Center" HorizontalAlignment="Center"
                                                     Content="&#xec74;" FontFamily="{StaticResource FontIcoFont}" Tag="{DynamicResource HidePlayButtonForManualGames}">
@@ -151,7 +151,7 @@
                                                 </Button.Style>
                                             </Button>
                                                 <Button Name="ButtonGridToDetails" Style="{StaticResource SimpleButton}"
-                                                    Width="88" Height="88" FontSize="40"
+                                                    Width="60" Height="60" FontSize="40"
                                                     Margin="0"
                                                     VerticalAlignment="Center" HorizontalAlignment="Center"
                                                     Content="&#xE145;" FontFamily="Segoe UI Symbol"
