@@ -129,16 +129,20 @@
                                 </Grid>
 
                                 <!--#Source Icon Visible-->
-                                <Grid Height="58" HorizontalAlignment="Left" VerticalAlignment="Top" Visibility="Visible">
-                                    <Border Background="#66000000" CornerRadius="4" Padding="4" Margin="10">
-                                        <ContentControl x:Name="DuplicateHider_SourceSelector">
-                                            <ContentControl.Effect>
-                                                <DropShadowEffect BlurRadius="4"
-                                                                  ShadowDepth="0"
-                                                                  Color="Black"
-                                                                  Opacity="0.7" />
-                                            </ContentControl.Effect>
-                                        </ContentControl>
+                                <Grid Height="58" HorizontalAlignment="Left" VerticalAlignment="Top">
+                                    <Grid.Style>
+                                        <Style TargetType="Grid">
+                                            <Setter Property="Visibility" Value="Collapsed" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding ElementName=DuplicateHider_SourceSelector, Path=HasContent}" Value="True">
+                                                    <Setter Property="Visibility" Value="Visible" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Grid.Style>
+                                    <Border Margin="10" Background="Transparent">
+                                        <ContentControl x:Name="DuplicateHider_SourceSelector"
+                                                        Effect="{DynamicResource DuplicateHiderSourceIconEffect}" />
                                     </Border>
                                 </Grid>
                                 <ContentControl x:Name="BackgroundChanger_PluginBackgroundImage"
