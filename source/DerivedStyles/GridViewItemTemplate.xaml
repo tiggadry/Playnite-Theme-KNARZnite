@@ -42,14 +42,14 @@
                                     <TextBlock x:Name="ShineEnabledProxy" Visibility="Collapsed" Tag="{DynamicResource GridViewEnableCoverShineAnimation}" />
                                     <TextBlock x:Name="GlowEnabledProxy" Visibility="Collapsed" Tag="{DynamicResource GridViewEnablePlayingGlowBorder}" />
                                     <!-- Glow border overlay -->
-                                    <Border x:Name="GlowBorderOverlay" BorderThickness="3" CornerRadius="10" BorderBrush="{DynamicResource GlyphBrush}" Opacity="0.0" IsHitTestVisible="False" />
+                                    <Border x:Name="GlowBorderOverlay" BorderThickness="3" CornerRadius="0" BorderBrush="{DynamicResource GlyphBrush}" Opacity="0.0" IsHitTestVisible="False" />
                                     <Image Name="PART_ImageCover"
                                            RenderOptions.BitmapScalingMode="Fant" StretchDirection="Both"
                                            HorizontalAlignment="Center" VerticalAlignment="Top"
                                            Stretch="{Settings CoverArtStretch}"/>
                                     <!-- Shine animation overlay -->
                                     <Border x:Name="CoverShineOverlay" Background="Transparent" Visibility="Collapsed">
-                                        <Rectangle x:Name="ShineRect" Fill="White" Opacity="0.0" RadiusX="30" RadiusY="30"/>
+                                        <Rectangle x:Name="ShineRect" Fill="White" Opacity="0.0" RadiusX="5" RadiusY="5"/>
                                     </Border>
                                 </Grid>
                                 <Grid Grid.RowSpan="2">
