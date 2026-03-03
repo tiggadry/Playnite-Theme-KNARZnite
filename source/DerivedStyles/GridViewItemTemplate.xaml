@@ -88,7 +88,7 @@
                                         </ContentControl.Resources>
                                     </ContentControl>
                                     <DockPanel HorizontalAlignment="Right" VerticalAlignment="Top" Margin="5">
-                                        <TextBlock Text="&#xF000;" Foreground="{DynamicResource FavoriteStar}"
+                                        <TextBlock Text="&#xF000;" Foreground="{DynamicResource FavoriteStarBrush}"
                                                    Opacity="0.75" FontSize="16"
                                                    Margin="3,0,0,0"
                                                    VerticalAlignment="Center"

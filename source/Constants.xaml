@@ -60,16 +60,16 @@
     <Color x:Key="MainColor">#FF000000</Color><!--#FF191919 -->
     <Color x:Key="MainColorDark">#FF333333</Color><!--#FF262626 -->
     <Color x:Key="MainColorDarker">#FF000000</Color><!--#FF121212 -->
-    <Color x:Key="HoverColor">#FF003d48</Color>
-    <Color x:Key="FavoriteStarColor">#ffff00</Color><!--#FavoriteStar Icon is Yellow -->
-    <Color x:Key="GlyphColor">#FF3797a2</Color>
-    <Color x:Key="HighlightGlyphColor">#FF6cc9d1</Color>
+    <Color x:Key="HoverColor">#FF003D48</Color>
+    <Color x:Key="FavoriteStarColor">#FFFFFF00</Color><!--#FavoriteStar Icon is Yellow -->
+    <Color x:Key="GlyphColor">#FF3797A2</Color>
+    <Color x:Key="HighlightGlyphColor">#FF6CC9D1</Color>
     <Color x:Key="PopupBackgroundColor">#FF191919</Color>
     <Color x:Key="PopupBorderColor">#FF121212</Color>
     <Color x:Key="GridItemBackgroundColor">#FF1F1F1F</Color>
     <Color x:Key="PanelSeparatorColor">#FF000000</Color><!--#FF1F1F1F -->
-    <Color x:Key="WindowPanelSeparatorColor">#FF3797a2</Color><!--#FF262626 -->
-    <Color x:Key="NormalBorderControlsHoverTransparencyColor">#4c919191</Color>
+    <Color x:Key="WindowPanelSeparatorColor">#FF3797A2</Color><!--#FF262626 -->
+    <Color x:Key="NormalBorderControlsHoverTransparencyColor">#4C919191</Color>
 
     <!-- Core Brushes -->
     <SolidColorBrush x:Key="ControlBackgroundBrush" Color="{DynamicResource MainColorDarker}" />
@@ -80,7 +80,7 @@
     <SolidColorBrush x:Key="NormalBrushDark" Color="{DynamicResource MainColorDarker}" />
     <SolidColorBrush x:Key="NormalBorderBrush" Color="{DynamicResource MainColorDark}" />
     <SolidColorBrush x:Key="HoverBrush" Color="{DynamicResource HoverColor}" />
-    <SolidColorBrush x:Key="FavoriteStar" Color="{DynamicResource FavoriteStarColor}" /><!--#FavoriteStar Icon is Yellow -->
+    <SolidColorBrush x:Key="FavoriteStarBrush" Color="{DynamicResource FavoriteStarColor}" /><!--#FavoriteStar Icon is Yellow -->
     <SolidColorBrush x:Key="GlyphBrush" Color="{DynamicResource GlyphColor}" />
     <SolidColorBrush x:Key="HighlightGlyphBrush" Color="{DynamicResource HighlightGlyphColor}" />
     <SolidColorBrush x:Key="PopupBorderBrush" Color="{DynamicResource PopupBorderColor}" />
