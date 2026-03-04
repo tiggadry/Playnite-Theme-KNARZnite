@@ -54,19 +54,21 @@
     <Color x:Key="TextColor">#FFF2F2F2</Color>
     <Color x:Key="TextColorDarker">#FF848484</Color>
     <Color x:Key="TextColorDark">#FF262626</Color>
-    <Color x:Key="MainColor">#FF000000</Color><!--#FF191919 -->
-    <Color x:Key="MainColorDark">#FF333333</Color><!--#FF262626 -->
-    <Color x:Key="MainColorDarker">#FF000000</Color><!--#FF121212 -->
+    <Color x:Key="MainColor">#FF000000</Color><!-- #FF191919 -->
+    <Color x:Key="MainColorDark">#FF333333</Color><!-- #FF262626 -->
+    <Color x:Key="MainColorDarker">#FF000000</Color><!-- #FF121212 -->
     <Color x:Key="HoverColor">#7FC34934</Color>
-    <Color x:Key="FavoriteStarColor">#FFFFFF00</Color><!--#FavoriteStar Icon is Yellow -->
+    <Color x:Key="FavoriteStarColor">#FFFFFF00</Color><!-- FavoriteStar Icon is Yellow -->
     <Color x:Key="GlyphColor">#FFC34934</Color>
+    <!-- Used by DuplicateHider selected-source highlight (Style2 IsCurrent state). -->
     <Color x:Key="HighlightGlyphColor">#FFEB6047</Color>
     <Color x:Key="PopupBackgroundColor">#FF191919</Color>
     <Color x:Key="PopupBorderColor">#FF121212</Color>
     <Color x:Key="GridItemBackgroundColor">#FF1F1F1F</Color>
-    <Color x:Key="PanelSeparatorColor">#FF000000</Color><!--#FF1F1F1F -->
+    <Color x:Key="PanelSeparatorColor">#FF000000</Color><!-- #FF1F1F1F -->
     <Color x:Key="WindowPanelSeparatorColor">#33FF947D</Color>
-    <Color x:Key="NormalBorderControlsHoverTransparencyColor">#4C919191</Color>
+    <!-- Base translucent overlay color used by DuplicateHider IconBackground. -->
+    <Color x:Key="NormalBorderControlsHoverTransparencyColor">#FF000000</Color><!-- #4C919191 -->
 
     <!-- Core Brushes -->
     <SolidColorBrush x:Key="ControlBackgroundBrush" Color="{DynamicResource MainColorDarker}" />
@@ -77,8 +79,9 @@
     <SolidColorBrush x:Key="NormalBrushDark" Color="{DynamicResource MainColorDarker}" />
     <SolidColorBrush x:Key="NormalBorderBrush" Color="{DynamicResource MainColorDark}" />
     <SolidColorBrush x:Key="HoverBrush" Color="{DynamicResource HoverColor}" />
-    <SolidColorBrush x:Key="FavoriteStarBrush" Color="{DynamicResource FavoriteStarColor}" /><!--#FavoriteStar Icon is Yellow -->
+    <SolidColorBrush x:Key="FavoriteStarBrush" Color="{DynamicResource FavoriteStarColor}" /><!-- FavoriteStar Icon is Yellow -->
     <SolidColorBrush x:Key="GlyphBrush" Color="{DynamicResource GlyphColor}" />
+    <!-- Accent brush used by DuplicateHider selected-source emphasis (when enabled in style triggers). -->
     <SolidColorBrush x:Key="HighlightGlyphBrush" Color="{DynamicResource HighlightGlyphColor}" />
     <SolidColorBrush x:Key="PopupBorderBrush" Color="{DynamicResource PopupBorderColor}" />
     <SolidColorBrush x:Key="TooltipBackgroundBrush" Color="{DynamicResource PopupBackgroundColor}" />
@@ -97,7 +100,8 @@
     <!-- Surface and Overlay Brushes -->
     <SolidColorBrush x:Key="ExpanderBackgroundBrush" Color="{DynamicResource HoverColor}" />
     <SolidColorBrush x:Key="WindowBackgroundBrush" Color="{DynamicResource MainColor}" />
-    <SolidColorBrush x:Key="OpaqueGrayHighlightBrush" Color="{DynamicResource NormalBorderControlsHoverTransparencyColor}" />
+    <!-- Main backdrop brush for DuplicateHider icon background (default/hover/current states). -->
+    <SolidColorBrush x:Key="OpaqueGrayHighlightBrush" Color="{DynamicResource NormalBorderControlsHoverTransparencyColor}" Opacity="0.7" />
     <SolidColorBrush x:Key="OpaqueButtonBackgroundBrush" Color="{DynamicResource GridItemBackgroundColor}" Opacity="0.7" />
     <SolidColorBrush x:Key="OpaqueNormalBrush" Color="{DynamicResource MainColorDark}" Opacity="0.7" />
 
@@ -109,7 +113,8 @@
     <!-- Effects -->
     <DropShadowEffect x:Key="DefaultDropShadow" ShadowDepth="0" BlurRadius="10" Opacity="0.7" Color="Black" RenderingBias="Performance" />
     <DropShadowEffect x:Key="IconDropShadowEffect" ShadowDepth="2" BlurRadius="4" Direction="315" Color="Black" Opacity="1" RenderingBias="Performance" />
-    <DropShadowEffect x:Key="DuplicateHiderSourceIconEffect" ShadowDepth="2" BlurRadius="1" Color="Black" Opacity="0.7" RenderingBias="Performance" />
+    <!-- Host-level shadow for DuplicateHider source selector control (outside per-icon style triggers). -->
+    <DropShadowEffect x:Key="DuplicateHiderSourceIconEffect" ShadowDepth="0" BlurRadius="4" Color="Black" Opacity="0.85" RenderingBias="Performance" />
     <DropShadowEffect x:Key="DefaultSubtleDropShadow" ShadowDepth="0" BlurRadius="6" Opacity="0.5" Color="Black" RenderingBias="Performance" />
     <DropShadowEffect x:Key="NoDropShadow" ShadowDepth="0" BlurRadius="0" Opacity="0" Color="Transparent" RenderingBias="Performance" />
 </ResourceDictionary>

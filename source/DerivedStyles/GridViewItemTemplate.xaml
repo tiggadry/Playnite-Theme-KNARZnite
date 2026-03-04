@@ -175,21 +175,26 @@
                                         </StackPanel>
                                     </Grid>
                                     <!--#DuplicateHider Source Icons Visible-->
+                                    <!--
+                                        Selector2 host for DuplicateHider custom element (maps to SourceSelector2 / Style2).
+                                        MaxHeight is intentionally larger than the default to keep icons readable
+                                        while still leaving visible background around each icon.
+                                    -->
                                     <DockPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,5"
                                                Name="GameSources">
                                         <DockPanel.Style>
                                             <Style TargetType="DockPanel">
                                                 <Setter Property="Visibility" Value="Collapsed" />
                                                 <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding ElementName=DuplicateHider_SourceSelector, Path=HasContent}" Value="True">
+                                                    <DataTrigger Binding="{Binding ElementName=DuplicateHider_SourceSelector2, Path=HasContent}" Value="True">
                                                         <Setter Property="Visibility" Value="Visible" />
                                                     </DataTrigger>
                                                 </Style.Triggers>
                                             </Style>
                                         </DockPanel.Style>
-                                        <ContentControl x:Name="DuplicateHider_SourceSelector"
+                                        <ContentControl x:Name="DuplicateHider_SourceSelector2"
                                                         VerticalAlignment="Bottom" HorizontalAlignment="Center"
-                                                        RenderOptions.BitmapScalingMode="Fant" Visibility="Visible" MaxHeight="20"/>
+                                                        RenderOptions.BitmapScalingMode="Fant" Visibility="Visible" MaxHeight="28"/>
                                     </DockPanel>
                                 </Grid>
                             </Grid>
@@ -335,4 +340,115 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <!--
+        DuplicateHider style for selector #1 (usually Details view host: DuplicateHider_SourceSelector1).
+        Keeps source icons readable on mixed backgrounds while preserving fallback-like behavior:
+        - dim uninstalled versions,
+        - highlight hovered and currently selected source,
+        - keep subtle always-on backdrop for contrast.
+    -->
+    <Style
+        x:Key="DuplicateHider_IconContentControlStyle1"
+        BasedOn="{StaticResource {x:Type ContentControl}}"
+        TargetType="ContentControl">
+        <Setter Property="BorderBrush" Value="{x:Null}" />
+        <Setter Property="Foreground" Value="{x:Null}" />
+        <Setter Property="Background" Value="{x:Null}" />
+        <Setter Property="Padding" Value="0,0,0,0" />
+        <Setter Property="Margin" Value="0,0,0,0" />
+        <Setter Property="BorderThickness" Value="0,0,0,0" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="ClipToBounds" Value="False"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+                        <Border x:Name="IconBackground" CornerRadius="8" Background="{DynamicResource OpaqueGrayHighlightBrush}" Opacity="0.2" Visibility="Visible">
+                        </Border>
+                        <Image x:Name="SourceIcon" Source="{Binding Icon}" RenderOptions.BitmapScalingMode="Fant" Margin="3" Opacity="0.95"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <!-- Match fallback behavior: uninstalled copies are dimmed. -->
+                        <DataTrigger Binding="{Binding Game.IsInstalled}" Value="False">
+                            <Setter Property="Image.Opacity" Value="0.65" TargetName="SourceIcon"/>
+                        </DataTrigger>
+                        <!-- Hover state: brighten icon and show stronger backdrop. -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Border.Visibility" Value="Visible" TargetName="IconBackground"/>
+                            <Setter Property="Border.Background" Value="{DynamicResource OpaqueGrayHighlightBrush}" TargetName="IconBackground"/>
+                            <Setter Property="Border.Opacity" Value="0.75" TargetName="IconBackground"/>
+                            <Setter Property="Image.Effect" TargetName="SourceIcon">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="White" ShadowDepth="0" BlurRadius="5" Opacity="1" RenderingBias="Performance" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <!-- Current (selected) source version highlight. -->
+                        <DataTrigger Binding="{Binding IsCurrent}" Value="True">
+                            <Setter Property="Border.Visibility" Value="Visible" TargetName="IconBackground"/>
+                            <Setter Property="Border.Background" Value="{DynamicResource OpaqueGrayHighlightBrush}" TargetName="IconBackground" />
+                            <Setter Property="Border.Opacity" Value="1" TargetName="IconBackground"/>
+                        </DataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--
+        DuplicateHider style for selector #2 (Grid view host: DuplicateHider_SourceSelector2).
+        This variant uses a larger host area (see MaxHeight on selector2) and starts with hidden backdrop,
+        so the background appears only on interaction/current selection.
+    -->
+    <Style
+        x:Key="DuplicateHider_IconContentControlStyle2"
+        BasedOn="{StaticResource {x:Type ContentControl}}"
+        TargetType="ContentControl">
+        <Setter Property="BorderBrush" Value="{x:Null}" />
+        <Setter Property="Foreground" Value="{x:Null}" />
+        <Setter Property="Background" Value="{x:Null}" />
+        <Setter Property="Padding" Value="0,0,0,0" />
+        <Setter Property="Margin" Value="2,0,2,0" />
+        <Setter Property="BorderThickness" Value="0,0,0,0" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="ClipToBounds" Value="False"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Grid>
+                        <Border x:Name="IconBackground" CornerRadius="8" Background="{DynamicResource OpaqueGrayHighlightBrush}" Opacity="0.0" Visibility="Hidden">
+                        </Border>
+                        <Image x:Name="SourceIcon" Source="{Binding Icon}" RenderOptions.BitmapScalingMode="Fant" Margin="3" Opacity="0.95"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <!-- Match fallback behavior: uninstalled copies are dimmed. -->
+                        <DataTrigger Binding="{Binding Game.IsInstalled}" Value="False">
+                            <Setter Property="Image.Opacity" Value="0.65" TargetName="SourceIcon"/>
+                        </DataTrigger>
+                        <!-- Hover state: temporary backdrop + light glow for legibility. -->
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Border.Visibility" Value="Visible" TargetName="IconBackground"/>
+                            <Setter Property="Border.Background" Value="{DynamicResource OpaqueGrayHighlightBrush}" TargetName="IconBackground"/>
+                            <Setter Property="Border.Opacity" Value="0.75" TargetName="IconBackground"/>
+                            <Setter Property="Image.Effect" TargetName="SourceIcon">
+                                <Setter.Value>
+                                    <DropShadowEffect Color="White" ShadowDepth="0" BlurRadius="3" Opacity="0.75" RenderingBias="Performance" />
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                        <!-- Current (selected) source version highlight. -->
+                        <DataTrigger Binding="{Binding IsCurrent}" Value="True">
+                            <Setter Property="Border.Visibility" Value="Visible" TargetName="IconBackground"/>
+                            <Setter Property="Border.Background" Value="{DynamicResource OpaqueGrayHighlightBrush}" TargetName="IconBackground" />
+                            <Setter Property="Border.Opacity" Value="1" TargetName="IconBackground"/>
+                        </DataTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 </ResourceDictionary>

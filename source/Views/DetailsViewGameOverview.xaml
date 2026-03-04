@@ -129,19 +129,24 @@
                                 </Grid>
 
                                 <!--#Source Icon Visible-->
+                                <!--
+                                    Selector1 host for DuplicateHider custom element (SourceSelector1 / Style1).
+                                    This container is shown only when the selector has content.
+                                    DuplicateHiderSourceIconEffect adds a host-level shadow around the icon strip.
+                                -->
                                 <Grid Height="58" HorizontalAlignment="Left" VerticalAlignment="Top">
                                     <Grid.Style>
                                         <Style TargetType="Grid">
                                             <Setter Property="Visibility" Value="Collapsed" />
                                             <Style.Triggers>
-                                                <DataTrigger Binding="{Binding ElementName=DuplicateHider_SourceSelector, Path=HasContent}" Value="True">
+                                                <DataTrigger Binding="{Binding ElementName=DuplicateHider_SourceSelector1, Path=HasContent}" Value="True">
                                                     <Setter Property="Visibility" Value="Visible" />
                                                 </DataTrigger>
                                             </Style.Triggers>
                                         </Style>
                                     </Grid.Style>
                                     <Border Margin="10" Background="Transparent">
-                                        <ContentControl x:Name="DuplicateHider_SourceSelector"
+                                        <ContentControl x:Name="DuplicateHider_SourceSelector1"
                                                         Effect="{DynamicResource DuplicateHiderSourceIconEffect}" />
                                     </Border>
                                 </Grid>
