@@ -23,7 +23,9 @@
     <Visibility x:Key="GridViewCoverCompStatusSubtitleVisibility">Collapsed</Visibility>
 
     <!-- Plugin Settings -->
-    <sys:Int32 x:Key="DuplicateHider_MaxNumberOfIcons">0</sys:Int32>
+    <!-- DuplicateHider per-selector icon limit (value < 1 means unlimited icons). -->
+    <sys:Int32 x:Key="DuplicateHider_MaxNumberOfIcons1">0</sys:Int32>
+    <sys:Int32 x:Key="DuplicateHider_MaxNumberOfIcons2">0</sys:Int32>
 
     <!-- Dimensions -->
     <sys:Double x:Key="DetailsViewDetailsMaxWidth">1024</sys:Double>
@@ -101,7 +103,7 @@
     <SolidColorBrush x:Key="ExpanderBackgroundBrush" Color="{DynamicResource HoverColor}" />
     <SolidColorBrush x:Key="WindowBackgroundBrush" Color="{DynamicResource MainColor}" />
     <!-- Main backdrop brush for DuplicateHider icon background (default/hover/current states). -->
-    <SolidColorBrush x:Key="OpaqueGrayHighlightBrush" Color="{DynamicResource NormalBorderControlsHoverTransparencyColor}" Opacity="0.7" />
+    <SolidColorBrush x:Key="OpaqueGrayHighlightBrush" Color="{DynamicResource NormalBorderControlsHoverTransparencyColor}" Opacity="0.5" />
     <SolidColorBrush x:Key="OpaqueButtonBackgroundBrush" Color="{DynamicResource GridItemBackgroundColor}" Opacity="0.7" />
     <SolidColorBrush x:Key="OpaqueNormalBrush" Color="{DynamicResource MainColorDark}" Opacity="0.7" />
 

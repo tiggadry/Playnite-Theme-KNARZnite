@@ -176,25 +176,17 @@
                                     </Grid>
                                     <!--#DuplicateHider Source Icons Visible-->
                                     <!--
-                                        Selector2 host for DuplicateHider custom element (maps to SourceSelector2 / Style2).
-                                        MaxHeight is intentionally larger than the default to keep icons readable
-                                        while still leaving visible background around each icon.
+                                        ContentControl2 host for DuplicateHider custom element in Grid view.
+                                        Uses a wrap-capable template so icons can flow into multiple rows
+                                        when a game has more sources than fit into a single line.
                                     -->
                                     <DockPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,5"
                                                Name="GameSources">
-                                        <DockPanel.Style>
-                                            <Style TargetType="DockPanel">
-                                                <Setter Property="Visibility" Value="Collapsed" />
-                                                <Style.Triggers>
-                                                    <DataTrigger Binding="{Binding ElementName=DuplicateHider_SourceSelector2, Path=HasContent}" Value="True">
-                                                        <Setter Property="Visibility" Value="Visible" />
-                                                    </DataTrigger>
-                                                </Style.Triggers>
-                                            </Style>
-                                        </DockPanel.Style>
-                                        <ContentControl x:Name="DuplicateHider_SourceSelector2"
+                                        <ContentControl x:Name="DuplicateHider_ContentControl2"
+                                                        Tag="{DynamicResource DuplicateHider_ContentControlWrapGridStyle2}"
                                                         VerticalAlignment="Bottom" HorizontalAlignment="Center"
-                                                        RenderOptions.BitmapScalingMode="Fant" Visibility="Visible" MaxHeight="28"/>
+                                                        RenderOptions.BitmapScalingMode="Fant"
+                                                        MaxWidth="{Settings GridItemWidth}"/>
                                     </DockPanel>
                                 </Grid>
                             </Grid>
@@ -342,7 +334,7 @@
     </Style>
 
     <!--
-        DuplicateHider style for selector #1 (usually Details view host: DuplicateHider_SourceSelector1).
+        DuplicateHider style for selector #1 (Details view host: DuplicateHider_SourceSelector1).
         Keeps source icons readable on mixed backgrounds while preserving fallback-like behavior:
         - dim uninstalled versions,
         - highlight hovered and currently selected source,
@@ -367,7 +359,7 @@
                     <Grid>
                         <Border x:Name="IconBackground" CornerRadius="8" Background="{DynamicResource OpaqueGrayHighlightBrush}" Opacity="0.2" Visibility="Visible">
                         </Border>
-                        <Image x:Name="SourceIcon" Source="{Binding Icon}" RenderOptions.BitmapScalingMode="Fant" Margin="3" Opacity="0.95"/>
+                        <Image x:Name="SourceIcon" Source="{Binding Icon}" RenderOptions.BitmapScalingMode="Fant" Margin="5" Opacity="0.95"/>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <!-- Match fallback behavior: uninstalled copies are dimmed. -->
@@ -398,9 +390,8 @@
     </Style>
 
     <!--
-        DuplicateHider style for selector #2 (Grid view host: DuplicateHider_SourceSelector2).
-        This variant uses a larger host area (see MaxHeight on selector2) and starts with hidden backdrop,
-        so the background appears only on interaction/current selection.
+        DuplicateHider icon style variant for grid source entries (#2).
+        Used by the wrap-capable ContentControl2 template below for consistent hover/current visuals.
     -->
     <Style
         x:Key="DuplicateHider_IconContentControlStyle2"
@@ -412,8 +403,12 @@
         <Setter Property="Padding" Value="0,0,0,0" />
         <Setter Property="Margin" Value="2,0,2,0" />
         <Setter Property="BorderThickness" Value="0,0,0,0" />
-        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
         <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Width" Value="30" />
+        <Setter Property="Height" Value="30" />
+        <Setter Property="MaxWidth" Value="30" />
+        <Setter Property="MaxHeight" Value="30" />
         <Setter Property="ClipToBounds" Value="False"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -446,6 +441,37 @@
                             <Setter Property="Border.Opacity" Value="1" TargetName="IconBackground"/>
                         </DataTrigger>
                     </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--
+        DuplicateHider ContentControl style for grid selector #2.
+        Renders DataContext.Games via WrapPanel so source icons can span multiple rows.
+        Each icon reuses DuplicateHider_IconContentControlStyle2 for consistent visuals.
+    -->
+    <Style x:Key="DuplicateHider_ContentControlWrapGridStyle2" TargetType="ContentControl">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ContentControl">
+                    <ItemsControl ItemsSource="{Binding Games}">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel HorizontalAlignment="Center" />
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <ContentControl Style="{DynamicResource DuplicateHider_IconContentControlStyle2}">
+                                    <ContentControl.InputBindings>
+                                        <MouseBinding Gesture="LeftClick" Command="{Binding SelectCommand}" />
+                                        <MouseBinding Gesture="LeftDoubleClick" Command="{Binding LaunchCommand}" />
+                                    </ContentControl.InputBindings>
+                                </ContentControl>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
