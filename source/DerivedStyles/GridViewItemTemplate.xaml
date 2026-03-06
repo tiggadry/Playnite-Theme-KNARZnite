@@ -179,6 +179,7 @@
                                         ContentControl2 host for DuplicateHider custom element in Grid view.
                                         Uses a wrap-capable template so icons can flow into multiple rows
                                         when a game has more sources than fit into a single line.
+                                        The plugin reads the style key from Tag (DuplicateHider_ContentControlWrapGridStyle2).
                                     -->
                                     <DockPanel HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,5"
                                                Name="GameSources">
@@ -335,6 +336,8 @@
 
     <!--
         DuplicateHider style for selector #1 (Details view host: DuplicateHider_SourceSelector1).
+        Wiring: host content comes from Views/DetailsViewGameOverview.xaml and uses this style key by plugin contract.
+        Resource dependencies: SemiTransparentHighlightBrush (background contrast).
         Keeps source icons readable on mixed backgrounds while preserving fallback-like behavior:
         - dim uninstalled versions,
         - highlight hovered and currently selected source,
@@ -357,7 +360,7 @@
             <Setter.Value>
                 <ControlTemplate>
                     <Grid>
-                        <Border x:Name="IconBackground" CornerRadius="8" Background="{DynamicResource OpaqueGrayHighlightBrush}" Opacity="0.2" Visibility="Visible">
+                        <Border x:Name="IconBackground" CornerRadius="8" Background="{DynamicResource SemiTransparentHighlightBrush}" Opacity="0.2" Visibility="Visible">
                         </Border>
                         <Image x:Name="SourceIcon" Source="{Binding Icon}" RenderOptions.BitmapScalingMode="Fant" Margin="5" Opacity="0.95"/>
                     </Grid>
@@ -369,7 +372,7 @@
                         <!-- Hover state: brighten icon and show stronger backdrop. -->
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="Border.Visibility" Value="Visible" TargetName="IconBackground"/>
-                            <Setter Property="Border.Background" Value="{DynamicResource OpaqueGrayHighlightBrush}" TargetName="IconBackground"/>
+                            <Setter Property="Border.Background" Value="{DynamicResource SemiTransparentHighlightBrush}" TargetName="IconBackground"/>
                             <Setter Property="Border.Opacity" Value="0.75" TargetName="IconBackground"/>
                             <Setter Property="Image.Effect" TargetName="SourceIcon">
                                 <Setter.Value>
@@ -380,7 +383,7 @@
                         <!-- Current (selected) source version highlight. -->
                         <DataTrigger Binding="{Binding IsCurrent}" Value="True">
                             <Setter Property="Border.Visibility" Value="Visible" TargetName="IconBackground"/>
-                            <Setter Property="Border.Background" Value="{DynamicResource OpaqueGrayHighlightBrush}" TargetName="IconBackground" />
+                            <Setter Property="Border.Background" Value="{DynamicResource SemiTransparentHighlightBrush}" TargetName="IconBackground" />
                             <Setter Property="Border.Opacity" Value="1" TargetName="IconBackground"/>
                         </DataTrigger>
                     </ControlTemplate.Triggers>
@@ -391,6 +394,8 @@
 
     <!--
         DuplicateHider icon style variant for grid source entries (#2).
+        Wiring: consumed by DuplicateHider_ContentControlWrapGridStyle2 for each item in DataContext.Games.
+        Resource dependencies: SemiTransparentHighlightBrush (hover/current backdrop).
         Used by the wrap-capable ContentControl2 template below for consistent hover/current visuals.
     -->
     <Style
@@ -414,7 +419,7 @@
             <Setter.Value>
                 <ControlTemplate>
                     <Grid>
-                        <Border x:Name="IconBackground" CornerRadius="8" Background="{DynamicResource OpaqueGrayHighlightBrush}" Opacity="0.0" Visibility="Hidden">
+                        <Border x:Name="IconBackground" CornerRadius="8" Background="{DynamicResource SemiTransparentHighlightBrush}" Opacity="0.0" Visibility="Hidden">
                         </Border>
                         <Image x:Name="SourceIcon" Source="{Binding Icon}" RenderOptions.BitmapScalingMode="Fant" Margin="3" Opacity="0.95"/>
                     </Grid>
@@ -426,7 +431,7 @@
                         <!-- Hover state: temporary backdrop + light glow for legibility. -->
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="Border.Visibility" Value="Visible" TargetName="IconBackground"/>
-                            <Setter Property="Border.Background" Value="{DynamicResource OpaqueGrayHighlightBrush}" TargetName="IconBackground"/>
+                            <Setter Property="Border.Background" Value="{DynamicResource SemiTransparentHighlightBrush}" TargetName="IconBackground"/>
                             <Setter Property="Border.Opacity" Value="0.75" TargetName="IconBackground"/>
                             <Setter Property="Image.Effect" TargetName="SourceIcon">
                                 <Setter.Value>
@@ -437,7 +442,7 @@
                         <!-- Current (selected) source version highlight. -->
                         <DataTrigger Binding="{Binding IsCurrent}" Value="True">
                             <Setter Property="Border.Visibility" Value="Visible" TargetName="IconBackground"/>
-                            <Setter Property="Border.Background" Value="{DynamicResource OpaqueGrayHighlightBrush}" TargetName="IconBackground" />
+                            <Setter Property="Border.Background" Value="{DynamicResource SemiTransparentHighlightBrush}" TargetName="IconBackground" />
                             <Setter Property="Border.Opacity" Value="1" TargetName="IconBackground"/>
                         </DataTrigger>
                     </ControlTemplate.Triggers>
@@ -448,6 +453,7 @@
 
     <!--
         DuplicateHider ContentControl style for grid selector #2.
+        Wiring: assigned via Tag on DuplicateHider_ContentControl2 host in this template.
         Renders DataContext.Games via WrapPanel so source icons can span multiple rows.
         Each icon reuses DuplicateHider_IconContentControlStyle2 for consistent visuals.
     -->

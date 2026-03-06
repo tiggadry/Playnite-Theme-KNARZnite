@@ -132,6 +132,9 @@
                                 <!--
                                     Selector1 host for DuplicateHider custom element (SourceSelector1 / Style1).
                                     This container is shown only when the selector has content.
+                                    Per-icon visuals are resolved through DuplicateHider_IconContentControlStyle1
+                                    (defined in DerivedStyles/GridViewItemTemplate.xaml).
+                                    Shared color/overlay resources used by that style come from Constants(.red).xaml.
                                     DuplicateHiderSourceIconEffect adds a host-level shadow around the icon strip.
                                 -->
                                 <Grid Height="58" HorizontalAlignment="Left" VerticalAlignment="Top">

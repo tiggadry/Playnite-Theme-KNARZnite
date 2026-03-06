@@ -97,6 +97,13 @@
                                 <ContentControl x:Name="BackgroundChanger_PluginBackgroundImage"
                                                 HorizontalAlignment="Center" VerticalAlignment="Top" Visibility="Collapsed" />
 
+                                <!--
+                                    DuplicateHider selector host for GridViewGameOverview.
+                                    Visibility is tied to TopGrid hover to keep the UI clean when idle.
+                                    The plugin injects icon content and applies its configured selector style
+                                    (typically DuplicateHider_IconContentControlStyle1) defined in DerivedStyles/GridViewItemTemplate.xaml.
+                                    Style brushes/effects are resolved from Constants(.red).xaml resources.
+                                -->
                                 <Grid Height="50" HorizontalAlignment="Left" VerticalAlignment="Top">
                                     <Grid.Style>
                                         <Style TargetType="Grid">
