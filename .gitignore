@@ -407,3 +407,8 @@ source/lastChanged.json
 *.pthm
 
 SYNC_FORK.md
+
+# Xaml Styler
+Settings.XamlStyler
+
+/.config
