@@ -15,21 +15,21 @@
               <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
             <ScrollContentPresenter
-              Grid.Row="0" Grid.Column="0"
+              Grid.Column="0"
               Margin="{TemplateBinding Padding}"
               Content="{TemplateBinding Content}"
               CanContentScroll="{TemplateBinding CanContentScroll}"
               ContentTemplate="{TemplateBinding ContentTemplate}" />
 
             <Rectangle
-              Grid.Row="0" Grid.Column="1"
+              Grid.Column="1"
               Width="17"
               Margin="-17,0,0,0"
               Fill="{TemplateBinding Background}" />
 
             <ScrollBar
               x:Name="PART_VerticalScrollBar"
-              Grid.Row="0" Grid.Column="1"
+              Grid.Column="1"
               Margin="-17,0,0,0"
               Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
               AutomationProperties.AutomationId="VerticalScrollBar"

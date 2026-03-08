@@ -1,7 +1,5 @@
 ﻿<ResourceDictionary
   xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-  xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
-  xmlns:sys="clr-namespace:System;assembly=mscorlib"
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
   <Style
@@ -34,7 +32,8 @@
             SnapsToDevicePixels="True">
             <ScrollViewer
               x:Name="DG_ScrollViewer"
-              Background="Black" Focusable="false">
+              Background="{DynamicResource ControlBackgroundBrush}"
+              Focusable="false">
               <ScrollViewer.Template>
                 <ControlTemplate TargetType="{x:Type ScrollViewer}">
                   <Grid>
@@ -165,12 +164,9 @@
                 </Border.Background>
                 <DataGridCellsPresenter
                   x:Name="CellPresenter"
+                  Foreground="{DynamicResource TextBrush}"
                   ItemsPanel="{TemplateBinding ItemsPanel}"
-                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
-                  <DataGridCellsPresenter.Foreground>
-                    <SolidColorBrush Color="{StaticResource TextColor}" />
-                  </DataGridCellsPresenter.Foreground>
-                </DataGridCellsPresenter>
+                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
               </Border>
               <DataGridDetailsPresenter
                 Grid.Row="1" Grid.Column="1"
@@ -189,40 +185,40 @@
                 <VisualState x:Name="Normal_Selected">
                   <Storyboard>
                     <ColorAnimationUsingKeyFrames Storyboard.TargetName="BorderCellPresenter" Storyboard.TargetProperty="Background.Color">
-                      <EasingColorKeyFrame KeyTime="0" Value="{DynamicResource GlyphColor}" />
+                      <EasingColorKeyFrame KeyTime="0" Value="{StaticResource GlyphColor}" />
                     </ColorAnimationUsingKeyFrames>
                     <ColorAnimationUsingKeyFrames Storyboard.TargetName="BorderRowHeader" Storyboard.TargetProperty="Background.Color">
-                      <EasingColorKeyFrame KeyTime="0" Value="{DynamicResource GlyphColor}" />
+                      <EasingColorKeyFrame KeyTime="0" Value="{StaticResource GlyphColor}" />
                     </ColorAnimationUsingKeyFrames>
                   </Storyboard>
                 </VisualState>
                 <VisualState x:Name="Unfocused_Selected">
                   <Storyboard>
                     <ColorAnimationUsingKeyFrames Storyboard.TargetName="BorderCellPresenter" Storyboard.TargetProperty="Background.Color">
-                      <EasingColorKeyFrame KeyTime="0" Value="{DynamicResource GlyphColor}" />
+                      <EasingColorKeyFrame KeyTime="0" Value="{StaticResource GlyphColor}" />
                     </ColorAnimationUsingKeyFrames>
                     <ColorAnimationUsingKeyFrames Storyboard.TargetName="BorderRowHeader" Storyboard.TargetProperty="Background.Color">
-                      <EasingColorKeyFrame KeyTime="0" Value="{DynamicResource GlyphColor}" />
+                      <EasingColorKeyFrame KeyTime="0" Value="{StaticResource GlyphColor}" />
                     </ColorAnimationUsingKeyFrames>
                   </Storyboard>
                 </VisualState>
                 <VisualState x:Name="MouseOver">
                   <Storyboard>
                     <ColorAnimationUsingKeyFrames Storyboard.TargetName="BorderCellPresenter" Storyboard.TargetProperty="Background.Color">
-                      <EasingColorKeyFrame KeyTime="0" Value="{DynamicResource HoverColor}" />
+                      <EasingColorKeyFrame KeyTime="0" Value="{StaticResource HoverColor}" />
                     </ColorAnimationUsingKeyFrames>
                     <ColorAnimationUsingKeyFrames Storyboard.TargetName="BorderRowHeader" Storyboard.TargetProperty="Background.Color">
-                      <EasingColorKeyFrame KeyTime="0" Value="{DynamicResource HoverColor}" />
+                      <EasingColorKeyFrame KeyTime="0" Value="{StaticResource HoverColor}" />
                     </ColorAnimationUsingKeyFrames>
                   </Storyboard>
                 </VisualState>
                 <VisualState x:Name="MouseOver_Selected">
                   <Storyboard>
                     <ColorAnimationUsingKeyFrames Storyboard.TargetName="BorderCellPresenter" Storyboard.TargetProperty="Background.Color">
-                      <EasingColorKeyFrame KeyTime="0" Value="{DynamicResource GlyphColor}" />
+                      <EasingColorKeyFrame KeyTime="0" Value="{StaticResource GlyphColor}" />
                     </ColorAnimationUsingKeyFrames>
                     <ColorAnimationUsingKeyFrames Storyboard.TargetName="BorderRowHeader" Storyboard.TargetProperty="Background.Color">
-                      <EasingColorKeyFrame KeyTime="0" Value="{DynamicResource GlyphColor}" />
+                      <EasingColorKeyFrame KeyTime="0" Value="{StaticResource GlyphColor}" />
                     </ColorAnimationUsingKeyFrames>
                   </Storyboard>
                 </VisualState>

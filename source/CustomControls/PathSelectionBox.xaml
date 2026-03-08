@@ -7,7 +7,7 @@
   <Style BasedOn="{StaticResource {x:Type TextBox}}" TargetType="{x:Type PathSelectionBox}">
     <Setter Property="Template">
       <Setter.Value>
-        <ControlTemplate TargetType="{x:Type TextBox}">
+        <ControlTemplate TargetType="{x:Type PathSelectionBox}">          
           <DockPanel>
             <Button
               x:Name="PART_ButtonDirectorySelect"

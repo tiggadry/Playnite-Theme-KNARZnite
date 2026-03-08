@@ -7,31 +7,12 @@
       <Setter.Value>
         <ControlTemplate TargetType="{x:Type LibraryGridView}">
           <DockPanel Background="{TemplateBinding Background}">
-            <Border
-              DockPanel.Dock="{Settings GridViewDetailsPosition}"
-              Visibility="Collapsed"
-              BorderBrush="{DynamicResource PanelSeparatorBrush}">
-              <Border.Style>
-                <Style TargetType="Border">
-                  <Setter Property="BorderThickness" Value="1,0,0,0" />
-                  <Style.Triggers>
-                    <DataTrigger Binding="{Settings GridViewDetailsPosition}" Value="Left">
-                      <Setter Property="BorderThickness" Value="0,0,1,0" />
-                    </DataTrigger>
-                    <DataTrigger Binding="{Settings ShowPanelSeparators}" Value="False">
-                      <Setter Property="BorderThickness" Value="0" />
-                    </DataTrigger>
-                  </Style.Triggers>
-                </Style>
-              </Border.Style>
-            </Border>
             <Grid DockPanel.Dock="Left" Margin="{DynamicResource PanelTopPanelSeparator}">
               <ExtendedListBox
                 x:Name="PART_ListGames"
-                DockPanel.Dock="Left"
                 BorderThickness="0"
                 ItemContainerStyle="{DynamicResource GridViewItemStyle}"
-                ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.PanningMode="VerticalOnly">
+                ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.PanningMode="VerticalOnly">                
                 <ExtendedListBox.ItemTemplate>
                   <DataTemplate>
                     <GameListItem Style="{StaticResource GridViewItemTemplate}" />

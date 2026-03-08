@@ -26,10 +26,10 @@
               <ScrollViewer
                 x:Name="ScrollSidebarItems"
                 DockPanel.Dock="Top"
-                CanContentScroll="True" HorizontalScrollBarVisibility="Auto"
-                VerticalScrollBarVisibility="Hidden">
+                CanContentScroll="True" HorizontalScrollBarVisibility="Hidden"
+                VerticalScrollBarVisibility="Auto">
                 <StackPanel x:Name="PART_PanelSideBarItems" Orientation="Vertical" />
-              </ScrollViewer>
+              </ScrollViewer>            
             </DockPanel>
           </Border>
           <ControlTemplate.Triggers>

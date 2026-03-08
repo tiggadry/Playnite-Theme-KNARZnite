@@ -133,7 +133,7 @@
     <Setter Property="Foreground" Value="{DynamicResource TextBrushDarker}" />
     <Setter Property="Template">
       <Setter.Value>
-        <ControlTemplate>
+        <ControlTemplate TargetType="{x:Type CheckBox}">
           <Border
             Background="{TemplateBinding Background}"
             BorderThickness="0" CornerRadius="3">
@@ -180,7 +180,7 @@
     <Setter Property="Cursor" Value="Hand" />
     <Setter Property="Template">
       <Setter.Value>
-        <ControlTemplate>
+        <ControlTemplate TargetType="{x:Type ToggleButton}">
           <Border Background="Transparent">
             <Grid>
               <TextBlock
@@ -247,6 +247,7 @@
 
               <StackPanel
                 x:Name="PART_PanelMainItems"
+                DockPanel.Dock="Left"
                 Margin="0,6,0,6" VerticalAlignment="Stretch"
                 Orientation="Horizontal" />
 
@@ -256,7 +257,7 @@
                 DockPanel.Dock="Left"
                 ToolTip="{StaticResource LOCFilters}" />
 
-              <CheckBox
+              <ToggleButton
                 x:Name="PART_ToggleNotifications"
                 Style="{DynamicResource TopPanelNotificationsToggle}"
                 DockPanel.Dock="Left" />

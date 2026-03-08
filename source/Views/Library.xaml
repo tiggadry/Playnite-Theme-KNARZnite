@@ -3,7 +3,6 @@
   xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
   <Style TargetType="{x:Type Library}">
-    <Setter Property="Background" Value="Yellow" />
     <Setter Property="Template">
       <Setter.Value>
         <ControlTemplate TargetType="{x:Type Library}">
@@ -18,10 +17,8 @@
 
             <TopPanel
               Grid.Row="0"
-              DockPanel.Dock="Top"
               Effect="{DynamicResource DefaultDropShadow}"
               Panel.ZIndex="999" />
-
             <FadeImage
               x:Name="PART_ImageBackground"
               Grid.Row="0" Grid.Column="0"
@@ -41,7 +38,7 @@
                 Width="{Settings ExplorerPanelWitdh}"
                 Visibility="{Settings ExplorerPanelVisible}" />
 
-              <Grid DockPanel.Dock="Left">
+              <Grid>
                 <LibraryDetailsView x:Name="PART_ViewDetails" />
                 <LibraryGridView x:Name="PART_ViewGrid" />
                 <LibraryListView x:Name="PART_ViewList" />
