@@ -21,8 +21,9 @@
             x:Name="Border"
             Style="{DynamicResource HighlightBorder}"
             Background="{TemplateBinding Background}"
+            BorderBrush="{TemplateBinding BorderBrush}"
             BorderThickness="{TemplateBinding BorderThickness}"
-            CornerRadius="{DynamicResource ControlCornerRadius}">
+            CornerRadius="{DynamicResource ControlCornerRadius}">            
             <ScrollViewer
               x:Name="PART_ContentHost"
               HorizontalScrollBarVisibility="{TemplateBinding HorizontalScrollBarVisibility}"

@@ -92,13 +92,23 @@
   <ControlTemplate x:Key="{x:Static MenuItem.TopLevelItemTemplateKey}" TargetType="{x:Type MenuItem}">
     <Border
       x:Name="Border"
-      Background="{DynamicResource PopupBackgroundBrush}"
-      BorderBrush="{DynamicResource PopupBorderBrush}"
-      BorderThickness="{DynamicResource PopupBorderThickness}"
+      Background="Transparent"
+      BorderBrush="Transparent"
+      BorderThickness="{DynamicResource ControlBorderThickness}"
       CornerRadius="{DynamicResource ControlCornerRadius}"
       SnapsToDevicePixels="True" UseLayoutRounding="True">
       <ContentPresenter ContentSource="Header" RecognizesAccessKey="True" />
     </Border>
+    <ControlTemplate.Triggers>
+      <Trigger Property="IsMouseOver" Value="True">
+        <Setter Property="Background" TargetName="Border" Value="{DynamicResource HoverBrush}" />
+        <Setter Property="BorderBrush" TargetName="Border" Value="{DynamicResource HoverBrush}" />
+      </Trigger>
+      <Trigger Property="IsPressed" Value="True">
+        <Setter Property="Background" TargetName="Border" Value="{DynamicResource HoverBrush}" />
+        <Setter Property="BorderBrush" TargetName="Border" Value="{DynamicResource HoverBrush}" />
+      </Trigger>
+    </ControlTemplate.Triggers>
   </ControlTemplate>
 
   <!--  SubmenuHeader  -->

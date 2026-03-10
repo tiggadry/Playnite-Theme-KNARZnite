@@ -17,8 +17,9 @@
           <Border
             Style="{DynamicResource HighlightBorder}"
             Background="{TemplateBinding Background}"
+            BorderBrush="{TemplateBinding BorderBrush}"
             BorderThickness="{TemplateBinding BorderThickness}"
-            CornerRadius="{DynamicResource ControlCornerRadius}">
+            CornerRadius="{DynamicResource ControlCornerRadius}">            
             <ContentPresenter
               Margin="{TemplateBinding Padding}"
               HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
