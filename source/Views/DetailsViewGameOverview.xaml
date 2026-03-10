@@ -653,6 +653,14 @@
                           <Setter Property="FontFamily" Value="{StaticResource FontIcoFont}" />
                           <Setter Property="Foreground" Value="{DynamicResource GlyphBrush}" />
                         </Style>
+                        <Style
+                          x:Key="MdStyleIcon"
+                          BasedOn="{StaticResource BaseTextBlockStyle}"
+                          TargetType="TextBlock">
+                          <Setter Property="Width" Value="24" />
+                          <Setter Property="FontFamily" Value="{StaticResource FontIcoFont}" />
+                          <Setter Property="Foreground" Value="{DynamicResource GlyphBrush}" />
+                        </Style>
                         <Style TargetType="Label">
                           <Setter Property="FontWeight" Value="Normal" />
                           <Setter Property="Foreground" Value="{DynamicResource TextBrush}" />
