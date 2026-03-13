@@ -241,14 +241,8 @@
                     IsEnabled="False"
                     ItemsSource="{Binding Game.AgeRatings}"
                     IsTabStop="False">
-                    <ItemsControl.ItemsPanel>
-                      <ItemsPanelTemplate>
-                        <StackPanel Height="Auto" Orientation="Horizontal" />
-                      </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
-
-                    <ItemsControl.ItemTemplate>
-                      <DataTemplate>
+                    <ItemsControl.Resources>
+                      <DataTemplate x:Key="AgeRatingIconTemplate">
                         <Grid Margin="0">
                           <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="auto" />
@@ -276,7 +270,132 @@
                           </DataTrigger>
                         </DataTemplate.Triggers>
                       </DataTemplate>
-                    </ItemsControl.ItemTemplate>
+
+                      <Style x:Key="AgeRatingPegiItemStyle" TargetType="ContentPresenter">
+                        <Setter Property="Visibility" Value="Collapsed" />
+                        <Style.Triggers>
+                          <DataTrigger Binding="{Binding Name}" Value="PEGI 3">
+                            <Setter Property="Visibility" Value="Visible" />
+                          </DataTrigger>
+                          <DataTrigger Binding="{Binding Name}" Value="PEGI 7">
+                            <Setter Property="Visibility" Value="Visible" />
+                          </DataTrigger>
+                          <DataTrigger Binding="{Binding Name}" Value="PEGI 12">
+                            <Setter Property="Visibility" Value="Visible" />
+                          </DataTrigger>
+                          <DataTrigger Binding="{Binding Name}" Value="PEGI 16">
+                            <Setter Property="Visibility" Value="Visible" />
+                          </DataTrigger>
+                          <DataTrigger Binding="{Binding Name}" Value="PEGI 18">
+                            <Setter Property="Visibility" Value="Visible" />
+                          </DataTrigger>
+                        </Style.Triggers>
+                      </Style>
+
+                      <Style x:Key="AgeRatingEsrbItemStyle" TargetType="ContentPresenter">
+                        <Setter Property="Visibility" Value="Collapsed" />
+                        <Style.Triggers>
+                          <DataTrigger Binding="{Binding Name}" Value="ESRB E">
+                            <Setter Property="Visibility" Value="Visible" />
+                          </DataTrigger>
+                          <DataTrigger Binding="{Binding Name}" Value="ESRB E 10">
+                            <Setter Property="Visibility" Value="Visible" />
+                          </DataTrigger>
+                          <DataTrigger Binding="{Binding Name}" Value="ESRB T">
+                            <Setter Property="Visibility" Value="Visible" />
+                          </DataTrigger>
+                          <DataTrigger Binding="{Binding Name}" Value="ESRB M">
+                            <Setter Property="Visibility" Value="Visible" />
+                          </DataTrigger>
+                          <DataTrigger Binding="{Binding Name}" Value="ESRB AO">
+                            <Setter Property="Visibility" Value="Visible" />
+                          </DataTrigger>
+                          <DataTrigger Binding="{Binding Name}" Value="ESRB RP">
+                            <Setter Property="Visibility" Value="Visible" />
+                          </DataTrigger>
+                        </Style.Triggers>
+                      </Style>
+
+                      <Style x:Key="AgeRatingOtherItemStyle" TargetType="ContentPresenter">
+                        <Setter Property="Visibility" Value="Visible" />
+                        <Style.Triggers>
+                          <DataTrigger Binding="{Binding Name}" Value="PEGI 3">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                          </DataTrigger>
+                          <DataTrigger Binding="{Binding Name}" Value="PEGI 7">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                          </DataTrigger>
+                          <DataTrigger Binding="{Binding Name}" Value="PEGI 12">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                          </DataTrigger>
+                          <DataTrigger Binding="{Binding Name}" Value="PEGI 16">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                          </DataTrigger>
+                          <DataTrigger Binding="{Binding Name}" Value="PEGI 18">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                          </DataTrigger>
+                          <DataTrigger Binding="{Binding Name}" Value="ESRB E">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                          </DataTrigger>
+                          <DataTrigger Binding="{Binding Name}" Value="ESRB E 10">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                          </DataTrigger>
+                          <DataTrigger Binding="{Binding Name}" Value="ESRB T">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                          </DataTrigger>
+                          <DataTrigger Binding="{Binding Name}" Value="ESRB M">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                          </DataTrigger>
+                          <DataTrigger Binding="{Binding Name}" Value="ESRB AO">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                          </DataTrigger>
+                          <DataTrigger Binding="{Binding Name}" Value="ESRB RP">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                          </DataTrigger>
+                        </Style.Triggers>
+                      </Style>
+                    </ItemsControl.Resources>
+
+                    <ItemsControl.Template>
+                      <ControlTemplate TargetType="{x:Type ItemsControl}">
+                        <StackPanel Orientation="Horizontal">
+                          <ItemsControl
+                            Margin="0,0,10,0"
+                            ItemsSource="{Binding DataContext.Game.AgeRatings, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                            ItemContainerStyle="{StaticResource AgeRatingPegiItemStyle}"
+                            ItemTemplate="{StaticResource AgeRatingIconTemplate}">
+                            <ItemsControl.ItemsPanel>
+                              <ItemsPanelTemplate>
+                                <StackPanel Height="Auto" Orientation="Horizontal" />
+                              </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                          </ItemsControl>
+
+                          <ItemsControl
+                            Margin="0,0,10,0"
+                            ItemsSource="{Binding DataContext.Game.AgeRatings, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                            ItemContainerStyle="{StaticResource AgeRatingEsrbItemStyle}"
+                            ItemTemplate="{StaticResource AgeRatingIconTemplate}">
+                            <ItemsControl.ItemsPanel>
+                              <ItemsPanelTemplate>
+                                <StackPanel Height="Auto" Orientation="Horizontal" />
+                              </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                          </ItemsControl>
+
+                          <ItemsControl
+                            ItemsSource="{Binding DataContext.Game.AgeRatings, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                            ItemContainerStyle="{StaticResource AgeRatingOtherItemStyle}"
+                            ItemTemplate="{StaticResource AgeRatingIconTemplate}">
+                            <ItemsControl.ItemsPanel>
+                              <ItemsPanelTemplate>
+                                <StackPanel Height="Auto" Orientation="Horizontal" />
+                              </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                          </ItemsControl>
+                        </StackPanel>
+                      </ControlTemplate>
+                    </ItemsControl.Template>
                   </ItemsControl>
                 </Grid>
 
