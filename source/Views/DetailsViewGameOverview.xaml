@@ -232,6 +232,17 @@
                 </Grid.RowDefinitions>
 
                 <!--  Age Ratings  -->
+                <!--
+                  Age rating host shown in the details header row.
+                  The visual goal is deterministic grouping order:
+                  1) PEGI badges, 2) ESRB badges, 3) all remaining badges.
+                  
+                  Why this is custom-templated:
+                  - The default ItemsControl would render one continuous sequence
+                  in source/alphabetical order.
+                  - This template splits one source collection into three visual groups
+                  while still reusing one icon template.
+                -->
                 <Grid Grid.Row="0" MaxWidth="{DynamicResource DetailsViewDetailsMaxWidth}">
                   <ItemsControl
                     x:Name="AgeRating"
@@ -242,6 +253,11 @@
                     ItemsSource="{Binding Game.AgeRatings}"
                     IsTabStop="False">
                     <ItemsControl.Resources>
+                      <!--
+                        Shared icon renderer used by all three groups.
+                        ThemeFileBinding resolves image path from rating Name:
+                        Images/AgeRatings/{Name}.png
+                      -->
                       <DataTemplate x:Key="AgeRatingIconTemplate">
                         <Grid Margin="0">
                           <Grid.ColumnDefinitions>
@@ -265,12 +281,20 @@
                           </Border>
                         </Grid>
                         <DataTemplate.Triggers>
+                          <!--
+                            Hide template content when no matching icon asset exists.
+                            This avoids empty placeholders for unknown metadata values.
+                          -->
                           <DataTrigger Binding="{Binding Source, ElementName=RatingIconImage}" Value="{x:Null}">
                             <Setter Property="Visibility" Value="Collapsed" />
                           </DataTrigger>
                         </DataTemplate.Triggers>
                       </DataTemplate>
 
+                      <!--
+                        PEGI group filter:
+                        show only known PEGI rating names, collapse everything else.
+                      -->
                       <Style x:Key="AgeRatingPegiItemStyle" TargetType="ContentPresenter">
                         <Setter Property="Visibility" Value="Collapsed" />
                         <Style.Triggers>
@@ -292,6 +316,10 @@
                         </Style.Triggers>
                       </Style>
 
+                      <!--
+                        ESRB group filter:
+                        show only known ESRB rating names, collapse everything else.
+                      -->
                       <Style x:Key="AgeRatingEsrbItemStyle" TargetType="ContentPresenter">
                         <Setter Property="Visibility" Value="Collapsed" />
                         <Style.Triggers>
@@ -316,6 +344,11 @@
                         </Style.Triggers>
                       </Style>
 
+                      <!--
+                        Other group filter:
+                        default to visible, but collapse all entries claimed by PEGI/ESRB.
+                        Remaining values (custom/regional/content descriptors) stay visible.
+                      -->
                       <Style x:Key="AgeRatingOtherItemStyle" TargetType="ContentPresenter">
                         <Setter Property="Visibility" Value="Visible" />
                         <Style.Triggers>
@@ -357,33 +390,86 @@
                     </ItemsControl.Resources>
 
                     <ItemsControl.Template>
+                      <!--
+                        Custom visual composition for grouped rendering.
+                        All three child ItemsControls read from the same AgeRatings source,
+                        each with a different ItemContainerStyle filter.
+                      -->
                       <ControlTemplate TargetType="{x:Type ItemsControl}">
                         <StackPanel Orientation="Horizontal">
-                          <ItemsControl
-                            Margin="0,0,10,0"
-                            ItemsSource="{Binding DataContext.Game.AgeRatings, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
-                            ItemContainerStyle="{StaticResource AgeRatingPegiItemStyle}"
-                            ItemTemplate="{StaticResource AgeRatingIconTemplate}">
-                            <ItemsControl.ItemsPanel>
-                              <ItemsPanelTemplate>
-                                <StackPanel Height="Auto" Orientation="Horizontal" />
-                              </ItemsPanelTemplate>
-                            </ItemsControl.ItemsPanel>
-                          </ItemsControl>
+                          <!--
+                            PEGI host margin behavior:
+                            - Keep 10px gap when any group is rendered to the right.
+                            - Remove trailing gap when PEGI is the last visible group.
+                          -->
+                          <Border x:Name="PegiGroupHost">
+                            <Border.Style>
+                              <Style TargetType="Border">
+                                <Setter Property="Margin" Value="0,0,10,0" />
+                                <Style.Triggers>
+                                  <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                      <Condition Binding="{Binding ElementName=EsrbGroup, Path=ActualWidth}" Value="0" />
+                                      <Condition Binding="{Binding ElementName=OtherGroup, Path=ActualWidth}" Value="0" />
+                                    </MultiDataTrigger.Conditions>
+                                    <Setter Property="Margin" Value="0" />
+                                  </MultiDataTrigger>
+                                </Style.Triggers>
+                              </Style>
+                            </Border.Style>
 
-                          <ItemsControl
-                            Margin="0,0,10,0"
-                            ItemsSource="{Binding DataContext.Game.AgeRatings, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
-                            ItemContainerStyle="{StaticResource AgeRatingEsrbItemStyle}"
-                            ItemTemplate="{StaticResource AgeRatingIconTemplate}">
-                            <ItemsControl.ItemsPanel>
-                              <ItemsPanelTemplate>
-                                <StackPanel Height="Auto" Orientation="Horizontal" />
-                              </ItemsPanelTemplate>
-                            </ItemsControl.ItemsPanel>
-                          </ItemsControl>
+                            <!--  PEGI visual bucket.  -->
+                            <ItemsControl
+                              x:Name="PegiGroup"
+                              ItemsSource="{Binding DataContext.Game.AgeRatings, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                              ItemContainerStyle="{StaticResource AgeRatingPegiItemStyle}"
+                              ItemTemplate="{StaticResource AgeRatingIconTemplate}">
+                              <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                  <StackPanel Height="Auto" Orientation="Horizontal" />
+                                </ItemsPanelTemplate>
+                              </ItemsControl.ItemsPanel>
+                            </ItemsControl>
+                          </Border>
 
+                          <!--
+                            ESRB host margin behavior:
+                            - Keep 10px gap when Other group is visible.
+                            - Remove trailing gap when ESRB is the last visible group.
+                          -->
+                          <Border x:Name="EsrbGroupHost">
+                            <Border.Style>
+                              <Style TargetType="Border">
+                                <Setter Property="Margin" Value="0,0,10,0" />
+                                <Style.Triggers>
+                                  <DataTrigger Binding="{Binding ElementName=OtherGroup, Path=ActualWidth}" Value="0">
+                                    <Setter Property="Margin" Value="0" />
+                                  </DataTrigger>
+                                </Style.Triggers>
+                              </Style>
+                            </Border.Style>
+
+                            <!--  ESRB visual bucket.  -->
+                            <ItemsControl
+                              x:Name="EsrbGroup"
+                              ItemsSource="{Binding DataContext.Game.AgeRatings, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
+                              ItemContainerStyle="{StaticResource AgeRatingEsrbItemStyle}"
+                              ItemTemplate="{StaticResource AgeRatingIconTemplate}">
+                              <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                  <StackPanel Height="Auto" Orientation="Horizontal" />
+                                </ItemsPanelTemplate>
+                              </ItemsControl.ItemsPanel>
+                            </ItemsControl>
+                          </Border>
+
+                          <!--
+                            Fallback bucket for all non-PEGI/non-ESRB ratings.
+                            No explicit outer margin: this group should naturally align
+                            to the right edge when it is the only visible group.
+                          -->
                           <ItemsControl
+                            x:Name="OtherGroup"
                             ItemsSource="{Binding DataContext.Game.AgeRatings, RelativeSource={RelativeSource AncestorType=ItemsControl}}"
                             ItemContainerStyle="{StaticResource AgeRatingOtherItemStyle}"
                             ItemTemplate="{StaticResource AgeRatingIconTemplate}">
