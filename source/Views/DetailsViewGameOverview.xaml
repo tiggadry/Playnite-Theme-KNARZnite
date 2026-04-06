@@ -298,19 +298,19 @@
                       <Style x:Key="AgeRatingPegiItemStyle" TargetType="ContentPresenter">
                         <Setter Property="Visibility" Value="Collapsed" />
                         <Style.Triggers>
-                          <DataTrigger Binding="{Binding Name}" Value="PEGI 3">
+                          <DataTrigger Binding="{Binding Name}" Value="[PEGI] PEGI 3">
                             <Setter Property="Visibility" Value="Visible" />
                           </DataTrigger>
-                          <DataTrigger Binding="{Binding Name}" Value="PEGI 7">
+                          <DataTrigger Binding="{Binding Name}" Value="[PEGI] PEGI 7">
                             <Setter Property="Visibility" Value="Visible" />
                           </DataTrigger>
-                          <DataTrigger Binding="{Binding Name}" Value="PEGI 12">
+                          <DataTrigger Binding="{Binding Name}" Value="[PEGI] PEGI 12">
                             <Setter Property="Visibility" Value="Visible" />
                           </DataTrigger>
-                          <DataTrigger Binding="{Binding Name}" Value="PEGI 16">
+                          <DataTrigger Binding="{Binding Name}" Value="[PEGI] PEGI 16">
                             <Setter Property="Visibility" Value="Visible" />
                           </DataTrigger>
-                          <DataTrigger Binding="{Binding Name}" Value="PEGI 18">
+                          <DataTrigger Binding="{Binding Name}" Value="[PEGI] PEGI 18">
                             <Setter Property="Visibility" Value="Visible" />
                           </DataTrigger>
                         </Style.Triggers>
@@ -323,22 +323,22 @@
                       <Style x:Key="AgeRatingEsrbItemStyle" TargetType="ContentPresenter">
                         <Setter Property="Visibility" Value="Collapsed" />
                         <Style.Triggers>
-                          <DataTrigger Binding="{Binding Name}" Value="ESRB E">
+                          <DataTrigger Binding="{Binding Name}" Value="[ESRB] ESRB E">
                             <Setter Property="Visibility" Value="Visible" />
                           </DataTrigger>
-                          <DataTrigger Binding="{Binding Name}" Value="ESRB E 10">
+                          <DataTrigger Binding="{Binding Name}" Value="[ESRB] ESRB E 10">
                             <Setter Property="Visibility" Value="Visible" />
                           </DataTrigger>
-                          <DataTrigger Binding="{Binding Name}" Value="ESRB T">
+                          <DataTrigger Binding="{Binding Name}" Value="[ESRB] ESRB T">
                             <Setter Property="Visibility" Value="Visible" />
                           </DataTrigger>
-                          <DataTrigger Binding="{Binding Name}" Value="ESRB M">
+                          <DataTrigger Binding="{Binding Name}" Value="[ESRB] ESRB M">
                             <Setter Property="Visibility" Value="Visible" />
                           </DataTrigger>
-                          <DataTrigger Binding="{Binding Name}" Value="ESRB AO">
+                          <DataTrigger Binding="{Binding Name}" Value="[ESRB] ESRB AO">
                             <Setter Property="Visibility" Value="Visible" />
                           </DataTrigger>
-                          <DataTrigger Binding="{Binding Name}" Value="ESRB RP">
+                          <DataTrigger Binding="{Binding Name}" Value="[ESRB] ESRB RP">
                             <Setter Property="Visibility" Value="Visible" />
                           </DataTrigger>
                         </Style.Triggers>
@@ -352,37 +352,37 @@
                       <Style x:Key="AgeRatingOtherItemStyle" TargetType="ContentPresenter">
                         <Setter Property="Visibility" Value="Visible" />
                         <Style.Triggers>
-                          <DataTrigger Binding="{Binding Name}" Value="PEGI 3">
+                          <DataTrigger Binding="{Binding Name}" Value="[PEGI] PEGI 3">
                             <Setter Property="Visibility" Value="Collapsed" />
                           </DataTrigger>
-                          <DataTrigger Binding="{Binding Name}" Value="PEGI 7">
+                          <DataTrigger Binding="{Binding Name}" Value="[PEGI] PEGI 7">
                             <Setter Property="Visibility" Value="Collapsed" />
                           </DataTrigger>
-                          <DataTrigger Binding="{Binding Name}" Value="PEGI 12">
+                          <DataTrigger Binding="{Binding Name}" Value="[PEGI] PEGI 12">
                             <Setter Property="Visibility" Value="Collapsed" />
                           </DataTrigger>
-                          <DataTrigger Binding="{Binding Name}" Value="PEGI 16">
+                          <DataTrigger Binding="{Binding Name}" Value="[PEGI] PEGI 16">
                             <Setter Property="Visibility" Value="Collapsed" />
                           </DataTrigger>
-                          <DataTrigger Binding="{Binding Name}" Value="PEGI 18">
+                          <DataTrigger Binding="{Binding Name}" Value="[PEGI] PEGI 18">
                             <Setter Property="Visibility" Value="Collapsed" />
                           </DataTrigger>
-                          <DataTrigger Binding="{Binding Name}" Value="ESRB E">
+                          <DataTrigger Binding="{Binding Name}" Value="[ESRB] ESRB E">
                             <Setter Property="Visibility" Value="Collapsed" />
                           </DataTrigger>
-                          <DataTrigger Binding="{Binding Name}" Value="ESRB E 10">
+                          <DataTrigger Binding="{Binding Name}" Value="[ESRB] ESRB E 10">
                             <Setter Property="Visibility" Value="Collapsed" />
                           </DataTrigger>
-                          <DataTrigger Binding="{Binding Name}" Value="ESRB T">
+                          <DataTrigger Binding="{Binding Name}" Value="[ESRB] ESRB T">
                             <Setter Property="Visibility" Value="Collapsed" />
                           </DataTrigger>
-                          <DataTrigger Binding="{Binding Name}" Value="ESRB M">
+                          <DataTrigger Binding="{Binding Name}" Value="[ESRB] ESRB M">
                             <Setter Property="Visibility" Value="Collapsed" />
                           </DataTrigger>
-                          <DataTrigger Binding="{Binding Name}" Value="ESRB AO">
+                          <DataTrigger Binding="{Binding Name}" Value="[ESRB] ESRB AO">
                             <Setter Property="Visibility" Value="Collapsed" />
                           </DataTrigger>
-                          <DataTrigger Binding="{Binding Name}" Value="ESRB RP">
+                          <DataTrigger Binding="{Binding Name}" Value="[ESRB] ESRB RP">
                             <Setter Property="Visibility" Value="Collapsed" />
                           </DataTrigger>
                         </Style.Triggers>
