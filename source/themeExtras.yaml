@@ -1,10 +1,11 @@
 ThemeId: KNARZnitino_14e86fdd-fe82-428f-857e-cec2563e0c98
 PersistentPaths:
-- Images/AgeRating
-- Images/Banners
-- Images/Icons
+  - Images/AgeRatings
+  - Images/Banners
+  - Images/Icons
 BannersBySpecIdPath: Images/Banners/PlatformSpecId
 BannersByPlatformNamePath: Images/Banners/PlatformName
 BannersByPluginIdPath: Images/Banners/PluginId
+BannersBySourceNamePath: Images/Banners/SourceName
 DefaultBannerPath: Images/Banners/UnknownLibrary.png
 BannerDecodeHeight: 75
