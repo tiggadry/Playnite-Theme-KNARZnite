@@ -681,7 +681,7 @@
                         x:Name="CheckDlc_PluginButton"
                         Style="{DynamicResource ActionControl}"
                         Visibility="{PluginSettings Plugin=CheckDlc,
-                                                    Path=EnableIntegrationButton,
+                                                    Path=HasData,
                                                     FallbackValue=Collapsed,
                                                     Converter={StaticResource BooleanToVisibilityConverter}}" />
                       <ContentControl
