@@ -801,7 +801,7 @@
                   Tag="{DynamicResource DisableDetailsSection}">
                   <StackPanel
                     DockPanel.Dock="Left"
-                    Width="420"
+                    Width="{Settings PropertiesPanelWith}"
                     Margin="0,0,10,0">
                     <StackPanel.Resources>
                       <Style TargetType="ItemsControl">
