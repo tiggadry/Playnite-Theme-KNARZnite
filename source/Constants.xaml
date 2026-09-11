@@ -69,14 +69,20 @@
   <!--  #FF262626  -->
   <Color x:Key="MainColorDarker">#FF000000</Color>
   <!--  #FF121212  -->
-  <Color x:Key="HoverColor">#FF003D48</Color>
+  <Color x:Key="HoverColor">#FF023F50</Color>
+  <!--  #FF003D48  -->
   <Color x:Key="FavoriteStarColor">#FFFFFF00</Color>
   <!--  FavoriteStar Icon is Yellow  -->
-  <Color x:Key="GlyphColor">#FF3797A2</Color>
+  <Color x:Key="GlyphColor">#FF3999A4</Color>
+  <!--  #FF3797A2  -->
   <!--  Accent color available for DuplicateHider selected-source emphasis in icon styles.  -->
-  <Color x:Key="HighlightGlyphColor">#FF6CC9D1</Color>
-  <Color x:Key="PopupBackgroundColor">#FF191919</Color>
-  <Color x:Key="PopupBorderColor">#FF121212</Color>
+  <Color x:Key="HighlightGlyphColor">#FF6ED1D3</Color>
+  <!--  #FF6CC9D1  -->
+  <Color x:Key="PopupBackgroundColor">#FF161616</Color>
+  <!--  #FF191919  -->
+  <Color x:Key="PopupBorderColor">#FF101010</Color>
+  <!--  #FF121212  -->
+  <Color x:Key="BackgroundToneColor">#FF3999A4</Color>
   <Color x:Key="GridItemBackgroundColor">#FF1F1F1F</Color>
   <Color x:Key="PanelSeparatorColor">#FF000000</Color>
   <!--  #FF1F1F1F  -->
