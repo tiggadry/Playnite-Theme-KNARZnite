@@ -242,8 +242,11 @@ orleans.codegen.cs
 
 # dotnet tools config
 dotnet.tools.json
-# .github (ignore GitHub config folder)
+# .github (ignore GitHub config folder except repository Copilot guidance)
 .github/
+!.github/
+.github/*
+!.github/copilot-instructions.md
 # memory-bank (memoriPilot extension helper folder)
 memory-bank/
 # Including strong name files can present a security risk
