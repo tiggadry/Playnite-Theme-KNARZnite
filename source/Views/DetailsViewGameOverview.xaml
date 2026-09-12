@@ -37,6 +37,13 @@
                                                    FallbackValue={x:Null}}"
                       Header="BackgroundChanger" />
                     <MenuItem
+                      Visibility="{PluginStatus Plugin=playnite-screenshotsvisualizer-plugin,
+                                                Path=IsInstalled}"
+                      ItemsSource="{PluginSettings Plugin=ThemeExtras,
+                                                   Path=Menus.ScreenshotsVisualizerGameMenuItems,
+                                                   FallbackValue={x:Null}}"
+                      Header="ScreenshotsVisualizer" />
+                    <MenuItem
                       Visibility="{PluginStatus Plugin=UniPlaySong.a1b2c3d4-e5f6-7890-abcd-ef1234567890,
                                                 Path=IsInstalled}"
                       ItemsSource="{PluginSettings Plugin=ThemeExtras,
@@ -50,13 +57,6 @@
                                                    Path=Menus.UniPlaySongGameMenuItems,
                                                    FallbackValue={x:Null}}"
                       Header="UniPlaySong (Legacy)" />
-                    <MenuItem
-                      Visibility="{PluginStatus Plugin=playnite-screenshotsvisualizer-plugin,
-                                                Path=IsInstalled}"
-                      ItemsSource="{PluginSettings Plugin=ThemeExtras,
-                                                   Path=Menus.ScreenshotsVisualizerGameMenuItems,
-                                                   FallbackValue={x:Null}}"
-                      Header="ScreenshotsVisualizer" />
                     <Separator />
                     <MenuItem Command="{PluginSettings Plugin=ThemeExtras, Path=Commands.OpenGameAssetFolderCommand, FallbackValue={x:Null}}" Header="Open Metadata Folder" />
                     <MenuItem
@@ -67,22 +67,6 @@
                                                FallbackValue={x:Null}}"
                       CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType=DetailsViewGameOverview}}"
                       Header="Open Extra Metadata Folder" />
-                    <MenuItem
-                      Visibility="{PluginStatus Plugin=UniPlaySong.a1b2c3d4-e5f6-7890-abcd-ef1234567890,
-                                                Path=IsInstalled}"
-                      Command="{PluginSettings Plugin=ThemeExtras,
-                                               Path=Commands.OpenMusicFolderCommand,
-                                               FallbackValue={x:Null}}"
-                      CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType=DetailsViewGameOverview}}"
-                      Header="Open Music Folder" />
-                    <MenuItem
-                      Visibility="{PluginStatus Plugin=UniPlaySong_old,
-                                                Path=IsInstalled}"
-                      Command="{PluginSettings Plugin=ThemeExtras,
-                                               Path=Commands.OpenMusicFolderCommand,
-                                               FallbackValue={x:Null}}"
-                      CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType=DetailsViewGameOverview}}"
-                      Header="Open Music Folder" />
                     <MenuItem
                       Visibility="{PluginStatus Plugin=playnite-backgroundchanger-plugin,
                                                 Path=IsInstalled}"
@@ -99,6 +83,22 @@
                                                FallbackValue={x:Null}}"
                       CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType=DetailsViewGameOverview}}"
                       Header="Open Screenshots Folders" />
+                    <MenuItem
+                      Visibility="{PluginStatus Plugin=UniPlaySong.a1b2c3d4-e5f6-7890-abcd-ef1234567890,
+                                                Path=IsInstalled}"
+                      Command="{PluginSettings Plugin=ThemeExtras,
+                                               Path=Commands.OpenMusicFolderCommand,
+                                               FallbackValue={x:Null}}"
+                      CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType=DetailsViewGameOverview}}"
+                      Header="Open Music Folder" />
+                    <MenuItem
+                      Visibility="{PluginStatus Plugin=UniPlaySong_old,
+                                                Path=IsInstalled}"
+                      Command="{PluginSettings Plugin=ThemeExtras,
+                                               Path=Commands.OpenMusicFolderCommand,
+                                               FallbackValue={x:Null}}"
+                      CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType=DetailsViewGameOverview}}"
+                      Header="Open Music Folder" />
                     <Separator />
                     <MenuItem
                       Command="{PluginSettings Plugin=ThemeExtras,
