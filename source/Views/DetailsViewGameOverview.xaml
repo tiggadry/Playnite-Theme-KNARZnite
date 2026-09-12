@@ -962,8 +962,7 @@
                       </Label>
                       <TextBlock
                         Grid.Row="1" Grid.Column="1"
-                        TextWrapping="Wrap"
-                        Name="PART_TextPlayTime" />
+                        Name="PART_TextPlayTime" TextWrapping="Wrap" />
 
                       <Label Grid.Row="2" Name="PART_ElemLastPlayed">
                         <StackPanel Orientation="Horizontal">
@@ -973,8 +972,7 @@
                       </Label>
                       <TextBlock
                         Grid.Row="2" Grid.Column="1"
-                        TextWrapping="Wrap"
-                        Name="PART_TextLastActivity" />
+                        Name="PART_TextLastActivity" TextWrapping="Wrap" />
 
                       <Label Grid.Row="3" Name="PART_ElemRecentActivity">
                         <StackPanel Orientation="Horizontal">
@@ -984,8 +982,7 @@
                       </Label>
                       <TextBlock
                         Grid.Row="3" Grid.Column="1"
-                        TextWrapping="Wrap"
-                        Name="PART_TextRecentActivity" />
+                        Name="PART_TextRecentActivity" TextWrapping="Wrap" />
 
                       <Label Grid.Row="4" Name="PART_ElemAdded">
                         <StackPanel Orientation="Horizontal">
@@ -995,8 +992,7 @@
                       </Label>
                       <TextBlock
                         Grid.Row="4" Grid.Column="1"
-                        TextWrapping="Wrap"
-                        Name="PART_TextAdded" />
+                        Name="PART_TextAdded" TextWrapping="Wrap" />
 
                       <Label Grid.Row="5" Name="PART_ElemReleaseDate">
                         <StackPanel Orientation="Horizontal">
@@ -1095,8 +1091,7 @@
                       </Label>
                       <TextBlock
                         Grid.Row="16" Grid.Column="1"
-                        TextWrapping="Wrap"
-                        Name="PART_TextInstallSize" />
+                        Name="PART_TextInstallSize" TextWrapping="Wrap" />
 
                       <ContentControl
                         x:Name="MetadataUtilities_RegionPrefixItemControl"
