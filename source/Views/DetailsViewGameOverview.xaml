@@ -220,6 +220,7 @@
                 <ContentControl
                   x:Name="BackgroundChanger_PluginBackgroundImage"
                   HorizontalAlignment="Center" VerticalAlignment="Top"
+                  OpacityMask="{Binding ImageOpacityMask, ElementName=ImageBackgroundChanger}"
                   Visibility="Collapsed" />
               </Grid>
 
