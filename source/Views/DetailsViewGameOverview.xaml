@@ -1356,7 +1356,11 @@
                         <ContentControl
                           x:Name="ScreenshotsVisualizer_PluginListScreenshotsVertical"
                           Height="500"
-                          Margin="0,0,0,15" />
+                          Margin="0,0,0,15"
+                          Visibility="{PluginSettings Plugin=ScreenshotsVisualizer,
+                                                      Path=EnableIntegrationShowPicturesVertical,
+                                                      FallbackValue=Collapsed,
+                                                      Converter={StaticResource BooleanToVisibilityConverter}}" />
                         <ContentControl x:Name="ScreenshotsVisualizer_PluginListScreenshots" Margin="0,0,0,15" />
                         <ContentControl x:Name="ScreenshotsVisualizer_PluginSinglePicture" Margin="0,0,0,0" />
                       </StackPanel>
