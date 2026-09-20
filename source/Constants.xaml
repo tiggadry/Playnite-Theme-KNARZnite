@@ -6,7 +6,7 @@
   <!--  Feature and View Settings  -->
   <sys:Boolean x:Key="DetailsViewCoverDisplayLibraryBanner">True</sys:Boolean>
   <sys:Boolean x:Key="DetailsViewAllowUseOfLogos">True</sys:Boolean>
-  <sys:Boolean x:Key="DetailsViewHideGameNameIfLogoVisible">True</sys:Boolean>
+  <sys:Boolean x:Key="DetailsViewHideGameNameIfLogoVisible">False</sys:Boolean>
   <sys:Boolean x:Key="GridViewLibraryGameShowFavorite">True</sys:Boolean>
   <sys:Boolean x:Key="GridViewCoverZoomOnHover">False</sys:Boolean>
   <sys:Boolean x:Key="GridViewEnableCoverShineAnimation">False</sys:Boolean>
