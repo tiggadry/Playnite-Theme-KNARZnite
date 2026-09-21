@@ -44,6 +44,13 @@
                                                    FallbackValue={x:Null}}"
                       Header="ScreenshotsVisualizer" />
                     <MenuItem
+                      Visibility="{PluginStatus Plugin=ScreenshotUtilities_485d682f-73e9-4d54-b16f-b8dd49e88f90,
+                                                Path=IsInstalled}"
+                      ItemsSource="{PluginSettings Plugin=ThemeExtras,
+                                                   Path=Menus.ScreenshotUtilitiesGameMenuItems,
+                                                   FallbackValue={x:Null}}"
+                      Header="ScreenshotUtilities" />
+                    <MenuItem
                       Visibility="{PluginStatus Plugin=UniPlaySong.a1b2c3d4-e5f6-7890-abcd-ef1234567890,
                                                 Path=IsInstalled}"
                       ItemsSource="{PluginSettings Plugin=ThemeExtras,
