@@ -90,6 +90,27 @@
                       CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType=DetailsViewGameOverview}}"
                       Header="Open BackgroundChanger Folder" />
                     <MenuItem
+                      Visibility="{PluginStatus Plugin=ImageRotater.72b7d457-0621-429b-8368-665bc53ff896,
+                                                Path=IsInstalled}"
+                      Command="{PluginSettings Plugin=ThemeExtras,
+                                               Path=Commands.OpenImageRotaterFoldersCommand,
+                                               FallbackValue={x:Null}}"
+                      CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType=DetailsViewGameOverview}}"
+                      Header="Open ImageRotater Folders">
+                      <MenuItem
+                        Command="{PluginSettings Plugin=ThemeExtras,
+                                                 Path=Commands.OpenImageRotaterBackgroundsFolderCommand,
+                                                 FallbackValue={x:Null}}"
+                        CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType=DetailsViewGameOverview}}"
+                        Header="Backgrounds" />
+                      <MenuItem
+                        Command="{PluginSettings Plugin=ThemeExtras,
+                                                 Path=Commands.OpenImageRotaterCoversFolderCommand,
+                                                 FallbackValue={x:Null}}"
+                        CommandParameter="{Binding DataContext, RelativeSource={RelativeSource AncestorType=DetailsViewGameOverview}}"
+                        Header="Covers" />
+                    </MenuItem>
+                    <MenuItem
                       Visibility="{PluginStatus Plugin=playnite-screenshotsvisualizer-plugin,
                                                 Path=IsInstalled}"
                       Command="{PluginSettings Plugin=ThemeExtras,
