@@ -132,71 +132,40 @@
                   </ContextMenu>
                 </Grid.ContextMenu>
 
-                <Grid
-                  x:Name="BackgroundImageGrid"
+                <!--
+                  Keep the native game background and plugin-rendered backgrounds in one masked surface.
+                  The native image is hidden while BackgroundChanger supplies its own background, avoiding
+                  the original artwork showing through the ImageRotater or BackgroundChanger layer.
+                -->
+                <Border
+                  x:Name="OuterBorderImage"
                   HorizontalAlignment="Center" VerticalAlignment="Top">
-                  <Grid.Style>
-                    <Style TargetType="Grid">
-                      <Style.Triggers>
-                        <DataTrigger Binding="{Binding ElementName=BackgroundChanger, Path=Visibility}" Value="Visible">
-                          <Setter Property="Visibility" Value="Collapsed" />
-                        </DataTrigger>
-                        <DataTrigger Binding="{PluginSettings Plugin=BackgroundChanger, Path=EnableBackgroundImage, FallbackValue=False}" Value="False">
-                          <Setter Property="Visibility" Value="Visible" />
-                        </DataTrigger>
-                      </Style.Triggers>
-                    </Style>
-                  </Grid.Style>
-                  <FadeImage
-                    x:Name="PART_ImageBackground"
-                    HorizontalAlignment="Center" VerticalAlignment="Top"
-                    Stretch="Uniform">
-                    <FadeImage.ImageOpacityMask>
-                      <RadialGradientBrush Center="0.5,0" GradientOrigin="0.5,0" RadiusX="2" RadiusY="0.9">
-                        <RadialGradientBrush.GradientStops>
-                          <GradientStop Color="Black" Offset="0.3" />
-                          <GradientStop Color="Transparent" Offset="1" />
-                        </RadialGradientBrush.GradientStops>
-                      </RadialGradientBrush>
-                    </FadeImage.ImageOpacityMask>
-                  </FadeImage>
-                </Grid>
-
-                <Grid
-                  x:Name="BackgroundChanger"
-                  HorizontalAlignment="Center" VerticalAlignment="Top">
-                  <Grid.Style>
-                    <Style TargetType="Grid">
-                      <Style.Triggers>
-                        <DataTrigger Binding="{PluginSettings Plugin=BackgroundChanger, Path=EnableBackgroundImage, FallbackValue=False}" Value="False">
-                          <Setter Property="Visibility" Value="Collapsed" />
-                        </DataTrigger>
-                        <DataTrigger Binding="{PluginSettings Plugin=BackgroundChanger, Path=HasDataBackground, FallbackValue=False}" Value="False">
-                          <Setter Property="Visibility" Value="Collapsed" />
-                        </DataTrigger>
-                      </Style.Triggers>
-                    </Style>
-                  </Grid.Style>
-                  <FadeImage
-                    x:Name="ImageBackgroundChanger"
-                    HorizontalAlignment="Center" VerticalAlignment="Top"
-                    Stretch="Uniform">
-                    <FadeImage.Source>
-                      <PriorityBinding>
-                        <Binding ElementName="BackgroundChanger_PluginBackgroundImage" Path="Content.Source" />
-                        <Binding ElementName="PART_ImageBackground" Path="Source" />
-                      </PriorityBinding>
-                    </FadeImage.Source>
-                    <FadeImage.ImageOpacityMask>
-                      <RadialGradientBrush Center="0.5,0" GradientOrigin="0.5,0" RadiusX="2" RadiusY="0.9">
-                        <RadialGradientBrush.GradientStops>
-                          <GradientStop Color="Black" Offset="0.3" />
-                          <GradientStop Color="Transparent" Offset="1" />
-                        </RadialGradientBrush.GradientStops>
-                      </RadialGradientBrush>
-                    </FadeImage.ImageOpacityMask>
-                  </FadeImage>
-                </Grid>
+                  <Border.OpacityMask>
+                    <RadialGradientBrush Center="0.5,0" GradientOrigin="0.5,0" RadiusX="2" RadiusY="0.9">
+                      <RadialGradientBrush.GradientStops>
+                        <GradientStop Color="Black" Offset="0.3" />
+                        <GradientStop Color="Transparent" Offset="1" />
+                      </RadialGradientBrush.GradientStops>
+                    </RadialGradientBrush>
+                  </Border.OpacityMask>
+                  <Grid>
+                    <Image
+                      x:Name="PART_ImageBackground"
+                      Source="{Binding Game.DisplayBackgroundImage, Converter={StaticResource ImageStringToImageConverter}}"
+                      HorizontalAlignment="Center" VerticalAlignment="Center"
+                      Stretch="UniformToFill" StretchDirection="Both"
+                      Visibility="{Binding IsVisible, ElementName=BackgroundChanger_PluginBackgroundImage, Converter={StaticResource InvertedBooleanToVisibilityConverter}}" />
+                    <ContentControl
+                      x:Name="ImageRotater_Background"
+                      HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                      HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
+                      Focusable="False" IsTabStop="False" />
+                    <ContentControl
+                      x:Name="BackgroundChanger_PluginBackgroundImage"
+                      HorizontalAlignment="Center" VerticalAlignment="Top"
+                      Visibility="{PluginSettings Plugin=BackgroundChanger, Path=HasDataBackground, FallbackValue={x:Static Visibility.Collapsed}}" />
+                  </Grid>
+                </Border>
 
                 <!--  #Source Icon Visible  -->
                 <!--
@@ -224,11 +193,6 @@
                     <ContentControl x:Name="DuplicateHider_SourceSelector1" Effect="{DynamicResource DuplicateHiderSourceIconEffect}" />
                   </Border>
                 </Grid>
-                <ContentControl
-                  x:Name="BackgroundChanger_PluginBackgroundImage"
-                  HorizontalAlignment="Center" VerticalAlignment="Top"
-                  OpacityMask="{Binding ImageOpacityMask, ElementName=ImageBackgroundChanger}"
-                  Visibility="Collapsed" />
               </Grid>
 
               <Grid Margin="20,0,20,0" HorizontalAlignment="Stretch">
@@ -553,6 +517,10 @@
                       Visibility="{Binding Tag, RelativeSource={RelativeSource Self}, Converter={StaticResource BooleanToVisibilityConverter}}"
                       Tag="{DynamicResource DetailsViewCoverDisplayLibraryBanner}"
                       RenderOptions.BitmapScalingMode="Fant" />
+                    <!--
+                      The native cover remains the fallback; these named hosts let BackgroundChanger and
+                      ImageRotater supply their own cover without replacing the theme's cover surface.
+                    -->
                     <Grid x:Name="CoverGrid" DockPanel.Dock="Top">
                       <Image
                         Height="{Settings GameDetailsCoverHeight}"
@@ -562,11 +530,15 @@
                       <ContentControl
                         x:Name="BackgroundChanger_PluginCoverImage"
                         Height="{Settings GameDetailsCoverHeight}"
-                        VerticalAlignment="Bottom"
                         Visibility="{PluginSettings Plugin=BackgroundChanger,
                                                     Path=HasDataCover,
                                                     FallbackValue={x:Static Visibility.Collapsed},
                                                     Converter={StaticResource BooleanToVisibilityConverter}}"
+                        RenderOptions.BitmapScalingMode="Fant" />
+                      <ContentControl
+                        x:Name="ImageRotater_Cover"
+                        Height="{Settings GameDetailsCoverHeight}"
+                        Tag="ImageRotater:Stretch=Uniform;StretchDirection=Both"
                         RenderOptions.BitmapScalingMode="Fant" />
                     </Grid>
                   </DockPanel>

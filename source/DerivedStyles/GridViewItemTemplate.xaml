@@ -61,6 +61,12 @@
                     Name="PART_ImageCover" RenderOptions.BitmapScalingMode="Fant"
                     Stretch="{Settings CoverArtStretch}"
                     StretchDirection="Both" />
+                  <!-- ImageRotater discovers this host by name and overlays animated or selected covers here. -->
+                  <ContentControl
+                    x:Name="ImageRotater_Cover"
+                    Height="{Settings GridItemHeight}"
+                    RenderOptions.BitmapScalingMode="Fant"
+                    HorizontalAlignment="Center" VerticalAlignment="Top" />
                   <!--  Shine animation overlay  -->
                   <Border
                     x:Name="CoverShineOverlay"
