@@ -37,6 +37,13 @@
                                                    FallbackValue={x:Null}}"
                       Header="BackgroundChanger" />
                     <MenuItem
+                      Visibility="{PluginStatus Plugin=ImageRotater.72b7d457-0621-429b-8368-665bc53ff896,
+                                                Path=IsInstalled}"
+                      ItemsSource="{PluginSettings Plugin=ThemeExtras,
+                                                   Path=Menus.ImageRotaterGameMenuItems,
+                                                   FallbackValue={x:Null}}"
+                      Header="ImageRotater" />
+                    <MenuItem
                       Visibility="{PluginStatus Plugin=playnite-screenshotsvisualizer-plugin,
                                                 Path=IsInstalled}"
                       ItemsSource="{PluginSettings Plugin=ThemeExtras,
