@@ -2,11 +2,9 @@ ThemeApiVersion: 2.10.0
 Id: KNARZnitino_14e86fdd-fe82-428f-857e-cec2563e0c98
 Name: KNARZnitino
 Author: TiggAdry
-Version: 2.10.1
+Version: 2.11.0
 Links:
   - Name: GitHub Fork
     Url: https://github.com/TiggAdry/Playnite-Theme-KNARZnite
   - Name: Issues Tracker (Fork)
     Url: https://github.com/TiggAdry/Playnite-Theme-KNARZnite/issues
-  - Name: Support (Discord)
-    Url: https://discord.com/channels/365863063296933888/808419347105447957
