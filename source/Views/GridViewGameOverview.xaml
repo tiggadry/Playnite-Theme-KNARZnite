@@ -21,8 +21,7 @@
               <Grid
                 x:Name="TopGrid"
                 MinHeight="300"
-                VerticalAlignment="Top"
-                HorizontalAlignment="Stretch">
+                HorizontalAlignment="Stretch" VerticalAlignment="Top">
                 <Grid.ContextMenu>
                   <ContextMenu Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin, Path=IsInstalled}" IsOpen="{PluginSettings Plugin=ThemeExtras, Path=Menus.IsOpen, Mode=OneWayToSource, FallbackValue={StaticResource False}}">
                     <MenuItem
@@ -71,9 +70,9 @@
                     <ContentControl
                       x:Name="ImageRotater_Background"
                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                      Visibility="{Binding BackgroundVisibility}"
                       Focusable="False" HorizontalContentAlignment="Stretch"
-                      IsTabStop="False" VerticalContentAlignment="Stretch"
-                      Visibility="{Binding BackgroundVisibility}" />
+                      IsTabStop="False" VerticalContentAlignment="Stretch" />
                     <ContentControl
                       x:Name="BackgroundChanger_PluginBackgroundImage"
                       HorizontalAlignment="Center" VerticalAlignment="Top"
@@ -1176,6 +1175,17 @@
                           Margin="0,0,0,5"
                           FontWeight="Normal" />
                       </StackPanel>
+                    </TabItem>
+                    <!--#endregion-->
+                    <!--#region VNDB-->
+                    <TabItem Visibility="{PluginSettings Plugin=VNDBNexus, Path=IsControlVisible, FallbackValue=Collapsed, Converter={StaticResource BooleanToVisibilityConverter}}">
+                      <TabItem.Header>
+                        <TextBlock Style="{DynamicResource DetailsViewTabHeaderStyle}" Text="VNDB" />
+                      </TabItem.Header>
+                      <ContentControl
+                        x:Name="VNDBNexus_VndbVisualNovelViewControl"
+                        Margin="0,16,0,0"
+                        FontWeight="Normal" />
                     </TabItem>
                     <!--#endregion-->
                     <!--#region NewsViewer-->
