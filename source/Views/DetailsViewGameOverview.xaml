@@ -505,16 +505,85 @@
                       <Style TargetType="Border">
                         <Setter Property="Visibility" Value="Visible" />
                         <Style.Triggers>
-                          <DataTrigger Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=EnableLogos, FallbackValue=False}" Value="false">
+                          <MultiDataTrigger>
+                            <MultiDataTrigger.Conditions>
+                              <Condition Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=EnableLogos, FallbackValue=False}" Value="False" />
+                              <Condition Binding="{PluginSettings Plugin=ImageRotater, Path=HasDataLogo, FallbackValue=False}" Value="False" />
+                            </MultiDataTrigger.Conditions>
                             <Setter Property="Visibility" Value="Collapsed" />
-                          </DataTrigger>
+                          </MultiDataTrigger>
                           <DataTrigger Binding="{Binding Tag, RelativeSource={RelativeSource Self}, FallbackValue=False}" Value="false">
                             <Setter Property="Visibility" Value="Collapsed" />
                           </DataTrigger>
                         </Style.Triggers>
                       </Style>
                     </Border.Style>
-                    <ContentControl x:Name="ExtraMetadataLoader_LogoLoaderControl" Margin="0,0,0,70" />
+                    <Grid
+                      x:Name="LogoGrid"
+                      Margin="0,30,0,70"
+                      Height="{PluginSettings Plugin=ExtraMetadataLoader,
+                                              Path=LogoMaxHeight,
+                                              FallbackValue=200}"
+                      Width="{PluginSettings Plugin=ExtraMetadataLoader,
+                                             Path=LogoMaxWidth,
+                                             FallbackValue=600}"
+                      VerticalAlignment="{PluginSettings Plugin=ExtraMetadataLoader,
+                                                          Path=LogoVerticalAlignment,
+                                                          FallbackValue=Center}"
+                      HorizontalAlignment="{PluginSettings Plugin=ExtraMetadataLoader,
+                                                            Path=LogoHorizontalAlignment,
+                                                            FallbackValue=Center}">
+                      <ContentControl
+                        x:Name="ImageRotater_Logo"
+                        MaxHeight="{PluginSettings Plugin=ExtraMetadataLoader,
+                                                   Path=LogoMaxHeight,
+                                                   FallbackValue=200}"
+                        MaxWidth="{PluginSettings Plugin=ExtraMetadataLoader,
+                                                  Path=LogoMaxWidth,
+                                                  FallbackValue=600}"
+                        VerticalAlignment="{PluginSettings Plugin=ExtraMetadataLoader,
+                                                            Path=LogoVerticalAlignment,
+                                                            FallbackValue=Center}"
+                        HorizontalAlignment="{PluginSettings Plugin=ExtraMetadataLoader,
+                                                              Path=LogoHorizontalAlignment,
+                                                              FallbackValue=Center}">
+                        <ContentControl.Style>
+                          <Style TargetType="ContentControl">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                            <Style.Triggers>
+                              <DataTrigger Binding="{PluginSettings Plugin=ImageRotater, Path=HasDataLogo, FallbackValue=False}" Value="True">
+                                <Setter Property="Visibility" Value="Visible" />
+                              </DataTrigger>
+                            </Style.Triggers>
+                          </Style>
+                        </ContentControl.Style>
+                      </ContentControl>
+                      <ContentControl
+                        x:Name="ExtraMetadataLoader_LogoLoaderControl"
+                        MaxHeight="{PluginSettings Plugin=ExtraMetadataLoader,
+                                                   Path=LogoMaxHeight,
+                                                   FallbackValue=200}"
+                        MaxWidth="{PluginSettings Plugin=ExtraMetadataLoader,
+                                                  Path=LogoMaxWidth,
+                                                  FallbackValue=600}"
+                        VerticalAlignment="{PluginSettings Plugin=ExtraMetadataLoader,
+                                                            Path=LogoVerticalAlignment,
+                                                            FallbackValue=Center}"
+                        HorizontalAlignment="{PluginSettings Plugin=ExtraMetadataLoader,
+                                                              Path=LogoHorizontalAlignment,
+                                                              FallbackValue=Center}">
+                        <ContentControl.Style>
+                          <Style TargetType="ContentControl">
+                            <Setter Property="Visibility" Value="Visible" />
+                            <Style.Triggers>
+                              <DataTrigger Binding="{PluginSettings Plugin=ImageRotater, Path=HasDataLogo, FallbackValue=False}" Value="True">
+                                <Setter Property="Visibility" Value="Collapsed" />
+                              </DataTrigger>
+                            </Style.Triggers>
+                          </Style>
+                        </ContentControl.Style>
+                      </ContentControl>
+                    </Grid>
                   </Border>
 
                   <DockPanel
@@ -1864,6 +1933,17 @@
               </MultiDataTrigger.Conditions>
               <Setter Property="Visibility" TargetName="TitleIconPanel" Value="Collapsed" />
               <Setter Property="Margin" TargetName="ExtraMetadataLoader_LogoLoaderControl" Value="0" />
+              <Setter Property="Margin" TargetName="LogoGrid" Value="0,40,0,0" />
+            </MultiDataTrigger>
+            <MultiDataTrigger>
+              <MultiDataTrigger.Conditions>
+                <Condition Binding="{Binding Tag, ElementName=PART_TextDisplayName}" Value="{StaticResource True}" />
+                <Condition Binding="{Binding ElementName=ImageRotater_Logo, Path=Visibility, FallbackValue=Collapsed}" Value="Visible" />
+                <Condition Binding="{PluginSettings Plugin=ImageRotater, Path=HasDataLogo, FallbackValue=False}" Value="True" />
+              </MultiDataTrigger.Conditions>
+              <Setter Property="Visibility" TargetName="TitleIconPanel" Value="Collapsed" />
+              <Setter Property="Margin" TargetName="ExtraMetadataLoader_LogoLoaderControl" Value="0" />
+              <Setter Property="Margin" TargetName="LogoGrid" Value="0,30,0,0" />
             </MultiDataTrigger>
             <DataTrigger Binding="{Binding Tag, ElementName=ButtonBar}" Value="{StaticResource False}">
               <Setter Property="Background" TargetName="LinkBar" Value="Transparent" />
