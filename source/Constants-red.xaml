@@ -7,6 +7,7 @@
   <sys:Boolean x:Key="DetailsViewCoverDisplayLibraryBanner">True</sys:Boolean>
   <sys:Boolean x:Key="DetailsViewAllowUseOfLogos">True</sys:Boolean>
   <sys:Boolean x:Key="DetailsViewHideGameNameIfLogoVisible">False</sys:Boolean>
+  <sys:Boolean x:Key="DetailsViewHideGameIconIfLogoVisible">False</sys:Boolean>
   <sys:Boolean x:Key="DetailsViewHideIconInTabHeader">False</sys:Boolean>
   <sys:Boolean x:Key="DetailsViewHideTextInTabHeader">False</sys:Boolean>
   <sys:Boolean x:Key="GridViewLibraryGameShowFavorite">True</sys:Boolean>
@@ -37,6 +38,7 @@
 
   <!--  Dimensions  -->
   <sys:Double x:Key="DetailsViewDetailsMaxWidth">1024</sys:Double>
+  <sys:Double x:Key="DetailsViewGameIconSize">48</sys:Double>
   <sys:Double x:Key="WebExplorerControlHeight">800</sys:Double>
 
   <!--  Typography  -->

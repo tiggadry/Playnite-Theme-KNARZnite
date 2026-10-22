@@ -116,11 +116,13 @@
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="1" MaxWidth="{DynamicResource DetailsViewDetailsMaxWidth}">
                   <!--#region Logo & Cover Image-->
+                  <!--
+                    TitleLogoRow keeps the icon/name panel and the logo in one bottom-aligned row,
+                    where both are vertically centered on each other.
+                  -->
+                  <Grid x:Name="TitleLogoRow" VerticalAlignment="Bottom">
                   <Border
                     x:Name="ExtraMetadataLoader_LogoLoaderControlGrid"
-                    MinHeight="{PluginSettings Plugin=ExtraMetadataLoader,
-                                               Path=LogoMaxHeight,
-                                               FallbackValue=0}"
                     HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                     Tag="{DynamicResource DetailsViewAllowUseOfLogos}">
                     <Border.Style>
@@ -140,96 +142,115 @@
                         </Style.Triggers>
                       </Style>
                     </Border.Style>
-                    <Grid
-                      x:Name="LogoGrid"
-                      Width="{PluginSettings Plugin=ExtraMetadataLoader,
-                                             Path=LogoMaxWidth,
-                                             FallbackValue=600}"
-                      Height="{PluginSettings Plugin=ExtraMetadataLoader,
-                                              Path=LogoMaxHeight,
-                                              FallbackValue=200}"
-                      Margin="0,30,0,70"
-                      HorizontalAlignment="{PluginSettings Plugin=ExtraMetadataLoader,
-                                                           Path=LogoHorizontalAlignment,
-                                                           FallbackValue=Center}"
-                      VerticalAlignment="{PluginSettings Plugin=ExtraMetadataLoader,
-                                                         Path=LogoVerticalAlignment,
-                                                         FallbackValue=Center}">
-                      <ContentControl
-                        x:Name="ImageRotater_Logo"
-                        MaxWidth="{PluginSettings Plugin=ExtraMetadataLoader,
-                                                  Path=LogoMaxWidth,
-                                                  FallbackValue=600}"
-                        MaxHeight="{PluginSettings Plugin=ExtraMetadataLoader,
-                                                   Path=LogoMaxHeight,
-                                                   FallbackValue=200}"
-                        HorizontalAlignment="{PluginSettings Plugin=ExtraMetadataLoader,
-                                                             Path=LogoHorizontalAlignment,
-                                                             FallbackValue=Center}"
-                        VerticalAlignment="{PluginSettings Plugin=ExtraMetadataLoader,
-                                                           Path=LogoVerticalAlignment,
-                                                           FallbackValue=Center}">
-                        <ContentControl.Style>
-                          <Style TargetType="ContentControl">
-                            <Setter Property="Visibility" Value="Collapsed" />
-                            <Style.Triggers>
-                              <DataTrigger Binding="{PluginSettings Plugin=ImageRotater, Path=HasDataLogo, FallbackValue=False}" Value="True">
-                                <Setter Property="Visibility" Value="Visible" />
-                              </DataTrigger>
-                            </Style.Triggers>
-                          </Style>
-                        </ContentControl.Style>
-                      </ContentControl>
-                      <ContentControl
-                        x:Name="ExtraMetadataLoader_LogoLoaderControl"
-                        MaxWidth="{PluginSettings Plugin=ExtraMetadataLoader,
-                                                  Path=LogoMaxWidth,
-                                                  FallbackValue=600}"
-                        MaxHeight="{PluginSettings Plugin=ExtraMetadataLoader,
-                                                   Path=LogoMaxHeight,
-                                                   FallbackValue=200}"
-                        HorizontalAlignment="{PluginSettings Plugin=ExtraMetadataLoader,
-                                                             Path=LogoHorizontalAlignment,
-                                                             FallbackValue=Center}"
-                        VerticalAlignment="{PluginSettings Plugin=ExtraMetadataLoader,
-                                                           Path=LogoVerticalAlignment,
-                                                           FallbackValue=Center}">
-                        <ContentControl.Style>
-                          <Style TargetType="ContentControl">
-                            <Setter Property="Visibility" Value="Visible" />
-                            <Style.Triggers>
-                              <DataTrigger Binding="{PluginSettings Plugin=ImageRotater, Path=HasDataLogo, FallbackValue=False}" Value="True">
+                    <!--
+                      The first column is as wide as the icon/name panel (TitleIconPanel stays in the
+                      layout, empty, when both are hidden, so its width correctly drops to 0).
+                      LogoGrid's left margin is the gap between icon/name and logo. The logo controls
+                      are centered vertically instead of using the plugin's LogoVerticalAlignment, so the
+                      icon stays centered on the logo; the triggers below reset the placement
+                      when both icon and name are hidden.
+                    -->
+                    <Grid>
+                      <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="{Binding ActualWidth, ElementName=TitleIconPanel}" />
+                        <ColumnDefinition Width="*" />
+                      </Grid.ColumnDefinitions>
+                      <Grid
+                        x:Name="LogoPlacement"
+                        Grid.Column="1"
+                        VerticalAlignment="Center">
+                        <Grid
+                          x:Name="LogoGrid"
+                          Margin="20,0,0,0"
+                          HorizontalAlignment="{PluginSettings Plugin=ExtraMetadataLoader,
+                                                               Path=LogoHorizontalAlignment,
+                                                               FallbackValue=Center}"
+                          VerticalAlignment="{PluginSettings Plugin=ExtraMetadataLoader,
+                                                             Path=LogoVerticalAlignment,
+                                                             FallbackValue=Center}">
+                          <ContentControl
+                            x:Name="ImageRotater_Logo"
+                            MaxWidth="{PluginSettings Plugin=ExtraMetadataLoader,
+                                                      Path=LogoMaxWidth,
+                                                      FallbackValue=600}"
+                            MaxHeight="{PluginSettings Plugin=ExtraMetadataLoader,
+                                                       Path=LogoMaxHeight,
+                                                       FallbackValue=200}"
+                            HorizontalAlignment="{PluginSettings Plugin=ExtraMetadataLoader,
+                                                                 Path=LogoHorizontalAlignment,
+                                                                 FallbackValue=Center}"
+                            VerticalAlignment="Center">
+                            <ContentControl.Style>
+                              <Style TargetType="ContentControl">
                                 <Setter Property="Visibility" Value="Collapsed" />
-                              </DataTrigger>
-                            </Style.Triggers>
-                          </Style>
-                        </ContentControl.Style>
-                      </ContentControl>
+                                <Style.Triggers>
+                                  <DataTrigger Binding="{PluginSettings Plugin=ImageRotater, Path=HasDataLogo, FallbackValue=False}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible" />
+                                  </DataTrigger>
+                                </Style.Triggers>
+                              </Style>
+                            </ContentControl.Style>
+                          </ContentControl>
+                          <ContentControl
+                            x:Name="ExtraMetadataLoader_LogoLoaderControl"
+                            MaxWidth="{PluginSettings Plugin=ExtraMetadataLoader,
+                                                      Path=LogoMaxWidth,
+                                                      FallbackValue=600}"
+                            MaxHeight="{PluginSettings Plugin=ExtraMetadataLoader,
+                                                       Path=LogoMaxHeight,
+                                                       FallbackValue=200}"
+                            HorizontalAlignment="{PluginSettings Plugin=ExtraMetadataLoader,
+                                                                 Path=LogoHorizontalAlignment,
+                                                                 FallbackValue=Center}"
+                            VerticalAlignment="Center">
+                            <ContentControl.Style>
+                              <Style TargetType="ContentControl">
+                                <Setter Property="Visibility" Value="Visible" />
+                                <Style.Triggers>
+                                  <DataTrigger Binding="{PluginSettings Plugin=ImageRotater, Path=HasDataLogo, FallbackValue=False}" Value="True">
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                  </DataTrigger>
+                                </Style.Triggers>
+                              </Style>
+                            </ContentControl.Style>
+                          </ContentControl>
+                        </Grid>
+                      </Grid>
                     </Grid>
                   </Border>
 
                   <DockPanel
                     x:Name="TitleIconPanel"
-                    HorizontalAlignment="Left" VerticalAlignment="Bottom">
-                    <Image
-                      DockPanel.Dock="Left"
-                      MaxWidth="48" MaxHeight="48"
-                      Margin="0,0,10,0" VerticalAlignment="Center"
-                      Name="PART_ImageIcon" RenderOptions.BitmapScalingMode="Fant" />
-                    <TextBlock
-                      DockPanel.Dock="Left"
-                      Margin="0,0,10,0" VerticalAlignment="Center"
-                      Tag="{DynamicResource DetailsViewHideGameNameIfLogoVisible}"
-                      FontFamily="{DynamicResource FontFamily}"
-                      FontSize="{DynamicResource FontSizeLargest}"
-                      FontWeight="SemiBold"
-                      Foreground="{DynamicResource TextBrush}"
-                      Name="PART_TextDisplayName" TextWrapping="Wrap">
-                      <TextBlock.Effect>
-                        <DropShadowEffect RenderingBias="Quality" ShadowDepth="2" />
-                      </TextBlock.Effect>
-                    </TextBlock>
+                    HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <!--
+                      Playnite binds Visibility of PART_ImageIcon and PART_TextDisplayName locally,
+                      which overrides template triggers; the hosts are collapsed instead.
+                      The icon size is set in ThemeModifier (DetailsViewGameIconSize); keep it equal to the
+                      logo's max height to prevent the icon from moving between games.
+                    -->
+                    <Grid x:Name="TitleIconHost" DockPanel.Dock="Left">
+                      <Image
+                        MaxWidth="{DynamicResource DetailsViewGameIconSize}" MaxHeight="{DynamicResource DetailsViewGameIconSize}"
+                        Margin="0,0,10,0" VerticalAlignment="Center"
+                        Tag="{DynamicResource DetailsViewHideGameIconIfLogoVisible}"
+                        Name="PART_ImageIcon" RenderOptions.BitmapScalingMode="Fant" />
+                    </Grid>
+                    <Grid x:Name="TitleNameHost" DockPanel.Dock="Left">
+                      <TextBlock
+                        Margin="0,0,10,0" VerticalAlignment="Center"
+                        Tag="{DynamicResource DetailsViewHideGameNameIfLogoVisible}"
+                        FontFamily="{DynamicResource FontFamily}"
+                        FontSize="{DynamicResource FontSizeLargest}"
+                        FontWeight="SemiBold"
+                        Foreground="{DynamicResource TextBrush}"
+                        Name="PART_TextDisplayName" TextWrapping="Wrap">
+                        <TextBlock.Effect>
+                          <DropShadowEffect RenderingBias="Quality" ShadowDepth="2" />
+                        </TextBlock.Effect>
+                      </TextBlock>
+                    </Grid>
                   </DockPanel>
+                  </Grid>
 
                   <DockPanel
                     x:Name="CoverDockPanel"
@@ -1491,15 +1512,37 @@
               <Setter Property="Text" TargetName="TabTextWeb" Value="" />
               <Setter Property="Text" TargetName="TabGapWeb" Value="" />
             </DataTrigger>
+            <!--
+              Icon and name are hidden separately (via their hosts) when a logo is visible; when both are
+              hidden, the logo returns to the left edge. TitleIconPanel is deliberately not collapsed:
+              a collapsed element keeps its last ActualWidth and the logo column would not shrink.
+            -->
             <MultiDataTrigger>
               <MultiDataTrigger.Conditions>
                 <Condition Binding="{Binding Tag, ElementName=PART_TextDisplayName}" Value="{StaticResource True}" />
                 <Condition Binding="{Binding ElementName=ExtraMetadataLoader_LogoLoaderControl, Path=Visibility, FallbackValue=Collapsed}" Value="Visible" />
                 <Condition Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=IsLogoAvailable, FallbackValue=False}" Value="True" />
               </MultiDataTrigger.Conditions>
-              <Setter Property="Visibility" TargetName="TitleIconPanel" Value="Collapsed" />
+              <Setter Property="Visibility" TargetName="TitleNameHost" Value="Collapsed" />
+            </MultiDataTrigger>
+            <MultiDataTrigger>
+              <MultiDataTrigger.Conditions>
+                <Condition Binding="{Binding Tag, ElementName=PART_ImageIcon}" Value="{StaticResource True}" />
+                <Condition Binding="{Binding ElementName=ExtraMetadataLoader_LogoLoaderControl, Path=Visibility, FallbackValue=Collapsed}" Value="Visible" />
+                <Condition Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=IsLogoAvailable, FallbackValue=False}" Value="True" />
+              </MultiDataTrigger.Conditions>
+              <Setter Property="Visibility" TargetName="TitleIconHost" Value="Collapsed" />
+            </MultiDataTrigger>
+            <MultiDataTrigger>
+              <MultiDataTrigger.Conditions>
+                <Condition Binding="{Binding Tag, ElementName=PART_TextDisplayName}" Value="{StaticResource True}" />
+                <Condition Binding="{Binding Tag, ElementName=PART_ImageIcon}" Value="{StaticResource True}" />
+                <Condition Binding="{Binding ElementName=ExtraMetadataLoader_LogoLoaderControl, Path=Visibility, FallbackValue=Collapsed}" Value="Visible" />
+                <Condition Binding="{PluginSettings Plugin=ExtraMetadataLoader, Path=IsLogoAvailable, FallbackValue=False}" Value="True" />
+              </MultiDataTrigger.Conditions>
               <Setter Property="Margin" TargetName="ExtraMetadataLoader_LogoLoaderControl" Value="0" />
               <Setter Property="Margin" TargetName="LogoGrid" Value="0,40,0,0" />
+              <Setter Property="VerticalAlignment" TargetName="LogoPlacement" Value="Stretch" />
             </MultiDataTrigger>
             <MultiDataTrigger>
               <MultiDataTrigger.Conditions>
@@ -1507,9 +1550,26 @@
                 <Condition Binding="{Binding ElementName=ImageRotater_Logo, Path=Visibility, FallbackValue=Collapsed}" Value="Visible" />
                 <Condition Binding="{PluginSettings Plugin=ImageRotater, Path=HasDataLogo, FallbackValue=False}" Value="True" />
               </MultiDataTrigger.Conditions>
-              <Setter Property="Visibility" TargetName="TitleIconPanel" Value="Collapsed" />
+              <Setter Property="Visibility" TargetName="TitleNameHost" Value="Collapsed" />
+            </MultiDataTrigger>
+            <MultiDataTrigger>
+              <MultiDataTrigger.Conditions>
+                <Condition Binding="{Binding Tag, ElementName=PART_ImageIcon}" Value="{StaticResource True}" />
+                <Condition Binding="{Binding ElementName=ImageRotater_Logo, Path=Visibility, FallbackValue=Collapsed}" Value="Visible" />
+                <Condition Binding="{PluginSettings Plugin=ImageRotater, Path=HasDataLogo, FallbackValue=False}" Value="True" />
+              </MultiDataTrigger.Conditions>
+              <Setter Property="Visibility" TargetName="TitleIconHost" Value="Collapsed" />
+            </MultiDataTrigger>
+            <MultiDataTrigger>
+              <MultiDataTrigger.Conditions>
+                <Condition Binding="{Binding Tag, ElementName=PART_TextDisplayName}" Value="{StaticResource True}" />
+                <Condition Binding="{Binding Tag, ElementName=PART_ImageIcon}" Value="{StaticResource True}" />
+                <Condition Binding="{Binding ElementName=ImageRotater_Logo, Path=Visibility, FallbackValue=Collapsed}" Value="Visible" />
+                <Condition Binding="{PluginSettings Plugin=ImageRotater, Path=HasDataLogo, FallbackValue=False}" Value="True" />
+              </MultiDataTrigger.Conditions>
               <Setter Property="Margin" TargetName="ExtraMetadataLoader_LogoLoaderControl" Value="0" />
               <Setter Property="Margin" TargetName="LogoGrid" Value="0,30,0,0" />
+              <Setter Property="VerticalAlignment" TargetName="LogoPlacement" Value="Stretch" />
             </MultiDataTrigger>
             <DataTrigger Binding="{Binding Tag, ElementName=ButtonBar}" Value="{StaticResource False}">
               <Setter Property="Background" TargetName="LinkBar" Value="Transparent" />

@@ -11,6 +11,8 @@ Constants:
   - DetailsViewCoverDisplayLibraryBanner: "Show banners (Requires ThemeExtras extension)"
   - DetailsViewAllowUseOfLogos: "Allow use of logos (Requires Extra Metadata Loader extension)"
   - DetailsViewHideGameNameIfLogoVisible: "Hide game name if logo is visible"
+  - DetailsViewHideGameIconIfLogoVisible: "Hide game icon if logo is visible"
+  - DetailsViewGameIconSize(48,256): "Size of the game icon"
   - DetailsViewHideIconInTabHeader: "Hide icon in details tab header"
   - DetailsViewHideTextInTabHeader: "Hide text in details tab header"
   - Grid View
