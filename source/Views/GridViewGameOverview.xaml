@@ -18,7 +18,11 @@
             Style="{DynamicResource DetailsScrollViewer}"
             HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
             <Grid>
-              <Grid x:Name="TopGrid">
+              <Grid
+                x:Name="TopGrid"
+                MinHeight="300"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Stretch">
                 <Grid.ContextMenu>
                   <ContextMenu Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin, Path=IsInstalled}" IsOpen="{PluginSettings Plugin=ThemeExtras, Path=Menus.IsOpen, Mode=OneWayToSource, FallbackValue={StaticResource False}}">
                     <MenuItem
@@ -40,6 +44,8 @@
                   </ContextMenu>
                 </Grid.ContextMenu>
 
+                <Rectangle Fill="Transparent" />
+
                 <!--
                   Share one radial fade across the native fallback and both plugin background hosts,
                   so the original game artwork cannot show through a plugin-rendered background.
@@ -56,17 +62,18 @@
                     </RadialGradientBrush>
                   </Border.OpacityMask>
                   <Grid>
-                    <Image
-                      x:Name="PART_ImageBackground"
-                      HorizontalAlignment="Center" VerticalAlignment="Center"
-                      Visibility="{Binding IsVisible, ElementName=BackgroundChanger_PluginBackgroundImage, Converter={StaticResource InvertedBooleanToVisibilityConverter}}"
-                      Source="{Binding Game.DisplayBackgroundImage, Converter={StaticResource ImageStringToImageConverter}}"
-                      Stretch="UniformToFill" StretchDirection="Both" />
+                    <Grid Visibility="{Binding IsVisible, ElementName=BackgroundChanger_PluginBackgroundImage, Converter={StaticResource InvertedBooleanToVisibilityConverter}}">
+                      <FadeImage
+                        x:Name="PART_ImageBackground"
+                        HorizontalAlignment="Center" VerticalAlignment="Center"
+                        Stretch="UniformToFill" />
+                    </Grid>
                     <ContentControl
                       x:Name="ImageRotater_Background"
                       HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                       Focusable="False" HorizontalContentAlignment="Stretch"
-                      IsTabStop="False" VerticalContentAlignment="Stretch" />
+                      IsTabStop="False" VerticalContentAlignment="Stretch"
+                      Visibility="{Binding BackgroundVisibility}" />
                     <ContentControl
                       x:Name="BackgroundChanger_PluginBackgroundImage"
                       HorizontalAlignment="Center" VerticalAlignment="Top"
