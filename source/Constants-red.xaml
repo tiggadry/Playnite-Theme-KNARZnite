@@ -7,6 +7,8 @@
   <sys:Boolean x:Key="DetailsViewCoverDisplayLibraryBanner">True</sys:Boolean>
   <sys:Boolean x:Key="DetailsViewAllowUseOfLogos">True</sys:Boolean>
   <sys:Boolean x:Key="DetailsViewHideGameNameIfLogoVisible">False</sys:Boolean>
+  <sys:Boolean x:Key="DetailsViewHideIconInTabHeader">False</sys:Boolean>
+  <sys:Boolean x:Key="DetailsViewHideTextInTabHeader">False</sys:Boolean>
   <sys:Boolean x:Key="GridViewLibraryGameShowFavorite">True</sys:Boolean>
   <sys:Boolean x:Key="GridViewCoverZoomOnHover">False</sys:Boolean>
   <sys:Boolean x:Key="GridViewEnableCoverShineAnimation">False</sys:Boolean>
@@ -44,6 +46,7 @@
   <sys:Double x:Key="FontSizeLarger">20</sys:Double>
   <sys:Double x:Key="FontSizeLargest">29</sys:Double>
   <FontFamily x:Key="FontFamily">Trebuchet MS</FontFamily>
+  <FontFamily x:Key="KNARZfont">./#KNARZIconFont</FontFamily>
 
   <!--  Thickness, Padding and Radius  -->
   <Thickness x:Key="PopupBorderThickness">1</Thickness>
