@@ -25,6 +25,13 @@
                 <Grid.ContextMenu>
                   <ContextMenu Visibility="{PluginStatus Plugin=felixkmh_Extras_Plugin, Path=IsInstalled}" IsOpen="{PluginSettings Plugin=ThemeExtras, Path=Menus.IsOpen, Mode=OneWayToSource, FallbackValue={StaticResource False}}">
                     <MenuItem
+                      Visibility="{PluginStatus Plugin=MetadataUtilities_485ab5f0-bfb1-4c17-93cc-20d8338673be,
+                                                Path=IsInstalled}"
+                      ItemsSource="{PluginSettings Plugin=ThemeExtras,
+                                                   Path=Menus.ImageUtilitiesGameMenuItems,
+                                                   FallbackValue={x:Null}}"
+                      Header="Image Utilities" />
+                    <MenuItem
                       Visibility="{PluginStatus Plugin=ExtraMetadataLoader_705fdbca-e1fc-4004-b839-1d040b8b4429,
                                                 Path=IsInstalled}"
                       ItemsSource="{PluginSettings Plugin=ThemeExtras,
